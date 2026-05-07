@@ -27,4 +27,9 @@
   <ItemGroup>
     <Font Include="..\..\Assets\familiada.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="familiada_pytania.json">
+      <Filter>Pliki zasobów</Filter>
+    </None>
+  </ItemGroup>
 </Project>

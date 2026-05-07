@@ -147,6 +147,9 @@
   <ItemGroup>
     <Font Include="..\..\Assets\familiada.ttf" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="familiada_pytania.json" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
