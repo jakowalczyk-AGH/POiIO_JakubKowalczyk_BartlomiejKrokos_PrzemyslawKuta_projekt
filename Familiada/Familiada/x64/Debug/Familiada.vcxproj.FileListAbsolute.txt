@@ -1,0 +1,3 @@
+C:\Users\kubak\Desktop\git\POiIO_JakubKowalczyk_BartlomiejKrokos_PrzemyslawKuta_projekt\Familiada\Familiada\x64\Debug\Familiada.vcxproj.AssemblyReference.cache
+C:\Users\kubak\Desktop\git\POiIO_JakubKowalczyk_BartlomiejKrokos_PrzemyslawKuta_projekt\Familiada\Familiada\x64\Debug\Familiada.MainWin.resources
+C:\Users\kubak\Desktop\git\POiIO_JakubKowalczyk_BartlomiejKrokos_PrzemyslawKuta_projekt\Familiada\Familiada\x64\Debug\Familiada.vcxproj.GenerateResource.cache
