@@ -16,10 +16,13 @@ namespace Familiada {
 	public ref class MainWin : public System::Windows::Forms::Form
 	{
 	public:
+
 		MainWin(void)
 		{
 			InitializeComponent();
 			pfc = gcnew PrivateFontCollection();
+
+			Box = gcnew array<TextBox^, 2> (6, 2);
 
 			try {
 				// 2. £adujemy plik (upewnij siê, ¿e nazwa pliku jest identyczna!)
@@ -119,9 +122,10 @@ namespace Familiada {
 	private: System::Windows::Forms::Button^ btn4;
 
 	private: System::Windows::Forms::Button^ btn3;
-private: System::Windows::Forms::Label^ LiczbaGraczyLbl;
+	private: System::Windows::Forms::Label^ LiczbaGraczyLbl;
 
-
+	//private: System::Windows::Forms::TextBox^ 
+	private: array<TextBox^, 2>^ Box;
 
 
 
@@ -295,6 +299,7 @@ private: System::Windows::Forms::Label^ LiczbaGraczyLbl;
 			this->NazwaDruzyny2TB->TabIndex = 6;
 			this->NazwaDruzyny2TB->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->NazwaDruzyny2TB->Click += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny2TB_Click);
+			this->NazwaDruzyny2TB->Leave += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny2TB_Leave);
 			// 
 			// NazwaDruzyny1TB
 			// 
@@ -303,6 +308,7 @@ private: System::Windows::Forms::Label^ LiczbaGraczyLbl;
 			this->NazwaDruzyny1TB->Size = System::Drawing::Size(333, 20);
 			this->NazwaDruzyny1TB->TabIndex = 5;
 			this->NazwaDruzyny1TB->Click += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny1TB_Click);
+			this->NazwaDruzyny1TB->Leave += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny1TB_Leave);
 			// 
 			// DruzynaPrawaLbl
 			// 
@@ -351,8 +357,8 @@ private: System::Windows::Forms::Label^ LiczbaGraczyLbl;
 			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
-			this->Controls->Add(this->PanelStart);
 			this->Controls->Add(this->PanelGracze);
+			this->Controls->Add(this->PanelStart);
 			this->Controls->Add(this->pictureBox1);
 			this->MaximizeBox = false;
 			this->Name = L"MainWin";
@@ -368,6 +374,26 @@ private: System::Windows::Forms::Label^ LiczbaGraczyLbl;
 		}
 #pragma endregion
 	private: System::Void MainWin_Load(System::Object^ sender, System::EventArgs^ e) {}
+
+	private: System::Void OnTextBoxClick(System::Object^ sender, System::EventArgs^ e) {
+		
+		TextBox^ tb = (TextBox^) (sender);
+		System::Drawing::Point p = (System::Drawing::Point)(tb->Tag);
+
+		if (tb->Text == "GRACZ " + (p.X + 1)) tb->Text = "";
+
+
+	}
+
+		   private: System::Void OnTextBoxLeave(System::Object^ sender, System::EventArgs^ e) {
+
+			   TextBox^ tb = (TextBox^)(sender);
+			   System::Drawing::Point p = (System::Drawing::Point)(tb->Tag);
+
+			   if (tb->Text == "") tb->Text = "GRACZ " + (p.X + 1);
+
+
+		   }
 
 	private: System::Void GrajBtn_MouseHover(System::Object^ sender, System::EventArgs^ e) {
 	
@@ -401,44 +427,45 @@ private: System::Void PanelStart_Paint(System::Object^ sender, System::Windows::
 		   ekran->Visible = true;
 		   ekran->BringToFront(); // Wa¿ne, ¿eby wskoczy³ na wierzch
 	   }
-private: System::Void PlayersCountCB_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	// 1. Pobieramy wybran¹ liczbê (np. 3, 4, 5 lub 6)
-	int count = System::Convert::ToInt32(PlayersCountCB->SelectedItem);
-
-	// 2. Czyœcimy stare pola, ¿eby siê nie nak³ada³y
-	PanelLewaDruzyna->Controls->Clear();
-	PanelPrawaDruzyna->Controls->Clear();
-
-	for (int i = 0; i < count; i++) {
-		// --- DRU¯YNA 1 (Lewa) ---
-		TextBox^ tb1 = gcnew TextBox();
-		tb1->Text = "GRACZ " + (i + 1);
-		tb1->Width = 250;
-		tb1->BackColor = Color::Black;
-		tb1->ForeColor = Color::Yellow;
-		tb1->Font = gcnew System::Drawing::Font(pfc->Families[0], 20); // Twoja czcionka!
-		tb1->Location = Point(10, i * 60); // Odstêp 60px w pionie
-		PanelLewaDruzyna->Controls->Add(tb1);
-
-		// --- DRU¯YNA 2 (Prawa - Odbicie) ---
-		TextBox^ tb2 = gcnew TextBox();
-		tb2->Text = "GRACZ " + (i + 1);
-		tb2->Width = 250;
-		tb2->BackColor = Color::Black;
-		tb2->ForeColor = Color::Yellow;
-		tb2->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
-		// Odbicie lustrzane: ustawiamy tekst do prawej
-		tb2->TextAlign = HorizontalAlignment::Right;
-		tb2->Location = Point(PanelPrawaDruzyna->Width - tb2->Width - 10, i * 60);
-		PanelPrawaDruzyna->Controls->Add(tb2);
-	}
-}
+//private: System::Void PlayersCountCB_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
+//	// 1. Pobieramy wybran¹ liczbê (np. 3, 4, 5 lub 6)
+//	int count = System::Convert::ToInt32(PlayersCountCB->SelectedItem);
+//
+//	// 2. Czyœcimy stare pola, ¿eby siê nie nak³ada³y
+//	PanelLewaDruzyna->Controls->Clear();
+//	PanelPrawaDruzyna->Controls->Clear();
+//
+//	for (int i = 0; i < count; i++) {
+//		// --- DRU¯YNA 1 (Lewa) ---
+//		Box[i, 0] = gcnew TextBox();
+//		Box[i, 0]->Text = "GRACZ " + (i + 1);
+//		Box[i, 0]->Width = 250;
+//		Box[i, 0]->BackColor = Color::Black;
+//		Box[i, 0]->ForeColor = Color::Yellow;
+//		Box[i, 0]->Font = gcnew System::Drawing::Font(pfc->Families[0], 20); // Twoja czcionka!
+//		Box[i, 0]->Location = Point(10, i * 60); // Odstêp 60px w pionie
+//		PanelLewaDruzyna->Controls->Add(Box[i, 0]);
+//
+//		// --- DRU¯YNA 2 (Prawa - Odbicie) ---
+//		TextBox^ tb2 = gcnew TextBox();
+//		tb2->Text = "GRACZ " + (i + 1);
+//		tb2->Width = 250;
+//		tb2->BackColor = Color::Black;
+//		tb2->ForeColor = Color::Yellow;
+//		tb2->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
+//		// Odbicie lustrzane: ustawiamy tekst do prawej
+//		tb2->TextAlign = HorizontalAlignment::Right;
+//		tb2->Location = Point(PanelPrawaDruzyna->Width - tb2->Width - 10, i * 60);
+//		PanelPrawaDruzyna->Controls->Add(tb2);
+//	}
+//}
 
 private: System::Void NazwaDruzyny1TB_Click(System::Object^ sender, System::EventArgs^ e) {
 	if (NazwaDruzyny1TB->Text == "LEWA") NazwaDruzyny1TB->Text = "";
 }
 	   private: System::Void NazwaDruzyny2TB_Click(System::Object^ sender, System::EventArgs^ e) {
 		   if (NazwaDruzyny2TB->Text == "PRAWA") NazwaDruzyny2TB->Text = "";
+
 	   }
 private: System::Void WybierzLiczbeGraczy_Click(System::Object^ sender, System::EventArgs^ e) {
 	// 1. Rozpoznajemy który przycisk klikniêto
@@ -459,29 +486,46 @@ private: System::Void WybierzLiczbeGraczy_Click(System::Object^ sender, System::
 	PanelPrawaDruzyna->Controls->Clear();
 
 	for (int i = 0; i < count; i++) {
-		// Lewa strona
-		TextBox^ tb1 = gcnew TextBox();
-		tb1->Text = "GRACZ " + (i + 1);
-		tb1->Width = 250;
-		tb1->BackColor = Color::Black;
-		tb1->ForeColor = Color::Yellow;
-		tb1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-		if (pfc->Families->Length > 0) tb1->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
-		tb1->Location = Point(10, i * 60);
-		PanelLewaDruzyna->Controls->Add(tb1);
+		// --- DRU¯YNA 1 (Lewa) ---
+		Box[i, 0] = gcnew TextBox();
+		Box[i, 0]->Text = "GRACZ " + (i + 1);
+		Box[i, 0]->Width = 250;
+		Box[i, 0]->BackColor = Color::Black;
+		Box[i, 0]->ForeColor = Color::Yellow;
+		Box[i, 0]->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+		Box[i, 0]->Font = gcnew System::Drawing::Font(pfc->Families[0], 20); // Twoja czcionka!
+		Box[i, 0]->Location = Point(10, i * 60); // Odstêp 60px w pionie
+		Box[i, 0]->Click += gcnew EventHandler(this, &MainWin::OnTextBoxClick);
+		Box[i, 0]->Leave += gcnew EventHandler(this, &MainWin::OnTextBoxLeave);
+		PanelLewaDruzyna->Controls->Add(Box[i, 0]);
+
+		Box[i, 0]->Tag = System::Drawing::Point(i, 0);
 
 		// Prawa strona
-		TextBox^ tb2 = gcnew TextBox();
-		tb2->Text = "GRACZ " + (i + 1);
-		tb2->Width = 250;
-		tb2->BackColor = Color::Black;
-		tb2->ForeColor = Color::Yellow;
-		tb2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-		if (pfc->Families->Length > 0) tb2->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
-		tb2->TextAlign = HorizontalAlignment::Right;
-		tb2->Location = Point(PanelPrawaDruzyna->Width - tb2->Width - 10, i * 60);
-		PanelPrawaDruzyna->Controls->Add(tb2);
+		Box[i, 1] = gcnew TextBox();
+		Box[i, 1]->Text = "GRACZ " + (i + 1);
+		Box[i, 1]->Width = 250;
+		Box[i, 1]->BackColor = Color::Black;
+		Box[i, 1]->ForeColor = Color::Yellow;
+		Box[i, 1]->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+		Box[i, 1]->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
+		Box[i, 1]->TextAlign = HorizontalAlignment::Right;
+		Box[i, 1]->Location = Point(PanelPrawaDruzyna->Width - Box[i, 1]->Width - 10, i * 60);
+		Box[i, 1]->Click += gcnew EventHandler(this, &MainWin::OnTextBoxClick);
+		Box[i, 1]->Leave += gcnew EventHandler(this, &MainWin::OnTextBoxLeave);
+		PanelPrawaDruzyna->Controls->Add(Box[i, 1]); 
+
+		//System::Drawing::Point(i, 1);
+		Box[i, 1]->Tag = System::Drawing::Point(i, 1);
+
+
 	}
+}
+private: System::Void NazwaDruzyny1TB_Leave(System::Object^ sender, System::EventArgs^ e) {
+	if (NazwaDruzyny1TB->Text == "") NazwaDruzyny1TB->Text = "LEWA";
+}
+private: System::Void NazwaDruzyny2TB_Leave(System::Object^ sender, System::EventArgs^ e) {
+	if (NazwaDruzyny2TB->Text == "") NazwaDruzyny2TB->Text = "PRAWA";
 }
 };
 }
