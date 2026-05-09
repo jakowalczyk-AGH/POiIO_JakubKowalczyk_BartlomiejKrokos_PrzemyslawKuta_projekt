@@ -192,7 +192,7 @@ namespace Familiada {
 			// GrajBtn
 			// 
 			this->GrajBtn->BackColor = System::Drawing::Color::Black;
-			this->GrajBtn->Location = System::Drawing::Point(300, 461);
+			this->GrajBtn->Location = System::Drawing::Point(315, 461);
 			this->GrajBtn->Name = L"GrajBtn";
 			this->GrajBtn->Size = System::Drawing::Size(329, 81);
 			this->GrajBtn->TabIndex = 4;
@@ -249,7 +249,7 @@ namespace Familiada {
 			// DalejBtn
 			// 
 			this->DalejBtn->BackColor = System::Drawing::Color::Black;
-			this->DalejBtn->Location = System::Drawing::Point(300, 461);
+			this->DalejBtn->Location = System::Drawing::Point(315, 461);
 			this->DalejBtn->Name = L"DalejBtn";
 			this->DalejBtn->Size = System::Drawing::Size(329, 81);
 			this->DalejBtn->TabIndex = 4;
