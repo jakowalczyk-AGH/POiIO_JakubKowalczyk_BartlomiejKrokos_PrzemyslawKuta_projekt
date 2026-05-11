@@ -133,11 +133,19 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWin.cpp" />
+    <ClCompile Include="TBazaPytan.cpp" />
+    <ClCompile Include="TDruzyna.cpp" />
+    <ClCompile Include="TGra.cpp" />
+    <ClCompile Include="TPytanie.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainWin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="TBazaPytan.h" />
+    <ClInclude Include="TDruzyna.h" />
+    <ClInclude Include="TGra.h" />
+    <ClInclude Include="TPytanie.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MainWin.resx">
