@@ -139,6 +139,7 @@
     <ClCompile Include="TPytanie.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="json.hpp" />
     <ClInclude Include="MainWin.h">
       <FileType>CppForm</FileType>
     </ClInclude>
