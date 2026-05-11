@@ -1,4 +1,5 @@
 #include "MainWin.h"
+#include "TGra.h"
 
 using namespace System;
 using namespace System::Windows::Forms;

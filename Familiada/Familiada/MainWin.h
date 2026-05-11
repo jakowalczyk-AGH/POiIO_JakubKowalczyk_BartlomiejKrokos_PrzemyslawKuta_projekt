@@ -183,18 +183,20 @@ namespace Familiada {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Black;
-			this->pictureBox1->Location = System::Drawing::Point(12, 12);
+			this->pictureBox1->Location = System::Drawing::Point(18, 18);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(960, 585);
+			this->pictureBox1->Size = System::Drawing::Size(1440, 900);
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
 			// 
 			// GrajBtn
 			// 
 			this->GrajBtn->BackColor = System::Drawing::Color::Black;
-			this->GrajBtn->Location = System::Drawing::Point(315, 461);
+			this->GrajBtn->Location = System::Drawing::Point(472, 709);
+			this->GrajBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->GrajBtn->Name = L"GrajBtn";
-			this->GrajBtn->Size = System::Drawing::Size(329, 81);
+			this->GrajBtn->Size = System::Drawing::Size(494, 125);
 			this->GrajBtn->TabIndex = 4;
 			this->GrajBtn->Text = L"GRAJ";
 			this->GrajBtn->UseVisualStyleBackColor = false;
@@ -206,9 +208,10 @@ namespace Familiada {
 			// 
 			this->FamLbl->AutoSize = true;
 			this->FamLbl->ForeColor = System::Drawing::Color::Yellow;
-			this->FamLbl->Location = System::Drawing::Point(52, 125);
+			this->FamLbl->Location = System::Drawing::Point(78, 192);
+			this->FamLbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->FamLbl->Name = L"FamLbl";
-			this->FamLbl->Size = System::Drawing::Size(63, 13);
+			this->FamLbl->Size = System::Drawing::Size(96, 20);
 			this->FamLbl->TabIndex = 3;
 			this->FamLbl->Text = L"FAMILIADA";
 			// 
@@ -218,9 +221,8 @@ namespace Familiada {
 			this->PanelStart->Controls->Add(this->GrajBtn);
 			this->PanelStart->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelStart->Location = System::Drawing::Point(0, 0);
-			this->PanelStart->Margin = System::Windows::Forms::Padding(2);
 			this->PanelStart->Name = L"PanelStart";
-			this->PanelStart->Size = System::Drawing::Size(960, 585);
+			this->PanelStart->Size = System::Drawing::Size(1440, 900);
 			this->PanelStart->TabIndex = 5;
 			this->PanelStart->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainWin::PanelStart_Paint);
 			// 
@@ -241,17 +243,18 @@ namespace Familiada {
 			this->PanelGracze->Controls->Add(this->PlayersCountCB);
 			this->PanelGracze->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelGracze->Location = System::Drawing::Point(0, 0);
-			this->PanelGracze->Margin = System::Windows::Forms::Padding(2);
 			this->PanelGracze->Name = L"PanelGracze";
-			this->PanelGracze->Size = System::Drawing::Size(960, 585);
+			this->PanelGracze->Size = System::Drawing::Size(1440, 900);
 			this->PanelGracze->TabIndex = 6;
+			this->PanelGracze->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainWin::PanelGracze_Paint);
 			// 
 			// DalejBtn
 			// 
 			this->DalejBtn->BackColor = System::Drawing::Color::Black;
-			this->DalejBtn->Location = System::Drawing::Point(315, 461);
+			this->DalejBtn->Location = System::Drawing::Point(472, 709);
+			this->DalejBtn->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->DalejBtn->Name = L"DalejBtn";
-			this->DalejBtn->Size = System::Drawing::Size(329, 81);
+			this->DalejBtn->Size = System::Drawing::Size(494, 125);
 			this->DalejBtn->TabIndex = 4;
 			this->DalejBtn->Text = L"DALEJ";
 			this->DalejBtn->UseVisualStyleBackColor = false;
@@ -263,18 +266,20 @@ namespace Familiada {
 			// LiczbaGraczyLbl
 			// 
 			this->LiczbaGraczyLbl->AutoSize = true;
-			this->LiczbaGraczyLbl->Location = System::Drawing::Point(360, 30);
+			this->LiczbaGraczyLbl->Location = System::Drawing::Point(540, 46);
+			this->LiczbaGraczyLbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->LiczbaGraczyLbl->Name = L"LiczbaGraczyLbl";
-			this->LiczbaGraczyLbl->Size = System::Drawing::Size(91, 13);
+			this->LiczbaGraczyLbl->Size = System::Drawing::Size(138, 20);
 			this->LiczbaGraczyLbl->TabIndex = 14;
 			this->LiczbaGraczyLbl->Text = L"LICZBA GRACZY";
 			// 
 			// btn6
 			// 
 			this->btn6->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn6->Location = System::Drawing::Point(535, 79);
+			this->btn6->Location = System::Drawing::Point(802, 122);
+			this->btn6->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn6->Name = L"btn6";
-			this->btn6->Size = System::Drawing::Size(25, 23);
+			this->btn6->Size = System::Drawing::Size(38, 35);
 			this->btn6->TabIndex = 12;
 			this->btn6->Text = L"6";
 			this->btn6->UseVisualStyleBackColor = true;
@@ -282,9 +287,10 @@ namespace Familiada {
 			// btn5
 			// 
 			this->btn5->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn5->Location = System::Drawing::Point(481, 82);
+			this->btn5->Location = System::Drawing::Point(722, 126);
+			this->btn5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn5->Name = L"btn5";
-			this->btn5->Size = System::Drawing::Size(27, 23);
+			this->btn5->Size = System::Drawing::Size(40, 35);
 			this->btn5->TabIndex = 11;
 			this->btn5->Text = L"5";
 			this->btn5->UseVisualStyleBackColor = true;
@@ -292,9 +298,10 @@ namespace Familiada {
 			// btn4
 			// 
 			this->btn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn4->Location = System::Drawing::Point(440, 81);
+			this->btn4->Location = System::Drawing::Point(660, 125);
+			this->btn4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn4->Name = L"btn4";
-			this->btn4->Size = System::Drawing::Size(35, 23);
+			this->btn4->Size = System::Drawing::Size(52, 35);
 			this->btn4->TabIndex = 10;
 			this->btn4->Text = L"4";
 			this->btn4->UseVisualStyleBackColor = true;
@@ -302,9 +309,10 @@ namespace Familiada {
 			// btn3
 			// 
 			this->btn3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->btn3->Location = System::Drawing::Point(380, 82);
+			this->btn3->Location = System::Drawing::Point(570, 126);
+			this->btn3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->btn3->Name = L"btn3";
-			this->btn3->Size = System::Drawing::Size(54, 23);
+			this->btn3->Size = System::Drawing::Size(81, 35);
 			this->btn3->TabIndex = 9;
 			this->btn3->Text = L"3";
 			this->btn3->UseVisualStyleBackColor = true;
@@ -312,9 +320,10 @@ namespace Familiada {
 			// 
 			// NazwaDruzyny2TB
 			// 
-			this->NazwaDruzyny2TB->Location = System::Drawing::Point(614, 81);
+			this->NazwaDruzyny2TB->Location = System::Drawing::Point(921, 125);
+			this->NazwaDruzyny2TB->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->NazwaDruzyny2TB->Name = L"NazwaDruzyny2TB";
-			this->NazwaDruzyny2TB->Size = System::Drawing::Size(334, 20);
+			this->NazwaDruzyny2TB->Size = System::Drawing::Size(499, 26);
 			this->NazwaDruzyny2TB->TabIndex = 6;
 			this->NazwaDruzyny2TB->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->NazwaDruzyny2TB->Click += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny2TB_Click);
@@ -322,9 +331,10 @@ namespace Familiada {
 			// 
 			// NazwaDruzyny1TB
 			// 
-			this->NazwaDruzyny1TB->Location = System::Drawing::Point(12, 82);
+			this->NazwaDruzyny1TB->Location = System::Drawing::Point(18, 126);
+			this->NazwaDruzyny1TB->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->NazwaDruzyny1TB->Name = L"NazwaDruzyny1TB";
-			this->NazwaDruzyny1TB->Size = System::Drawing::Size(333, 20);
+			this->NazwaDruzyny1TB->Size = System::Drawing::Size(498, 26);
 			this->NazwaDruzyny1TB->TabIndex = 5;
 			this->NazwaDruzyny1TB->Click += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny1TB_Click);
 			this->NazwaDruzyny1TB->Leave += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny1TB_Leave);
@@ -332,53 +342,55 @@ namespace Familiada {
 			// DruzynaPrawaLbl
 			// 
 			this->DruzynaPrawaLbl->Location = System::Drawing::Point(0, 0);
+			this->DruzynaPrawaLbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DruzynaPrawaLbl->Name = L"DruzynaPrawaLbl";
-			this->DruzynaPrawaLbl->Size = System::Drawing::Size(100, 23);
+			this->DruzynaPrawaLbl->Size = System::Drawing::Size(150, 35);
 			this->DruzynaPrawaLbl->TabIndex = 7;
 			// 
 			// DruzynaLewaLbl
 			// 
 			this->DruzynaLewaLbl->Location = System::Drawing::Point(0, 0);
+			this->DruzynaLewaLbl->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->DruzynaLewaLbl->Name = L"DruzynaLewaLbl";
-			this->DruzynaLewaLbl->Size = System::Drawing::Size(100, 23);
+			this->DruzynaLewaLbl->Size = System::Drawing::Size(150, 35);
 			this->DruzynaLewaLbl->TabIndex = 8;
 			// 
 			// PanelPrawaDruzyna
 			// 
 			this->PanelPrawaDruzyna->AutoSize = true;
-			this->PanelPrawaDruzyna->Location = System::Drawing::Point(587, 139);
-			this->PanelPrawaDruzyna->Margin = System::Windows::Forms::Padding(2);
+			this->PanelPrawaDruzyna->Location = System::Drawing::Point(880, 214);
 			this->PanelPrawaDruzyna->Name = L"PanelPrawaDruzyna";
-			this->PanelPrawaDruzyna->Size = System::Drawing::Size(362, 435);
+			this->PanelPrawaDruzyna->Size = System::Drawing::Size(543, 669);
 			this->PanelPrawaDruzyna->TabIndex = 2;
 			// 
 			// PanelLewaDruzyna
 			// 
 			this->PanelLewaDruzyna->AutoSize = true;
-			this->PanelLewaDruzyna->Location = System::Drawing::Point(12, 139);
-			this->PanelLewaDruzyna->Margin = System::Windows::Forms::Padding(2);
+			this->PanelLewaDruzyna->Location = System::Drawing::Point(18, 214);
 			this->PanelLewaDruzyna->Name = L"PanelLewaDruzyna";
-			this->PanelLewaDruzyna->Size = System::Drawing::Size(362, 435);
+			this->PanelLewaDruzyna->Size = System::Drawing::Size(543, 669);
 			this->PanelLewaDruzyna->TabIndex = 1;
 			// 
 			// PlayersCountCB
 			// 
 			this->PlayersCountCB->Location = System::Drawing::Point(0, 0);
+			this->PlayersCountCB->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->PlayersCountCB->Name = L"PlayersCountCB";
-			this->PlayersCountCB->Size = System::Drawing::Size(121, 21);
+			this->PlayersCountCB->Size = System::Drawing::Size(180, 28);
 			this->PlayersCountCB->TabIndex = 13;
 			this->PlayersCountCB->Visible = false;
 			// 
 			// MainWin
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(9, 20);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
-			this->ClientSize = System::Drawing::Size(960, 585);
+			this->ClientSize = System::Drawing::Size(1440, 900);
 			this->Controls->Add(this->PanelGracze);
 			this->Controls->Add(this->PanelStart);
 			this->Controls->Add(this->pictureBox1);
+			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->MaximizeBox = false;
 			this->Name = L"MainWin";
 			this->Text = L"Familiada";
@@ -564,5 +576,5 @@ namespace Familiada {
 		//PanelGracze->Visible = true;
 
 	}
-	};
+};
 };
