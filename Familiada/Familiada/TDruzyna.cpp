@@ -13,3 +13,7 @@ void TDruzyna::dodajGracza(std::string imie) {
 std::vector<std::string> TDruzyna::getGracze() const {
     return gracze;
 }
+
+std::string TDruzyna::getNazwa() const {
+    return nazwa;
+}

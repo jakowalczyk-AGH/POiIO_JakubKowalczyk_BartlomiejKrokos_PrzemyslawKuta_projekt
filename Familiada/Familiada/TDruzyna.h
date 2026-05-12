@@ -12,6 +12,8 @@ private:
 public:
     TDruzyna(std::string p_nazwa);
 
+    std::string getNazwa() const;
+
     // Nowe metody do obsługi graczy:
     void dodajGracza(std::string imie);
     std::vector<std::string> getGracze() const;

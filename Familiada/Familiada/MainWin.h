@@ -523,7 +523,7 @@ namespace Familiada {
 		for (int i = 0; i < count; i++) {
 			// --- DRU¯YNA 1 (Lewa) ---
 			Box[i, 0] = gcnew TextBox();
-			Box[i, 0]->Text = "GRACZ " + (i + 1);
+			Box[i, 0]->Text = "GRACZ " + (i + 1).ToString();
 			Box[i, 0]->Width = 250;
 			Box[i, 0]->BackColor = Color::Black;
 			Box[i, 0]->ForeColor = Color::Yellow;
@@ -538,7 +538,7 @@ namespace Familiada {
 
 			// Prawa strona
 			Box[i, 1] = gcnew TextBox();
-			Box[i, 1]->Text = "GRACZ " + (i + 1);
+			Box[i, 1]->Text = "GRACZ " + (i + 1).ToString();
 			Box[i, 1]->Width = 250;
 			Box[i, 1]->BackColor = Color::Black;
 			Box[i, 1]->ForeColor = Color::Yellow;
@@ -599,32 +599,72 @@ namespace Familiada {
 		// ==========================================
 		// 2. POBIERANIE GRACZY Z TABLICY BOX
 		// ==========================================
+		
 		int count = Box->GetLength(0);
 
 		for (int i = 0; i < count; i++) {
-			// -- Lewa strona --
 			if (Box[i, 0] != nullptr) {
 				System::String^ textLewy = Box[i, 0]->Text;
 				std::string imieLewe = msclr::interop::marshal_as<std::string>(textLewy);
-
-				// Zabezpieczenie dla imion (jeœli gracz nie zmieni³ napisu "GRACZ 1" itd.)
-				// Opcjonalnie mo¿esz to usun¹æ, jeœli wolisz, ¿eby wpisa³o do bazy "GRACZ 1"
-				if (imieLewe != "" && imieLewe.find("GRACZ") == std::string::npos) {
-					silnikGry->getDruzynaLewa()->dodajGracza(imieLewe);
-				}
+				silnikGry->getDruzynaLewa()->dodajGracza(imieLewe);
 			}
 
-			// -- Prawa strona --
+			// Analogicznie dla prawej strony...
 			if (Box[i, 1] != nullptr) {
 				System::String^ textPrawy = Box[i, 1]->Text;
 				std::string imiePrawe = msclr::interop::marshal_as<std::string>(textPrawy);
-
-				if (imiePrawe != "" && imiePrawe.find("GRACZ") == std::string::npos) {
-					silnikGry->getDruzynaPrawa()->dodajGracza(imiePrawe);
-				}
+				silnikGry->getDruzynaPrawa()->dodajGracza(imiePrawe);
 			}
 		}
+		//int count = Box->GetLength(0);
+
+		//for (int i = 0; i < count; i++) {
+		//	// -- Lewa strona --
+		//	if (Box[i, 0] != nullptr) {
+		//		System::String^ textLewy = Box[i, 0]->Text;
+		//		std::string imieLewe = msclr::interop::marshal_as<std::string>(textLewy);
+
+		//	}
+
+		//	// -- Prawa strona --
+		//	if (Box[i, 1] != nullptr) {
+		//		System::String^ textPrawy = Box[i, 1]->Text;
+		//		std::string imiePrawe = msclr::interop::marshal_as<std::string>(textPrawy);
+
+		//	}
+		//}
 		
+		// ==========================================
+	// --- KOD TESTOWY (Do weryfikacji danych) ---
+	// ==========================================
+		System::String^ raport = "=== RAPORT ZAPISANYCH DANYCH ===\n\n";
+
+		// --- SPRAWDZANIE LEWEJ DRU¯YNY ---
+		std::string nazwaL = silnikGry->getDruzynaLewa()->getNazwa();
+		std::vector<std::string> graczeL = silnikGry->getDruzynaLewa()->getGracze();
+
+		raport += "DRU¯YNA: " + gcnew System::String(nazwaL.c_str()) + "\n";
+		raport += "Zapisano graczy: " + graczeL.size() + "\n";
+		for (size_t i = 0; i < graczeL.size(); i++) {
+			// Znak += dokleja kolejne linijki tekstu do naszego raportu
+			raport += " -> " + gcnew System::String(graczeL[i].c_str()) + "\n";
+		}
+
+		raport += "\n----------------------------------\n\n";
+
+		// --- SPRAWDZANIE PRAWEJ DRU¯YNY ---
+		std::string nazwaP = silnikGry->getDruzynaPrawa()->getNazwa();
+		std::vector<std::string> graczeP = silnikGry->getDruzynaPrawa()->getGracze();
+
+		raport += "DRU¯YNA: " + gcnew System::String(nazwaP.c_str()) + "\n";
+		raport += "Zapisano graczy: " + graczeP.size() + "\n";
+		for (size_t i = 0; i < graczeP.size(); i++) {
+			raport += " -> " + gcnew System::String(graczeP[i].c_str()) + "\n";
+		}
+
+		// Wyœwietlamy nasz gotowy raport!
+		MessageBox::Show(raport, "Sukces - Test weryfikacji");
+		// ==========================================
 		// ==========================================
 		// 3. PRZEJŒCIE DO EKRANU GRY
 		// ==========================================
