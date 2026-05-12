@@ -1,4 +1,6 @@
 #pragma once
+#include "TGra.h"
+#include <msclr\marshal_cppstd.h>
 
 namespace Familiada {
 
@@ -20,6 +22,9 @@ namespace Familiada {
 		MainWin(void)
 		{
 			InitializeComponent();
+
+			silnikGry = new TGra();
+
 			pfc = gcnew PrivateFontCollection();
 
 			Box = gcnew array<TextBox^, 2>(6, 2);
@@ -102,6 +107,7 @@ namespace Familiada {
 			{
 				delete components;
 			}
+			delete silnikGry;
 		}
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ GrajBtn;
@@ -129,7 +135,7 @@ namespace Familiada {
 	private: array<TextBox^, 2>^ Box;
 	private: System::Windows::Forms::Button^ DalejBtn;
 
-
+	private: TGra* silnikGry;
 
 
 
@@ -246,7 +252,6 @@ namespace Familiada {
 			this->PanelGracze->Name = L"PanelGracze";
 			this->PanelGracze->Size = System::Drawing::Size(1440, 900);
 			this->PanelGracze->TabIndex = 6;
-			this->PanelGracze->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MainWin::PanelGracze_Paint);
 			// 
 			// DalejBtn
 			// 
@@ -569,6 +574,61 @@ namespace Familiada {
 		DalejBtn->BackColor = System::Drawing::Color::Black;
 	}
 	private: System::Void DalejBtn_Click(System::Object^ sender, System::EventArgs^ e) {
+		// ==========================================
+	// 1. POBIERANIE NAZW DRU¯YN
+	// ==========================================
+
+	// U¿ywamy Twoich dok³adnych nazw TextBoxów!
+		System::String^ textDruzynaL = NazwaDruzyny1TB->Text;
+		std::string nazwaLewa = msclr::interop::marshal_as<std::string>(textDruzynaL);
+
+		System::String^ textDruzynaP = NazwaDruzyny2TB->Text;
+		std::string nazwaPrawa = msclr::interop::marshal_as<std::string>(textDruzynaP);
+
+		// Zabezpieczenie: jeœli gracz zostawi³ puste pole albo domyœlny napis, nadajemy nazwê awaryjn¹
+		if (nazwaLewa == "" || nazwaLewa == "LEWA") {
+			nazwaLewa = "Dru¿yna Lewa";
+		}
+		if (nazwaPrawa == "" || nazwaPrawa == "PRAWA") {
+			nazwaPrawa = "Dru¿yna Prawa";
+		}
+
+		// Odpalamy silnik z pewnymi nazwami!
+		silnikGry->inicjalizuj(nazwaLewa, nazwaPrawa);
+
+		// ==========================================
+		// 2. POBIERANIE GRACZY Z TABLICY BOX
+		// ==========================================
+		int count = Box->GetLength(0);
+
+		for (int i = 0; i < count; i++) {
+			// -- Lewa strona --
+			if (Box[i, 0] != nullptr) {
+				System::String^ textLewy = Box[i, 0]->Text;
+				std::string imieLewe = msclr::interop::marshal_as<std::string>(textLewy);
+
+				// Zabezpieczenie dla imion (jeœli gracz nie zmieni³ napisu "GRACZ 1" itd.)
+				// Opcjonalnie mo¿esz to usun¹æ, jeœli wolisz, ¿eby wpisa³o do bazy "GRACZ 1"
+				if (imieLewe != "" && imieLewe.find("GRACZ") == std::string::npos) {
+					silnikGry->getDruzynaLewa()->dodajGracza(imieLewe);
+				}
+			}
+
+			// -- Prawa strona --
+			if (Box[i, 1] != nullptr) {
+				System::String^ textPrawy = Box[i, 1]->Text;
+				std::string imiePrawe = msclr::interop::marshal_as<std::string>(textPrawy);
+
+				if (imiePrawe != "" && imiePrawe.find("GRACZ") == std::string::npos) {
+					silnikGry->getDruzynaPrawa()->dodajGracza(imiePrawe);
+				}
+			}
+		}
+		
+		// ==========================================
+		// 3. PRZEJŒCIE DO EKRANU GRY
+		// ==========================================
+		
 		//GrajBtn->Visible = false;
 		//FamLbl->Visible = false;
 
