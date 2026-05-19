@@ -185,7 +185,8 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 
 	private:
 		bool czyNasluchiwacBuzzerow = false;
-		bool buzzerZablokowany = false;
+private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
+	   bool buzzerZablokowany = false;
 
 
 
@@ -246,6 +247,7 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 			this->PanelCzek = (gcnew System::Windows::Forms::Panel());
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
@@ -530,6 +532,14 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainWin::timer1_Tick);
 			// 
+			// PanelOdpowiedzi
+			// 
+			this->PanelOdpowiedzi->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->PanelOdpowiedzi->Location = System::Drawing::Point(0, 0);
+			this->PanelOdpowiedzi->Name = L"PanelOdpowiedzi";
+			this->PanelOdpowiedzi->Size = System::Drawing::Size(960, 585);
+			this->PanelOdpowiedzi->TabIndex = 9;
+			// 
 			// MainWin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -537,6 +547,7 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
+			this->Controls->Add(this->PanelOdpowiedzi);
 			this->Controls->Add(this->PanelStart);
 			this->Controls->Add(this->PanelPytanie);
 			this->Controls->Add(this->PanelGracze);
