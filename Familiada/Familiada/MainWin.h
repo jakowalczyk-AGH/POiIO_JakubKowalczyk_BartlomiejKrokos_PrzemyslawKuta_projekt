@@ -22,6 +22,9 @@ namespace Familiada {
 			InitializeComponent();
 			pfc = gcnew PrivateFontCollection();
 
+			// Œcie¿ka do katalogu z zasobami (plik czcionki i obrazki)
+			String^ assetsPath = System::IO::Path::Combine(Application::StartupPath, "Assets");
+
 			Box = gcnew array<TextBox^, 2>(6, 2);
 
 			try {
@@ -101,6 +104,23 @@ namespace Familiada {
 			txtOdliczanie->TextAlign = HorizontalAlignment::Center; // Wyœrodkowanie
 			txtOdliczanie->Height = 400;             // Zwiêksz wysokoœæ, ¿eby tekst siê nie uci¹³
 			txtOdliczanie->Width = 800;              // Zwiêksz szerokoœæ
+
+
+			// £adujemy obrazki z katalogu Assets (bez awarii, jeœli brakuje plików)
+			String^ leftOff = System::IO::Path::Combine(assetsPath, "buzzer-dark-red.png");
+			String^ leftOn = System::IO::Path::Combine(assetsPath, "buzzer-light-red.png");
+			String^ rightOff = System::IO::Path::Combine(assetsPath, "buzzer-dark-green.png");
+			String^ rightOn = System::IO::Path::Combine(assetsPath, "buzzer-light-green.png");
+
+			try {
+				if (System::IO::File::Exists(leftOff)) imgLewoWygaszone = System::Drawing::Image::FromFile(leftOff);
+				if (System::IO::File::Exists(leftOn)) imgLewoSwiecace = System::Drawing::Image::FromFile(leftOn);
+				if (System::IO::File::Exists(rightOff)) imgPrawoWygaszone = System::Drawing::Image::FromFile(rightOff);
+				if (System::IO::File::Exists(rightOn)) imgPrawoSwiecace = System::Drawing::Image::FromFile(rightOn);
+			}
+			catch (Exception^ ex) {
+				// Nie przerywamy dzia³ania aplikacji, pozostawiamy obrazki niezainicjalizowane
+			}
 		}
 
 	protected:
@@ -140,14 +160,33 @@ namespace Familiada {
 	private: array<TextBox^, 2>^ Box;
 	private: System::Windows::Forms::Button^ DalejBtn;
 	private: System::Windows::Forms::Panel^ PanelPytanie;
-	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ button2;
-	private: System::Windows::Forms::Button^ WsteczBtn;
+	private: System::Windows::Forms::Label^ TrescPytaniaLBL;
+
+
+
 	private: System::Windows::Forms::Panel^ PanelCzek;
 
 	private: System::Windows::Forms::Timer^ timer1;
 	private: System::Windows::Forms::TextBox^ txtOdliczanie;
+	private: System::Windows::Forms::PictureBox^ PrawaDruzBuzzPB;
+
+	private: System::Windows::Forms::PictureBox^ LewaDruzBuzzPB;
+
 	private: System::ComponentModel::IContainer^ components;
+	
+	private: System::Drawing::Image^ imgLewoWygaszone;
+	private: System::Drawing::Image^ imgLewoSwiecace;
+	
+	private: System::Drawing::Image^ imgPrawoWygaszone;
+	private: System::Drawing::Image^ imgPrawoSwiecace;
+private: System::Windows::Forms::PictureBox^ PrawaDruzzBuzzONpb;
+private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
+
+
+	private:
+		bool czyNasluchiwacBuzzerow = false;
+		bool buzzerZablokowany = false;
+
 
 
 
@@ -179,6 +218,7 @@ namespace Familiada {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MainWin::typeid));
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->GrajBtn = (gcnew System::Windows::Forms::Button());
 			this->FamLbl = (gcnew System::Windows::Forms::Label());
@@ -198,9 +238,11 @@ namespace Familiada {
 			this->PanelLewaDruzyna = (gcnew System::Windows::Forms::Panel());
 			this->PlayersCountCB = (gcnew System::Windows::Forms::ComboBox());
 			this->PanelPytanie = (gcnew System::Windows::Forms::Panel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->WsteczBtn = (gcnew System::Windows::Forms::Button());
+			this->PrawaDruzzBuzzONpb = (gcnew System::Windows::Forms::PictureBox());
+			this->LewaDruzzBuzzONpb = (gcnew System::Windows::Forms::PictureBox());
+			this->PrawaDruzBuzzPB = (gcnew System::Windows::Forms::PictureBox());
+			this->LewaDruzBuzzPB = (gcnew System::Windows::Forms::PictureBox());
+			this->TrescPytaniaLBL = (gcnew System::Windows::Forms::Label());
 			this->PanelCzek = (gcnew System::Windows::Forms::Panel());
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
@@ -208,6 +250,10 @@ namespace Familiada {
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
 			this->PanelPytanie->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PrawaDruzzBuzzONpb))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzzBuzzONpb))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PrawaDruzBuzzPB))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzBuzzPB))->BeginInit();
 			this->PanelCzek->SuspendLayout();
 			this->SuspendLayout();
 			// 
@@ -402,41 +448,64 @@ namespace Familiada {
 			// 
 			// PanelPytanie
 			// 
-			this->PanelPytanie->Controls->Add(this->label1);
-			this->PanelPytanie->Controls->Add(this->button2);
-			this->PanelPytanie->Controls->Add(this->WsteczBtn);
+			this->PanelPytanie->Controls->Add(this->PrawaDruzzBuzzONpb);
+			this->PanelPytanie->Controls->Add(this->LewaDruzzBuzzONpb);
+			this->PanelPytanie->Controls->Add(this->PrawaDruzBuzzPB);
+			this->PanelPytanie->Controls->Add(this->LewaDruzBuzzPB);
+			this->PanelPytanie->Controls->Add(this->TrescPytaniaLBL);
 			this->PanelPytanie->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelPytanie->Location = System::Drawing::Point(0, 0);
 			this->PanelPytanie->Name = L"PanelPytanie";
 			this->PanelPytanie->Size = System::Drawing::Size(960, 585);
 			this->PanelPytanie->TabIndex = 7;
 			// 
-			// label1
+			// PrawaDruzzBuzzONpb
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(439, 152);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(35, 13);
-			this->label1->TabIndex = 2;
-			this->label1->Text = L"label1";
+			this->PrawaDruzzBuzzONpb->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"PrawaDruzzBuzzONpb.Image")));
+			this->PrawaDruzzBuzzONpb->Location = System::Drawing::Point(753, 413);
+			this->PrawaDruzzBuzzONpb->Name = L"PrawaDruzzBuzzONpb";
+			this->PrawaDruzzBuzzONpb->Size = System::Drawing::Size(141, 129);
+			this->PrawaDruzzBuzzONpb->TabIndex = 6;
+			this->PrawaDruzzBuzzONpb->TabStop = false;
+			this->PrawaDruzzBuzzONpb->Visible = false;
 			// 
-			// button2
+			// LewaDruzzBuzzONpb
 			// 
-			this->button2->Location = System::Drawing::Point(792, 477);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(75, 23);
-			this->button2->TabIndex = 1;
-			this->button2->Text = L"button2";
-			this->button2->UseVisualStyleBackColor = true;
+			this->LewaDruzzBuzzONpb->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"LewaDruzzBuzzONpb.Image")));
+			this->LewaDruzzBuzzONpb->Location = System::Drawing::Point(59, 413);
+			this->LewaDruzzBuzzONpb->Name = L"LewaDruzzBuzzONpb";
+			this->LewaDruzzBuzzONpb->Size = System::Drawing::Size(141, 129);
+			this->LewaDruzzBuzzONpb->TabIndex = 5;
+			this->LewaDruzzBuzzONpb->TabStop = false;
+			this->LewaDruzzBuzzONpb->Visible = false;
 			// 
-			// WsteczBtn
+			// PrawaDruzBuzzPB
 			// 
-			this->WsteczBtn->Location = System::Drawing::Point(128, 477);
-			this->WsteczBtn->Name = L"WsteczBtn";
-			this->WsteczBtn->Size = System::Drawing::Size(75, 23);
-			this->WsteczBtn->TabIndex = 0;
-			this->WsteczBtn->Text = L"button1";
-			this->WsteczBtn->UseVisualStyleBackColor = true;
+			this->PrawaDruzBuzzPB->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"PrawaDruzBuzzPB.Image")));
+			this->PrawaDruzBuzzPB->Location = System::Drawing::Point(753, 413);
+			this->PrawaDruzBuzzPB->Name = L"PrawaDruzBuzzPB";
+			this->PrawaDruzBuzzPB->Size = System::Drawing::Size(140, 129);
+			this->PrawaDruzBuzzPB->TabIndex = 4;
+			this->PrawaDruzBuzzPB->TabStop = false;
+			// 
+			// LewaDruzBuzzPB
+			// 
+			this->LewaDruzBuzzPB->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"LewaDruzBuzzPB.Image")));
+			this->LewaDruzBuzzPB->Location = System::Drawing::Point(59, 413);
+			this->LewaDruzBuzzPB->Name = L"LewaDruzBuzzPB";
+			this->LewaDruzBuzzPB->Size = System::Drawing::Size(141, 129);
+			this->LewaDruzBuzzPB->TabIndex = 3;
+			this->LewaDruzBuzzPB->TabStop = false;
+			// 
+			// TrescPytaniaLBL
+			// 
+			this->TrescPytaniaLBL->AutoSize = true;
+			this->TrescPytaniaLBL->Location = System::Drawing::Point(439, 152);
+			this->TrescPytaniaLBL->Name = L"TrescPytaniaLBL";
+			this->TrescPytaniaLBL->Size = System::Drawing::Size(35, 13);
+			this->TrescPytaniaLBL->TabIndex = 2;
+			this->TrescPytaniaLBL->Text = L"label1";
+			this->TrescPytaniaLBL->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			// 
 			// PanelCzek
 			// 
@@ -469,14 +538,16 @@ namespace Familiada {
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
 			this->Controls->Add(this->PanelStart);
-			this->Controls->Add(this->PanelCzek);
 			this->Controls->Add(this->PanelPytanie);
 			this->Controls->Add(this->PanelGracze);
+			this->Controls->Add(this->PanelCzek);
 			this->Controls->Add(this->pictureBox1);
+			this->KeyPreview = true;
 			this->MaximizeBox = false;
 			this->Name = L"MainWin";
 			this->Text = L"Familiada";
 			this->Load += gcnew System::EventHandler(this, &MainWin::MainWin_Load);
+			this->KeyDown += gcnew System::Windows::Forms::KeyEventHandler(this, &MainWin::MainWin_KeyDown);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->PanelStart->ResumeLayout(false);
 			this->PanelStart->PerformLayout();
@@ -484,6 +555,10 @@ namespace Familiada {
 			this->PanelGracze->PerformLayout();
 			this->PanelPytanie->ResumeLayout(false);
 			this->PanelPytanie->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PrawaDruzzBuzzONpb))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzzBuzzONpb))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PrawaDruzBuzzPB))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzBuzzPB))->EndInit();
 			this->PanelCzek->ResumeLayout(false);
 			this->PanelCzek->PerformLayout();
 			this->ResumeLayout(false);
@@ -532,16 +607,21 @@ namespace Familiada {
 	private: System::Void PanelStart_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {}
 
 	private: System::Void PokazEkran(Panel^ ekran) {
-		// Ukrywamy wszystko
+
 		PanelStart->Visible = false;
-		//PanelGracze->Visible = false;
-		//PanelPytanie->Visible = false;
-		//PanelOdpowiedz->Visible = false;
-		//PanelFinal->Visible = false;
+
 
 		// Pokazujemy tylko to, co chcemy
 		ekran->Visible = true;
 		ekran->BringToFront(); // Wa¿ne, ¿eby wskoczy³ na wierzch
+
+		if (ekran == PanelPytanie) {
+			czyNasluchiwacBuzzerow = true;
+			buzzerZablokowany = false; // Resetujemy stan przy wejœciu
+		}
+		else {
+			czyNasluchiwacBuzzerow = false;
+		}
 	}
 		   //private: System::Void PlayersCountCB_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
 		   //	// 1. Pobieramy wybran¹ liczbê (np. 3, 4, 5 lub 6)
@@ -636,6 +716,9 @@ namespace Familiada {
 
 			DalejBtn->Visible = true;
 		}
+		
+		//DalejBtn->BackColor = System::Drawing::Color::Black;
+
 	}
 	private: System::Void NazwaDruzyny1TB_Leave(System::Object^ sender, System::EventArgs^ e) {
 		if (NazwaDruzyny1TB->Text == "") NazwaDruzyny1TB->Text = "LEWA";
@@ -682,6 +765,43 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		{
 			timer1->Stop();
 			PokazEkran(PanelPytanie);
+		}
+	}
+
+
+
+
+	   private: System::Void ResetBuzzerow() {
+		   LewaDruzBuzzPB->Image = imgLewoWygaszone;
+		   PrawaDruzBuzzPB->Image = imgPrawoWygaszone;
+		   buzzerZablokowany = false;
+	   }
+
+
+	private: System::Void MainWin_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		// 1. Jeœli buzzer jest ju¿ zablokowany, ignorujemy kolejne klawisze
+		if (!PanelPytanie->Visible) return;
+		if (buzzerZablokowany) return;
+
+		// 2. Obs³uga pierwszej dru¿yny (np. klawisz Q)
+		if (e->KeyCode == Keys::Q) {
+			buzzerZablokowany = true;
+			
+			LewaDruzBuzzPB->Visible = false;
+			LewaDruzzBuzzONpb->Visible = true;
+			//LewaDruzBuzzPB->Image = imgLewoSwiecace;
+			//LewaDruzBuzzPB->Refresh();
+		MessageBox::Show("Lewa dru¿yna pierwsza!");
+		}
+		// 3. Obs³uga drugiej dru¿yny (np. klawisz P)
+		else if (e->KeyCode == Keys::P) {
+			buzzerZablokowany = true; 
+			PrawaDruzBuzzPB->Visible = false;
+			PrawaDruzzBuzzONpb->Visible = true;
+			
+			//PrawaDruzBuzzPB->Image = imgPrawoSwiecace;
+			//PrawaDruzBuzzPB->Refresh();
+				MessageBox::Show("Prawa dru¿yna pierwsza!");
 		}
 	}
 
