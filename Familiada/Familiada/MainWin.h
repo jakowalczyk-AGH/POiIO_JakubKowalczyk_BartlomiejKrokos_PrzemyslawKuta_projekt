@@ -780,7 +780,7 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 
 	private: System::Void MainWin_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		// 1. Jeœli buzzer jest ju¿ zablokowany, ignorujemy kolejne klawisze
-		if (!PanelPytanie->Visible) return;
+		if (!czyNasluchiwacBuzzerow) return;
 		if (buzzerZablokowany) return;
 
 		// 2. Obs³uga pierwszej dru¿yny (np. klawisz Q)
