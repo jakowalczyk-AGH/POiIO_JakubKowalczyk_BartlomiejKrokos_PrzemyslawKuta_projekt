@@ -42,6 +42,12 @@ namespace Familiada {
 				txtOdliczanie->Font = gcnew System::Drawing::Font(pfc->Families[0], 48, FontStyle::Regular);
 
 				LiczbaGraczyLbl->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
+				Blad1->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
+				Blad2->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
+				Blad3->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
+				Blad4->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
+				Blad5->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
+				Blad6->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
 
 				// 4. Ustawienie wygl¹du (¿eby by³o jak w teleturnieju)
 				FamLbl->ForeColor = Color::Yellow;
@@ -50,6 +56,12 @@ namespace Familiada {
 				NazwaDruzyny2TB->ForeColor = Color::Yellow;
 				txtOdliczanie->ForeColor = Color::Yellow;
 				LiczbaGraczyLbl->ForeColor = Color::Yellow;
+				Blad1->ForeColor = Color::Yellow;
+				Blad2->ForeColor = Color::Yellow;
+				Blad3->ForeColor = Color::Yellow;
+				Blad4->ForeColor = Color::Yellow;
+				Blad5->ForeColor = Color::Yellow;
+				Blad6->ForeColor = Color::Yellow;
 
 				NazwaDruzyny1TB->BackColor = Color::Black;
 				NazwaDruzyny2TB->BackColor = Color::Black;
@@ -121,6 +133,9 @@ namespace Familiada {
 			catch (Exception^ ex) {
 				// Nie przerywamy dzia³ania aplikacji, pozostawiamy obrazki niezainicjalizowane
 			}
+
+			InicjalizujPanelOdpowiedzi();
+
 		}
 
 	protected:
@@ -186,7 +201,22 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 	private:
 		bool czyNasluchiwacBuzzerow = false;
 private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
+private: System::Windows::Forms::Label^ Blad6;
+
+private: System::Windows::Forms::Label^ Blad5;
+
+private: System::Windows::Forms::Label^ Blad4;
+private: System::Windows::Forms::Label^ Blad3;
+private: System::Windows::Forms::Label^ Blad2;
+private: System::Windows::Forms::Label^ Blad1;
+
+private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
+private: System::Windows::Forms::Label^ WskaznikDruzyny;
+
+
 	   bool buzzerZablokowany = false;
+
+
 
 
 
@@ -248,6 +278,12 @@ private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
+			this->Blad1 = (gcnew System::Windows::Forms::Label());
+			this->Blad2 = (gcnew System::Windows::Forms::Label());
+			this->Blad3 = (gcnew System::Windows::Forms::Label());
+			this->Blad4 = (gcnew System::Windows::Forms::Label());
+			this->Blad5 = (gcnew System::Windows::Forms::Label());
+			this->Blad6 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
@@ -257,6 +293,7 @@ private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PrawaDruzBuzzPB))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzBuzzPB))->BeginInit();
 			this->PanelCzek->SuspendLayout();
+			this->PanelOdpowiedzi->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -534,11 +571,65 @@ private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
 			// 
 			// PanelOdpowiedzi
 			// 
+			this->PanelOdpowiedzi->Controls->Add(this->Blad6);
+			this->PanelOdpowiedzi->Controls->Add(this->Blad5);
+			this->PanelOdpowiedzi->Controls->Add(this->Blad4);
+			this->PanelOdpowiedzi->Controls->Add(this->Blad3);
+			this->PanelOdpowiedzi->Controls->Add(this->Blad2);
+			this->PanelOdpowiedzi->Controls->Add(this->Blad1);
 			this->PanelOdpowiedzi->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelOdpowiedzi->Location = System::Drawing::Point(0, 0);
 			this->PanelOdpowiedzi->Name = L"PanelOdpowiedzi";
 			this->PanelOdpowiedzi->Size = System::Drawing::Size(960, 585);
 			this->PanelOdpowiedzi->TabIndex = 9;
+			// 
+			// Blad1
+			// 
+			this->Blad1->Location = System::Drawing::Point(9, 30);
+			this->Blad1->Name = L"Blad1";
+			this->Blad1->Size = System::Drawing::Size(45, 147);
+			this->Blad1->TabIndex = 0;
+			this->Blad1->Text = L"X";
+			// 
+			// Blad2
+			// 
+			this->Blad2->Location = System::Drawing::Point(9, 190);
+			this->Blad2->Name = L"Blad2";
+			this->Blad2->Size = System::Drawing::Size(45, 147);
+			this->Blad2->TabIndex = 1;
+			this->Blad2->Text = L"X";
+			// 
+			// Blad3
+			// 
+			this->Blad3->Location = System::Drawing::Point(9, 367);
+			this->Blad3->Name = L"Blad3";
+			this->Blad3->Size = System::Drawing::Size(45, 147);
+			this->Blad3->TabIndex = 2;
+			this->Blad3->Text = L"X";
+			// 
+			// Blad4
+			// 
+			this->Blad4->Location = System::Drawing::Point(901, 30);
+			this->Blad4->Name = L"Blad4";
+			this->Blad4->Size = System::Drawing::Size(45, 147);
+			this->Blad4->TabIndex = 3;
+			this->Blad4->Text = L"X";
+			// 
+			// Blad5
+			// 
+			this->Blad5->Location = System::Drawing::Point(901, 190);
+			this->Blad5->Name = L"Blad5";
+			this->Blad5->Size = System::Drawing::Size(45, 147);
+			this->Blad5->TabIndex = 4;
+			this->Blad5->Text = L"X";
+			// 
+			// Blad6
+			// 
+			this->Blad6->Location = System::Drawing::Point(899, 367);
+			this->Blad6->Name = L"Blad6";
+			this->Blad6->Size = System::Drawing::Size(45, 147);
+			this->Blad6->TabIndex = 5;
+			this->Blad6->Text = L"X";
 			// 
 			// MainWin
 			// 
@@ -572,6 +663,7 @@ private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzBuzzPB))->EndInit();
 			this->PanelCzek->ResumeLayout(false);
 			this->PanelCzek->PerformLayout();
+			this->PanelOdpowiedzi->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -813,6 +905,54 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			//PrawaDruzBuzzPB->Image = imgPrawoSwiecace;
 			//PrawaDruzBuzzPB->Refresh();
 				MessageBox::Show("Prawa dru¿yna pierwsza!");
+		}
+	}
+
+private: System::Void InicjalizujPanelOdpowiedzi() {
+	odpHaslo = gcnew cli::array<System::Windows::Forms::TextBox^>(5);
+
+	for (int i = 0; i < 5; i++) {
+		odpHaslo[i] = gcnew TextBox();
+		odpHaslo[i]->Text = "............";
+		odpHaslo[i]->Size = System::Drawing::Size(600, 60);
+		odpHaslo[i]->Location = Point(180, 50 + (i * 70));
+
+		// Stylizacja "przyciskowa"
+		odpHaslo[i]->Multiline = true;
+		odpHaslo[i]->BorderStyle = BorderStyle::None;
+		odpHaslo[i]->BackColor = Color::Black;
+		odpHaslo[i]->ForeColor = Color::Yellow;
+		odpHaslo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 20, FontStyle::Regular);
+		odpHaslo[i]->TextAlign = HorizontalAlignment::Center;
+
+		// Na pocz¹tku tylko do odczytu
+		odpHaslo[i]->ReadOnly = true;
+
+		// Podpinamy zdarzenie klikniêcia, aby "odkryæ" pole
+		odpHaslo[i]->Click += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Click);
+		odpHaslo[i]->KeyDown += gcnew KeyEventHandler(this, &MainWin::PoleOdpowiedzi_KeyDown);
+
+		PanelOdpowiedzi->Controls->Add(odpHaslo[i]);
+	}
+}
+	   private: System::Void PoleOdpowiedzi_Click(System::Object^ sender, System::EventArgs^ e) {
+		   TextBox^ kliknietePole = safe_cast<TextBox^>(sender);
+
+		   // Jeœli pole jest ukryte, "odkrywamy" je i pozwalamy na wpisanie odpowiedzi
+		   if (kliknietePole->ReadOnly == true) {
+			   kliknietePole->ReadOnly = false;
+			   kliknietePole->Text = ""; // Czyœcimy kropki
+			   kliknietePole->Focus();   // Ustawiamy kursor, ¿eby od razu pisaæ
+		   }
+	   }
+
+	private: System::Void PoleOdpowiedzi_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter) {
+			TextBox^ pole = safe_cast<TextBox^>(sender);
+			pole->ReadOnly = true; 
+			e->SuppressKeyPress = true; 
+			// TUTAJ SPRAWDZIC CZY ODPOWIEDZ JEST PRAWIDLOWA 
+
 		}
 	}
 
