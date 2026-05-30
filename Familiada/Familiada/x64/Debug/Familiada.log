@@ -1,5 +1,5 @@
 ﻿  MainWin.cpp
-C:\Users\kubak\Desktop\git\Familiada\Familiada\MainWin.h(133,22): warning C4101: "ex": lokalna zmienna, do której nie istnieje odwołanie
+C:\Users\kubak\Desktop\git\Familiada\Familiada\MainWin.h(122,22): warning C4101: "ex": lokalna zmienna, do której nie istnieje odwołanie
   (kompilowanie pliku źródłowego „MainWin.cpp”)
   
   MainWin.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja

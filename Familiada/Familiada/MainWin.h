@@ -42,12 +42,6 @@ namespace Familiada {
 				txtOdliczanie->Font = gcnew System::Drawing::Font(pfc->Families[0], 48, FontStyle::Regular);
 
 				LiczbaGraczyLbl->Font = gcnew System::Drawing::Font(pfc->Families[0], 20);
-				Blad1->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
-				Blad2->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
-				Blad3->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
-				Blad4->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
-				Blad5->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
-				Blad6->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
 
 				// 4. Ustawienie wygl¹du (¿eby by³o jak w teleturnieju)
 				FamLbl->ForeColor = Color::Yellow;
@@ -56,12 +50,7 @@ namespace Familiada {
 				NazwaDruzyny2TB->ForeColor = Color::Yellow;
 				txtOdliczanie->ForeColor = Color::Yellow;
 				LiczbaGraczyLbl->ForeColor = Color::Yellow;
-				Blad1->ForeColor = Color::Yellow;
-				Blad2->ForeColor = Color::Yellow;
-				Blad3->ForeColor = Color::Yellow;
-				Blad4->ForeColor = Color::Yellow;
-				Blad5->ForeColor = Color::Yellow;
-				Blad6->ForeColor = Color::Yellow;
+
 
 				NazwaDruzyny1TB->BackColor = Color::Black;
 				NazwaDruzyny2TB->BackColor = Color::Black;
@@ -133,8 +122,26 @@ namespace Familiada {
 			catch (Exception^ ex) {
 				// Nie przerywamy dzia³ania aplikacji, pozostawiamy obrazki niezainicjalizowane
 			}
-
+			MessageBox::Show("Konstruktor dzia³a");
 			InicjalizujPanelOdpowiedzi();
+			InicjalizujBledy();
+
+			WskaznikDruzynyStrzalka = gcnew Label();
+
+			WskaznikDruzynyStrzalka->AutoSize = false;
+			WskaznikDruzynyStrzalka->Size = System::Drawing::Size(200, 60);
+
+			WskaznikDruzynyStrzalka->Location = Point(380, 510); // dó³ ekranu
+			WskaznikDruzynyStrzalka->TextAlign = ContentAlignment::MiddleCenter;
+
+			WskaznikDruzynyStrzalka->BackColor = Color::Black;
+			WskaznikDruzynyStrzalka->ForeColor = Color::Yellow;
+
+			WskaznikDruzynyStrzalka->Font = gcnew System::Drawing::Font(pfc->Families[0], 36);
+
+			WskaznikDruzynyStrzalka->Visible = false;
+
+			PanelOdpowiedzi->Controls->Add(WskaznikDruzynyStrzalka);
 
 		}
 
@@ -194,27 +201,46 @@ namespace Familiada {
 	
 	private: System::Drawing::Image^ imgPrawoWygaszone;
 	private: System::Drawing::Image^ imgPrawoSwiecace;
-private: System::Windows::Forms::PictureBox^ PrawaDruzzBuzzONpb;
-private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
+	private: System::Windows::Forms::PictureBox^ PrawaDruzzBuzzONpb;
+	private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 
 
 	private:
 		bool czyNasluchiwacBuzzerow = false;
-private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
-private: System::Windows::Forms::Label^ Blad6;
 
-private: System::Windows::Forms::Label^ Blad5;
+	private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
 
-private: System::Windows::Forms::Label^ Blad4;
-private: System::Windows::Forms::Label^ Blad3;
-private: System::Windows::Forms::Label^ Blad2;
-private: System::Windows::Forms::Label^ Blad1;
 
-private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
-private: System::Windows::Forms::Label^ WskaznikDruzyny;
 
+
+
+
+
+
+
+	private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
+	private: System::Windows::Forms::Label^ WskaznikDruzyny;
 
 	   bool buzzerZablokowany = false;
+
+	private:
+		   cli::array<System::Windows::Forms::Label^>^ bledyLewo;
+		   cli::array<System::Windows::Forms::Label^>^ bledyPrawo;
+
+		   int liczbaBledowLewa = 0;
+		   int liczbaBledowPrawa = 0;
+
+	enum class Druzyna
+	{
+		Lewa,
+		Prawa
+	};
+
+	private:
+		Druzyna aktywnaDruzyna = Druzyna::Lewa;
+
+	private: System::Windows::Forms::Label^ WskaznikDruzynyStrzalka;
+
 
 
 
@@ -278,12 +304,6 @@ private: System::Windows::Forms::Label^ WskaznikDruzyny;
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
-			this->Blad1 = (gcnew System::Windows::Forms::Label());
-			this->Blad2 = (gcnew System::Windows::Forms::Label());
-			this->Blad3 = (gcnew System::Windows::Forms::Label());
-			this->Blad4 = (gcnew System::Windows::Forms::Label());
-			this->Blad5 = (gcnew System::Windows::Forms::Label());
-			this->Blad6 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
@@ -293,7 +313,6 @@ private: System::Windows::Forms::Label^ WskaznikDruzyny;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->PrawaDruzBuzzPB))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzBuzzPB))->BeginInit();
 			this->PanelCzek->SuspendLayout();
-			this->PanelOdpowiedzi->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// pictureBox1
@@ -571,65 +590,11 @@ private: System::Windows::Forms::Label^ WskaznikDruzyny;
 			// 
 			// PanelOdpowiedzi
 			// 
-			this->PanelOdpowiedzi->Controls->Add(this->Blad6);
-			this->PanelOdpowiedzi->Controls->Add(this->Blad5);
-			this->PanelOdpowiedzi->Controls->Add(this->Blad4);
-			this->PanelOdpowiedzi->Controls->Add(this->Blad3);
-			this->PanelOdpowiedzi->Controls->Add(this->Blad2);
-			this->PanelOdpowiedzi->Controls->Add(this->Blad1);
 			this->PanelOdpowiedzi->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->PanelOdpowiedzi->Location = System::Drawing::Point(0, 0);
 			this->PanelOdpowiedzi->Name = L"PanelOdpowiedzi";
 			this->PanelOdpowiedzi->Size = System::Drawing::Size(960, 585);
 			this->PanelOdpowiedzi->TabIndex = 9;
-			// 
-			// Blad1
-			// 
-			this->Blad1->Location = System::Drawing::Point(9, 30);
-			this->Blad1->Name = L"Blad1";
-			this->Blad1->Size = System::Drawing::Size(45, 147);
-			this->Blad1->TabIndex = 0;
-			this->Blad1->Text = L"X";
-			// 
-			// Blad2
-			// 
-			this->Blad2->Location = System::Drawing::Point(9, 190);
-			this->Blad2->Name = L"Blad2";
-			this->Blad2->Size = System::Drawing::Size(45, 147);
-			this->Blad2->TabIndex = 1;
-			this->Blad2->Text = L"X";
-			// 
-			// Blad3
-			// 
-			this->Blad3->Location = System::Drawing::Point(9, 367);
-			this->Blad3->Name = L"Blad3";
-			this->Blad3->Size = System::Drawing::Size(45, 147);
-			this->Blad3->TabIndex = 2;
-			this->Blad3->Text = L"X";
-			// 
-			// Blad4
-			// 
-			this->Blad4->Location = System::Drawing::Point(901, 30);
-			this->Blad4->Name = L"Blad4";
-			this->Blad4->Size = System::Drawing::Size(45, 147);
-			this->Blad4->TabIndex = 3;
-			this->Blad4->Text = L"X";
-			// 
-			// Blad5
-			// 
-			this->Blad5->Location = System::Drawing::Point(901, 190);
-			this->Blad5->Name = L"Blad5";
-			this->Blad5->Size = System::Drawing::Size(45, 147);
-			this->Blad5->TabIndex = 4;
-			this->Blad5->Text = L"X";
-			// 
-			// Blad6
-			// 
-			this->Blad6->Location = System::Drawing::Point(899, 367);
-			this->Blad6->Name = L"Blad6";
-			this->Blad6->Size = System::Drawing::Size(45, 147);
-			this->Blad6->TabIndex = 5;
-			this->Blad6->Text = L"X";
 			// 
 			// MainWin
 			// 
@@ -638,11 +603,11 @@ private: System::Windows::Forms::Label^ WskaznikDruzyny;
 			this->AutoSize = true;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
-			this->Controls->Add(this->PanelOdpowiedzi);
 			this->Controls->Add(this->PanelStart);
+			this->Controls->Add(this->PanelCzek);
+			this->Controls->Add(this->PanelOdpowiedzi);
 			this->Controls->Add(this->PanelPytanie);
 			this->Controls->Add(this->PanelGracze);
-			this->Controls->Add(this->PanelCzek);
 			this->Controls->Add(this->pictureBox1);
 			this->KeyPreview = true;
 			this->MaximizeBox = false;
@@ -663,7 +628,6 @@ private: System::Windows::Forms::Label^ WskaznikDruzyny;
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->LewaDruzBuzzPB))->EndInit();
 			this->PanelCzek->ResumeLayout(false);
 			this->PanelCzek->PerformLayout();
-			this->PanelOdpowiedzi->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -881,31 +845,44 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	   }
 
 
-	private: System::Void MainWin_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		// 1. Jeœli buzzer jest ju¿ zablokowany, ignorujemy kolejne klawisze
+	private: System::Void MainWin_KeyDown(System::Object^ sender,
+		System::Windows::Forms::KeyEventArgs^ e)
+	{
+		// B³êdy dzia³aj¹ zawsze
+		if (e->KeyCode == Keys::X)
+		{
+			DodajBlad();
+			return;
+		}
+
+		// Dalej logika buzzerów
 		if (!czyNasluchiwacBuzzerow) return;
 		if (buzzerZablokowany) return;
 
-		// 2. Obs³uga pierwszej dru¿yny (np. klawisz Q)
-		if (e->KeyCode == Keys::Q) {
+
+		if (e->KeyCode == Keys::Q)
+		{
 			buzzerZablokowany = true;
-			
+			aktywnaDruzyna = Druzyna::Lewa;
+
 			LewaDruzBuzzPB->Visible = false;
 			LewaDruzzBuzzONpb->Visible = true;
-			//LewaDruzBuzzPB->Image = imgLewoSwiecace;
-			//LewaDruzBuzzPB->Refresh();
-		MessageBox::Show("Lewa dru¿yna pierwsza!");
+
+			PokazEkran(PanelOdpowiedzi);
+			UstawAktywnaDruzyne(false);
 		}
-		// 3. Obs³uga drugiej dru¿yny (np. klawisz P)
-		else if (e->KeyCode == Keys::P) {
-			buzzerZablokowany = true; 
+		else if (e->KeyCode == Keys::P)
+		{
+			buzzerZablokowany = true;
+			aktywnaDruzyna = Druzyna::Prawa;
+
 			PrawaDruzBuzzPB->Visible = false;
 			PrawaDruzzBuzzONpb->Visible = true;
-			
-			//PrawaDruzBuzzPB->Image = imgPrawoSwiecace;
-			//PrawaDruzBuzzPB->Refresh();
-				MessageBox::Show("Prawa dru¿yna pierwsza!");
+
+			PokazEkran(PanelOdpowiedzi);
+			UstawAktywnaDruzyne(true);
 		}
+
 	}
 
 private: System::Void InicjalizujPanelOdpowiedzi() {
@@ -957,8 +934,7 @@ private: System::Void InicjalizujPanelOdpowiedzi() {
 		}
 	}
 
-private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::EventArgs^ e)
-{
+private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::EventArgs^ e) {
 	TextBox^ pole = safe_cast<TextBox^>(sender);
 
 	if (String::IsNullOrWhiteSpace(pole->Text))
@@ -967,5 +943,87 @@ private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::Event
 		pole->ReadOnly = true;
 	}
 }
+	   private: System::Void InicjalizujBledy() {
+		   bledyLewo = gcnew cli::array<Label^>(3);
+		   bledyPrawo = gcnew cli::array<Label^>(3);
+
+		   for (int i = 0; i < 3; i++)
+		   {
+			   // LEWA STRONA
+			   bledyLewo[i] = gcnew Label();
+			   bledyLewo[i]->Text = "X";
+			   bledyLewo[i]->ForeColor = Color::Red;
+			   bledyLewo[i]->BackColor = Color::Transparent;
+			   bledyLewo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 48);
+
+			   bledyLewo[i]->AutoSize = true;
+			   bledyLewo[i]->Location = Point(40, 150 + (i * 90));
+			   bledyLewo[i]->Visible = false;
+
+			   // PRAWA STRONA
+			   bledyPrawo[i] = gcnew Label();
+			   bledyPrawo[i]->Text = "X";
+			   bledyPrawo[i]->ForeColor = Color::Red;
+			   bledyPrawo[i]->BackColor = Color::Transparent;
+			   bledyPrawo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 48);
+
+			   bledyPrawo[i]->AutoSize = true;
+			   bledyPrawo[i]->Location = Point(850, 150 + (i * 90));
+			   bledyPrawo[i]->Visible = false;
+
+			   PanelOdpowiedzi->Controls->Add(bledyLewo[i]);
+			   PanelOdpowiedzi->Controls->Add(bledyPrawo[i]);
+
+		   }
+		   MessageBox::Show("Bledy zainicjalizowane");
+	   }
+
+private: System::Void DodajBlad()
+{
+	if (aktywnaDruzyna == Druzyna::Lewa)
+	{
+		if (liczbaBledowLewa >= 3)
+			return;
+
+		bledyLewo[liczbaBledowLewa]->Visible = true;
+		liczbaBledowLewa++;
+	}
+	else
+	{
+		if (liczbaBledowPrawa >= 3)
+			return;
+
+		bledyPrawo[liczbaBledowPrawa]->Visible = true;
+		liczbaBledowPrawa++;
+	}
+}
+
+private: System::Void ResetujBledy()
+{
+	liczbaBledowLewa = 0;
+	liczbaBledowPrawa = 0;
+
+	for (int i = 0; i < 3; i++)
+	{
+		bledyLewo[i]->Visible = false;
+		bledyPrawo[i]->Visible = false;
+	}
+}
+
+private: System::Void UstawAktywnaDruzyne(bool lewa)
+{
+	if (lewa) {
+
+		WskaznikDruzynyStrzalka->Text = "->";
+		MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
+	}
+	else {
+		WskaznikDruzynyStrzalka->Text = "<-";
+		MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
+	}
+
+	WskaznikDruzynyStrzalka->Visible = true;
+}
+
 	};
 };
