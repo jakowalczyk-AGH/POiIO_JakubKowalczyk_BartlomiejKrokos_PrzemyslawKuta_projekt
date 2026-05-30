@@ -122,7 +122,7 @@ namespace Familiada {
 			catch (Exception^ ex) {
 				// Nie przerywamy dzia³ania aplikacji, pozostawiamy obrazki niezainicjalizowane
 			}
-			MessageBox::Show("Konstruktor dzia³a");
+			//MessageBox::Show("Konstruktor dzia³a");
 			InicjalizujPanelOdpowiedzi();
 			InicjalizujBledy();
 
@@ -849,11 +849,11 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 		System::Windows::Forms::KeyEventArgs^ e)
 	{
 		// B³êdy dzia³aj¹ zawsze
-		if (e->KeyCode == Keys::X)
-		{
-			DodajBlad();
-			return;
-		}
+		//if (e->KeyCode == Keys::X)
+		//{
+		//	DodajBlad();
+		//	return;
+		//}
 
 		// Dalej logika buzzerów
 		if (!czyNasluchiwacBuzzerow) return;
@@ -975,7 +975,7 @@ private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::Event
 			   PanelOdpowiedzi->Controls->Add(bledyPrawo[i]);
 
 		   }
-		   MessageBox::Show("Bledy zainicjalizowane");
+		  // MessageBox::Show("Bledy zainicjalizowane");
 	   }
 
 private: System::Void DodajBlad()
@@ -1015,11 +1015,11 @@ private: System::Void UstawAktywnaDruzyne(bool lewa)
 	if (lewa) {
 
 		WskaznikDruzynyStrzalka->Text = "->";
-		MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
+		//MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
 	}
 	else {
 		WskaznikDruzynyStrzalka->Text = "<-";
-		MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
+		//MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
 	}
 
 	WskaznikDruzynyStrzalka->Visible = true;
