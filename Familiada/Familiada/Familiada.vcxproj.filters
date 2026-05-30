@@ -32,4 +32,18 @@
       <Filter>Pliki zasobów</Filter>
     </None>
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Assets\buzzer-dark-green.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="..\Assets\buzzer-dark-red.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="..\Assets\buzzer-light-green.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+    <Image Include="..\Assets\buzzer-light-red.png">
+      <Filter>Pliki zasobów</Filter>
+    </Image>
+  </ItemGroup>
 </Project>

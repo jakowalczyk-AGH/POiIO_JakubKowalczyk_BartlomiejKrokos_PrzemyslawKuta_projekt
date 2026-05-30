@@ -150,6 +150,12 @@
   <ItemGroup>
     <None Include="familiada_pytania.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Image Include="..\Assets\buzzer-dark-green.png" />
+    <Image Include="..\Assets\buzzer-dark-red.png" />
+    <Image Include="..\Assets\buzzer-light-green.png" />
+    <Image Include="..\Assets\buzzer-light-red.png" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
