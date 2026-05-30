@@ -931,6 +931,7 @@ private: System::Void InicjalizujPanelOdpowiedzi() {
 		// Podpinamy zdarzenie klikniêcia, aby "odkryæ" pole
 		odpHaslo[i]->Click += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Click);
 		odpHaslo[i]->KeyDown += gcnew KeyEventHandler(this, &MainWin::PoleOdpowiedzi_KeyDown);
+		odpHaslo[i]->Leave += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Leave);
 
 		PanelOdpowiedzi->Controls->Add(odpHaslo[i]);
 	}
@@ -956,5 +957,15 @@ private: System::Void InicjalizujPanelOdpowiedzi() {
 		}
 	}
 
+private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::EventArgs^ e)
+{
+	TextBox^ pole = safe_cast<TextBox^>(sender);
+
+	if (String::IsNullOrWhiteSpace(pole->Text))
+	{
+		pole->Text = "............";
+		pole->ReadOnly = true;
+	}
+}
 	};
 };
