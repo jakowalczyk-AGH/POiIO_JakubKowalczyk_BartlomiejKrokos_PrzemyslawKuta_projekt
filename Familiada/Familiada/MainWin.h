@@ -51,6 +51,7 @@ namespace Familiada {
 				txtOdliczanie->ForeColor = Color::Yellow;
 				LiczbaGraczyLbl->ForeColor = Color::Yellow;
 
+
 				NazwaDruzyny1TB->BackColor = Color::Black;
 				NazwaDruzyny2TB->BackColor = Color::Black;
 				txtOdliczanie->BackColor = Color::Black;
@@ -121,6 +122,27 @@ namespace Familiada {
 			catch (Exception^ ex) {
 				// Nie przerywamy dzia³ania aplikacji, pozostawiamy obrazki niezainicjalizowane
 			}
+			MessageBox::Show("Konstruktor dzia³a");
+			InicjalizujPanelOdpowiedzi();
+			InicjalizujBledy();
+
+			WskaznikDruzynyStrzalka = gcnew Label();
+
+			WskaznikDruzynyStrzalka->AutoSize = false;
+			WskaznikDruzynyStrzalka->Size = System::Drawing::Size(200, 60);
+
+			WskaznikDruzynyStrzalka->Location = Point(380, 510); // dó³ ekranu
+			WskaznikDruzynyStrzalka->TextAlign = ContentAlignment::MiddleCenter;
+
+			WskaznikDruzynyStrzalka->BackColor = Color::Black;
+			WskaznikDruzynyStrzalka->ForeColor = Color::Yellow;
+
+			WskaznikDruzynyStrzalka->Font = gcnew System::Drawing::Font(pfc->Families[0], 36);
+
+			WskaznikDruzynyStrzalka->Visible = false;
+
+			PanelOdpowiedzi->Controls->Add(WskaznikDruzynyStrzalka);
+
 		}
 
 	protected:
@@ -179,13 +201,48 @@ namespace Familiada {
 	
 	private: System::Drawing::Image^ imgPrawoWygaszone;
 	private: System::Drawing::Image^ imgPrawoSwiecace;
-private: System::Windows::Forms::PictureBox^ PrawaDruzzBuzzONpb;
-private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
+	private: System::Windows::Forms::PictureBox^ PrawaDruzzBuzzONpb;
+	private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 
 
 	private:
 		bool czyNasluchiwacBuzzerow = false;
-		bool buzzerZablokowany = false;
+
+	private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
+
+
+
+
+
+
+
+
+
+	private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
+	private: System::Windows::Forms::Label^ WskaznikDruzyny;
+
+	   bool buzzerZablokowany = false;
+
+	private:
+		   cli::array<System::Windows::Forms::Label^>^ bledyLewo;
+		   cli::array<System::Windows::Forms::Label^>^ bledyPrawo;
+
+		   int liczbaBledowLewa = 0;
+		   int liczbaBledowPrawa = 0;
+
+	enum class Druzyna
+	{
+		Lewa,
+		Prawa
+	};
+
+	private:
+		Druzyna aktywnaDruzyna = Druzyna::Lewa;
+
+	private: System::Windows::Forms::Label^ WskaznikDruzynyStrzalka;
+
+
+
 
 
 
@@ -246,6 +303,7 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 			this->PanelCzek = (gcnew System::Windows::Forms::Panel());
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
@@ -530,6 +588,14 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainWin::timer1_Tick);
 			// 
+			// PanelOdpowiedzi
+			// 
+			this->PanelOdpowiedzi->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->PanelOdpowiedzi->Location = System::Drawing::Point(0, 0);
+			this->PanelOdpowiedzi->Name = L"PanelOdpowiedzi";
+			this->PanelOdpowiedzi->Size = System::Drawing::Size(960, 585);
+			this->PanelOdpowiedzi->TabIndex = 9;
+			// 
 			// MainWin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -538,9 +604,10 @@ private: System::Windows::Forms::PictureBox^ LewaDruzzBuzzONpb;
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
 			this->Controls->Add(this->PanelStart);
+			this->Controls->Add(this->PanelCzek);
+			this->Controls->Add(this->PanelOdpowiedzi);
 			this->Controls->Add(this->PanelPytanie);
 			this->Controls->Add(this->PanelGracze);
-			this->Controls->Add(this->PanelCzek);
 			this->Controls->Add(this->pictureBox1);
 			this->KeyPreview = true;
 			this->MaximizeBox = false;
@@ -778,32 +845,185 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	   }
 
 
-	private: System::Void MainWin_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		// 1. Jeœli buzzer jest ju¿ zablokowany, ignorujemy kolejne klawisze
+	private: System::Void MainWin_KeyDown(System::Object^ sender,
+		System::Windows::Forms::KeyEventArgs^ e)
+	{
+		// B³êdy dzia³aj¹ zawsze
+		if (e->KeyCode == Keys::X)
+		{
+			DodajBlad();
+			return;
+		}
+
+		// Dalej logika buzzerów
 		if (!czyNasluchiwacBuzzerow) return;
 		if (buzzerZablokowany) return;
 
-		// 2. Obs³uga pierwszej dru¿yny (np. klawisz Q)
-		if (e->KeyCode == Keys::Q) {
+
+		if (e->KeyCode == Keys::Q)
+		{
 			buzzerZablokowany = true;
-			
+			aktywnaDruzyna = Druzyna::Lewa;
+
 			LewaDruzBuzzPB->Visible = false;
 			LewaDruzzBuzzONpb->Visible = true;
-			//LewaDruzBuzzPB->Image = imgLewoSwiecace;
-			//LewaDruzBuzzPB->Refresh();
-		MessageBox::Show("Lewa dru¿yna pierwsza!");
+
+			PokazEkran(PanelOdpowiedzi);
+			UstawAktywnaDruzyne(false);
 		}
-		// 3. Obs³uga drugiej dru¿yny (np. klawisz P)
-		else if (e->KeyCode == Keys::P) {
-			buzzerZablokowany = true; 
+		else if (e->KeyCode == Keys::P)
+		{
+			buzzerZablokowany = true;
+			aktywnaDruzyna = Druzyna::Prawa;
+
 			PrawaDruzBuzzPB->Visible = false;
 			PrawaDruzzBuzzONpb->Visible = true;
-			
-			//PrawaDruzBuzzPB->Image = imgPrawoSwiecace;
-			//PrawaDruzBuzzPB->Refresh();
-				MessageBox::Show("Prawa dru¿yna pierwsza!");
+
+			PokazEkran(PanelOdpowiedzi);
+			UstawAktywnaDruzyne(true);
+		}
+
+	}
+
+private: System::Void InicjalizujPanelOdpowiedzi() {
+	odpHaslo = gcnew cli::array<System::Windows::Forms::TextBox^>(5);
+
+	for (int i = 0; i < 5; i++) {
+		odpHaslo[i] = gcnew TextBox();
+		odpHaslo[i]->Text = "............";
+		odpHaslo[i]->Size = System::Drawing::Size(600, 60);
+		odpHaslo[i]->Location = Point(180, 50 + (i * 70));
+
+		// Stylizacja "przyciskowa"
+		odpHaslo[i]->Multiline = true;
+		odpHaslo[i]->BorderStyle = BorderStyle::None;
+		odpHaslo[i]->BackColor = Color::Black;
+		odpHaslo[i]->ForeColor = Color::Yellow;
+		odpHaslo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 20, FontStyle::Regular);
+		odpHaslo[i]->TextAlign = HorizontalAlignment::Center;
+
+		// Na pocz¹tku tylko do odczytu
+		odpHaslo[i]->ReadOnly = true;
+
+		// Podpinamy zdarzenie klikniêcia, aby "odkryæ" pole
+		odpHaslo[i]->Click += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Click);
+		odpHaslo[i]->KeyDown += gcnew KeyEventHandler(this, &MainWin::PoleOdpowiedzi_KeyDown);
+		odpHaslo[i]->Leave += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Leave);
+
+		PanelOdpowiedzi->Controls->Add(odpHaslo[i]);
+	}
+}
+	   private: System::Void PoleOdpowiedzi_Click(System::Object^ sender, System::EventArgs^ e) {
+		   TextBox^ kliknietePole = safe_cast<TextBox^>(sender);
+
+		   // Jeœli pole jest ukryte, "odkrywamy" je i pozwalamy na wpisanie odpowiedzi
+		   if (kliknietePole->ReadOnly == true) {
+			   kliknietePole->ReadOnly = false;
+			   kliknietePole->Text = ""; // Czyœcimy kropki
+			   kliknietePole->Focus();   // Ustawiamy kursor, ¿eby od razu pisaæ
+		   }
+	   }
+
+	private: System::Void PoleOdpowiedzi_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+		if (e->KeyCode == Keys::Enter) {
+			TextBox^ pole = safe_cast<TextBox^>(sender);
+			pole->ReadOnly = true; 
+			e->SuppressKeyPress = true; 
+			// TUTAJ SPRAWDZIC CZY ODPOWIEDZ JEST PRAWIDLOWA 
+
 		}
 	}
+
+private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::EventArgs^ e) {
+	TextBox^ pole = safe_cast<TextBox^>(sender);
+
+	if (String::IsNullOrWhiteSpace(pole->Text))
+	{
+		pole->Text = "............";
+		pole->ReadOnly = true;
+	}
+}
+	   private: System::Void InicjalizujBledy() {
+		   bledyLewo = gcnew cli::array<Label^>(3);
+		   bledyPrawo = gcnew cli::array<Label^>(3);
+
+		   for (int i = 0; i < 3; i++)
+		   {
+			   // LEWA STRONA
+			   bledyLewo[i] = gcnew Label();
+			   bledyLewo[i]->Text = "X";
+			   bledyLewo[i]->ForeColor = Color::Red;
+			   bledyLewo[i]->BackColor = Color::Transparent;
+			   bledyLewo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 48);
+
+			   bledyLewo[i]->AutoSize = true;
+			   bledyLewo[i]->Location = Point(40, 150 + (i * 90));
+			   bledyLewo[i]->Visible = false;
+
+			   // PRAWA STRONA
+			   bledyPrawo[i] = gcnew Label();
+			   bledyPrawo[i]->Text = "X";
+			   bledyPrawo[i]->ForeColor = Color::Red;
+			   bledyPrawo[i]->BackColor = Color::Transparent;
+			   bledyPrawo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 48);
+
+			   bledyPrawo[i]->AutoSize = true;
+			   bledyPrawo[i]->Location = Point(850, 150 + (i * 90));
+			   bledyPrawo[i]->Visible = false;
+
+			   PanelOdpowiedzi->Controls->Add(bledyLewo[i]);
+			   PanelOdpowiedzi->Controls->Add(bledyPrawo[i]);
+
+		   }
+		   MessageBox::Show("Bledy zainicjalizowane");
+	   }
+
+private: System::Void DodajBlad()
+{
+	if (aktywnaDruzyna == Druzyna::Lewa)
+	{
+		if (liczbaBledowLewa >= 3)
+			return;
+
+		bledyLewo[liczbaBledowLewa]->Visible = true;
+		liczbaBledowLewa++;
+	}
+	else
+	{
+		if (liczbaBledowPrawa >= 3)
+			return;
+
+		bledyPrawo[liczbaBledowPrawa]->Visible = true;
+		liczbaBledowPrawa++;
+	}
+}
+
+private: System::Void ResetujBledy()
+{
+	liczbaBledowLewa = 0;
+	liczbaBledowPrawa = 0;
+
+	for (int i = 0; i < 3; i++)
+	{
+		bledyLewo[i]->Visible = false;
+		bledyPrawo[i]->Visible = false;
+	}
+}
+
+private: System::Void UstawAktywnaDruzyne(bool lewa)
+{
+	if (lewa) {
+
+		WskaznikDruzynyStrzalka->Text = "->";
+		MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
+	}
+	else {
+		WskaznikDruzynyStrzalka->Text = "<-";
+		MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
+	}
+
+	WskaznikDruzynyStrzalka->Visible = true;
+}
 
 	};
 };
