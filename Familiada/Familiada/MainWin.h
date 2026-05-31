@@ -143,6 +143,18 @@ namespace Familiada {
 
 			PanelOdpowiedzi->Controls->Add(WskaznikDruzynyStrzalka);
 
+			InicjalizujPanelFinal();
+
+
+
+			finalQuestions = gcnew cli::array<String^>(5);
+
+			finalQuestions[0] = "Wymien owoc";
+			finalQuestions[1] = "Wymien zwierzê";
+			finalQuestions[2] = "Wymien kolor";
+			finalQuestions[3] = "Wymien sport";
+			finalQuestions[4] = "Wymien napój";
+
 		}
 
 	protected:
@@ -238,9 +250,22 @@ namespace Familiada {
 
 	private:
 		Druzyna aktywnaDruzyna = Druzyna::Lewa;
+	private: System::Windows::Forms::Panel^ PanelFinal;
 
 	private: System::Windows::Forms::Label^ WskaznikDruzynyStrzalka;
 
+	private: System::Windows::Forms::Label^ FinalPlayerLbl;
+	private: System::Windows::Forms::Label^ FinalQuestionLbl;
+	private: System::Windows::Forms::Label^ FinalTimerLbl;
+
+	private: System::Windows::Forms::TextBox^ FinalAnswerTB;
+
+
+	private:
+		cli::array<String^>^ finalQuestions;
+
+	private:
+		int finalQuestionIndex = 0;
 
 
 
@@ -304,6 +329,7 @@ namespace Familiada {
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
+			this->PanelFinal = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
@@ -596,6 +622,14 @@ namespace Familiada {
 			this->PanelOdpowiedzi->Size = System::Drawing::Size(960, 585);
 			this->PanelOdpowiedzi->TabIndex = 9;
 			// 
+			// PanelFinal
+			// 
+			this->PanelFinal->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->PanelFinal->Location = System::Drawing::Point(0, 0);
+			this->PanelFinal->Name = L"PanelFinal";
+			this->PanelFinal->Size = System::Drawing::Size(960, 585);
+			this->PanelFinal->TabIndex = 10;
+			// 
 			// MainWin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -604,6 +638,7 @@ namespace Familiada {
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
 			this->Controls->Add(this->PanelStart);
+			this->Controls->Add(this->PanelFinal);
 			this->Controls->Add(this->PanelCzek);
 			this->Controls->Add(this->PanelOdpowiedzi);
 			this->Controls->Add(this->PanelPytanie);
@@ -848,6 +883,19 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	private: System::Void MainWin_KeyDown(System::Object^ sender,
 		System::Windows::Forms::KeyEventArgs^ e)
 	{
+
+		if (e->KeyCode == Keys::F)
+		{
+			finalQuestionIndex = 0;
+
+			PokazPytanieFinalowe();
+
+			FinalPlayerLbl->Text = "GRACZ 1";
+			FinalTimerLbl->Text = "20";
+			FinalAnswerTB->Clear();
+
+			PokazEkran(PanelFinal);
+		}
 		// B³êdy dzia³aj¹ zawsze
 		//if (e->KeyCode == Keys::X)
 		//{
@@ -882,6 +930,9 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			PokazEkran(PanelOdpowiedzi);
 			UstawAktywnaDruzyne(true);
 		}
+
+
+
 
 	}
 
@@ -1025,5 +1076,165 @@ private: System::Void UstawAktywnaDruzyne(bool lewa)
 	WskaznikDruzynyStrzalka->Visible = true;
 }
 
+private: System::Void InicjalizujPanelFinal()
+{
+	// U¿ywamy panelu stworzonego przez Designera
+	PanelFinal->BackColor = Color::Black;
+	PanelFinal->Visible = false;
+
+	// =========================
+	// NAZWA GRACZA
+	// =========================
+	FinalPlayerLbl = gcnew Label();
+	FinalPlayerLbl->Text = "GRACZ 1";
+	FinalPlayerLbl->ForeColor = Color::Yellow;
+	FinalPlayerLbl->BackColor = Color::Black;
+	FinalPlayerLbl->AutoSize = true;
+	FinalPlayerLbl->Location = Point(40, 30);
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalPlayerLbl->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				28,
+				FontStyle::Regular);
+	}
+
+	// =========================
+	// LICZNIK CZASU
+	// =========================
+	FinalTimerLbl = gcnew Label();
+	FinalTimerLbl->Text = "20";
+	FinalTimerLbl->ForeColor = Color::Yellow;
+	FinalTimerLbl->BackColor = Color::Black;
+	FinalTimerLbl->AutoSize = true;
+	FinalTimerLbl->Location = Point(850, 30);
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalTimerLbl->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				36,
+				FontStyle::Regular);
+	}
+
+	// =========================
+	// PYTANIE
+	// =========================
+	FinalQuestionLbl = gcnew Label();
+	FinalQuestionLbl->Text = "PYTANIE";
+	FinalQuestionLbl->ForeColor = Color::Yellow;
+	FinalQuestionLbl->BackColor = Color::Black;
+	FinalQuestionLbl->Size = Drawing::Size(800, 150);
+	FinalQuestionLbl->Location = Point(80, 150);
+	FinalQuestionLbl->TextAlign = ContentAlignment::MiddleCenter;
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalQuestionLbl->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				32,
+				FontStyle::Regular);
+	}
+
+	// =========================
+	// POLE ODPOWIEDZI
+	// =========================
+	FinalAnswerTB = gcnew TextBox();
+
+	FinalAnswerTB->Location = Point(180, 380);
+	FinalAnswerTB->Size = Drawing::Size(600, 60);
+
+	FinalAnswerTB->Text = "............";
+
+	FinalAnswerTB->Multiline = true;
+	FinalAnswerTB->ReadOnly = true;
+
+	FinalAnswerTB->BackColor = Color::Black;
+	FinalAnswerTB->ForeColor = Color::Yellow;
+	FinalAnswerTB->BorderStyle = BorderStyle::None;
+	FinalAnswerTB->TextAlign = HorizontalAlignment::Center;
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalAnswerTB->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				28,
+				FontStyle::Regular);
+	}
+
+	FinalAnswerTB->Click +=
+		gcnew EventHandler(this, &MainWin::FinalAnswerTB_Click);
+
+	FinalAnswerTB->Leave +=
+		gcnew EventHandler(this, &MainWin::FinalAnswerTB_Leave);
+
+	FinalAnswerTB->KeyDown +=
+		gcnew KeyEventHandler(this, &MainWin::FinalAnswerTB_KeyDown);
+
+	// Enter = nastêpne pytanie
+	FinalAnswerTB->KeyDown +=
+		gcnew KeyEventHandler(
+			this,
+			&MainWin::FinalAnswerTB_KeyDown);
+
+	// =========================
+	// DODANIE DO PANELU
+	// =========================
+	PanelFinal->Controls->Add(FinalPlayerLbl);
+	PanelFinal->Controls->Add(FinalTimerLbl);
+	PanelFinal->Controls->Add(FinalQuestionLbl);
+	PanelFinal->Controls->Add(FinalAnswerTB);
+}
+
+private: System::Void PokazPytanieFinalowe()
+{
+	FinalQuestionLbl->Text =
+		finalQuestions[finalQuestionIndex];
+}
+
+private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+{
+    if (e->KeyCode == Keys::Enter)
+    {
+        finalQuestionIndex++;
+
+        if (finalQuestionIndex >= 5)
+        {
+            MessageBox::Show("Koniec pytan");
+            return;
+        }
+
+        PokazPytanieFinalowe();
+
+		FinalAnswerTB->Text = "............";
+		FinalAnswerTB->ReadOnly = true;
+
+        e->SuppressKeyPress = true;
+    }
+}
+
+private: System::Void FinalAnswerTB_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (FinalAnswerTB->ReadOnly)
+	{
+		FinalAnswerTB->ReadOnly = false;
+		FinalAnswerTB->Text = "";
+		FinalAnswerTB->Focus();
+	}
+}
+
+private: System::Void FinalAnswerTB_Leave(System::Object^ sender, System::EventArgs^ e)
+{
+	if (String::IsNullOrWhiteSpace(FinalAnswerTB->Text))
+	{
+		FinalAnswerTB->Text = "............";
+		FinalAnswerTB->ReadOnly = true;
+	}
+}
 	};
 };
