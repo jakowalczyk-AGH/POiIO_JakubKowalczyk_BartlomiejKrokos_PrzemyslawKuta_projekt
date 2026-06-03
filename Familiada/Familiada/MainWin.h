@@ -639,31 +639,31 @@ namespace Familiada {
 	// ==========================================
 		System::String^ raport = "=== RAPORT ZAPISANYCH DANYCH ===\n\n";
 
-		// --- SPRAWDZANIE LEWEJ DRU¯YNY ---
-		std::string nazwaL = silnikGry->getDruzynaLewa()->getNazwa();
-		std::vector<std::string> graczeL = silnikGry->getDruzynaLewa()->getGracze();
+		//// --- SPRAWDZANIE LEWEJ DRU¯YNY ---
+		//std::string nazwaL = silnikGry->getDruzynaLewa()->getNazwa();
+		//std::vector<std::string> graczeL = silnikGry->getDruzynaLewa()->getGracze();
 
-		raport += "DRU¯YNA: " + gcnew System::String(nazwaL.c_str()) + "\n";
-		raport += "Zapisano graczy: " + graczeL.size() + "\n";
-		for (size_t i = 0; i < graczeL.size(); i++) {
-			// Znak += dokleja kolejne linijki tekstu do naszego raportu
-			raport += " -> " + gcnew System::String(graczeL[i].c_str()) + "\n";
-		}
+		//raport += "DRU¯YNA: " + gcnew System::String(nazwaL.c_str()) + "\n";
+		//raport += "Zapisano graczy: " + graczeL.size() + "\n";
+		//for (size_t i = 0; i < graczeL.size(); i++) {
+		//	// Znak += dokleja kolejne linijki tekstu do naszego raportu
+		//	raport += " -> " + gcnew System::String(graczeL[i].c_str()) + "\n";
+		//}
 
-		raport += "\n----------------------------------\n\n";
+		//raport += "\n----------------------------------\n\n";
 
-		// --- SPRAWDZANIE PRAWEJ DRU¯YNY ---
-		std::string nazwaP = silnikGry->getDruzynaPrawa()->getNazwa();
-		std::vector<std::string> graczeP = silnikGry->getDruzynaPrawa()->getGracze();
+		//// --- SPRAWDZANIE PRAWEJ DRU¯YNY ---
+		//std::string nazwaP = silnikGry->getDruzynaPrawa()->getNazwa();
+		//std::vector<std::string> graczeP = silnikGry->getDruzynaPrawa()->getGracze();
 
-		raport += "DRU¯YNA: " + gcnew System::String(nazwaP.c_str()) + "\n";
-		raport += "Zapisano graczy: " + graczeP.size() + "\n";
-		for (size_t i = 0; i < graczeP.size(); i++) {
-			raport += " -> " + gcnew System::String(graczeP[i].c_str()) + "\n";
-		}
+		//raport += "DRU¯YNA: " + gcnew System::String(nazwaP.c_str()) + "\n";
+		//raport += "Zapisano graczy: " + graczeP.size() + "\n";
+		//for (size_t i = 0; i < graczeP.size(); i++) {
+		//	raport += " -> " + gcnew System::String(graczeP[i].c_str()) + "\n";
+		//}
 
-		// Wyœwietlamy nasz gotowy raport!
-		MessageBox::Show(raport, "Sukces - Test weryfikacji");
+		//// Wyœwietlamy nasz gotowy raport!
+		//MessageBox::Show(raport, "Sukces - Test weryfikacji");
 		// ==========================================
 		// ==========================================
 		// 3. PRZEJŒCIE DO EKRANU GRY
