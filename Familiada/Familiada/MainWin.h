@@ -34,6 +34,8 @@ namespace Familiada {
 				// 3. Sprawdzamy, czy siê za³adowa³a i przypisujemy do labela
 				// pfc->Families[0] to nasza Familiada
 				FamLbl->Font = gcnew System::Drawing::Font(pfc->Families[0], 96, FontStyle::Regular);
+				TrescPytaniaLBL->Font = gcnew System::Drawing::Font(pfc->Families[0], 36, FontStyle::Regular);
+
 				GrajBtn->Font = gcnew System::Drawing::Font(pfc->Families[0], 48, FontStyle::Regular);
 				DalejBtn->Font = gcnew System::Drawing::Font(pfc->Families[0], 48, FontStyle::Regular);
 				NazwaDruzyny1TB->Font = gcnew System::Drawing::Font(pfc->Families[0], 32);
@@ -50,6 +52,8 @@ namespace Familiada {
 				NazwaDruzyny2TB->ForeColor = Color::Yellow;
 				txtOdliczanie->ForeColor = Color::Yellow;
 				LiczbaGraczyLbl->ForeColor = Color::Yellow;
+				TrescPytaniaLBL->ForeColor = Color::Yellow;
+
 
 
 				NazwaDruzyny1TB->BackColor = Color::Black;
@@ -126,22 +130,49 @@ namespace Familiada {
 			InicjalizujPanelOdpowiedzi();
 			InicjalizujBledy();
 
-			WskaznikDruzynyStrzalka = gcnew Label();
+			WskaznikDruzynyStrzalkaPrawa = gcnew Label();
+			WskaznikDruzynyStrzalkaLewa = gcnew Label();
 
-			WskaznikDruzynyStrzalka->AutoSize = false;
-			WskaznikDruzynyStrzalka->Size = System::Drawing::Size(200, 60);
+			WskaznikDruzynyStrzalkaPrawa->AutoSize = false;
+			WskaznikDruzynyStrzalkaPrawa->Size = System::Drawing::Size(200, 60);
+			WskaznikDruzynyStrzalkaLewa->AutoSize = false;
+			WskaznikDruzynyStrzalkaLewa->Size = System::Drawing::Size(200, 60);
 
-			WskaznikDruzynyStrzalka->Location = Point(380, 510); // dó³ ekranu
-			WskaznikDruzynyStrzalka->TextAlign = ContentAlignment::MiddleCenter;
+			WskaznikDruzynyStrzalkaPrawa->Location = Point(780, 510); // dó³ ekranu
+			WskaznikDruzynyStrzalkaPrawa->TextAlign = ContentAlignment::MiddleCenter;
+			WskaznikDruzynyStrzalkaLewa->Location = Point(15, 510); // dó³ ekranu
+			WskaznikDruzynyStrzalkaLewa->TextAlign = ContentAlignment::MiddleCenter;
 
-			WskaznikDruzynyStrzalka->BackColor = Color::Black;
-			WskaznikDruzynyStrzalka->ForeColor = Color::Yellow;
+			WskaznikDruzynyStrzalkaPrawa->BackColor = Color::Black;
+			WskaznikDruzynyStrzalkaPrawa->ForeColor = Color::Yellow;
+			WskaznikDruzynyStrzalkaLewa->BackColor = Color::Black;
+			WskaznikDruzynyStrzalkaLewa->ForeColor = Color::Yellow;
 
-			WskaznikDruzynyStrzalka->Font = gcnew System::Drawing::Font(pfc->Families[0], 36);
+			WskaznikDruzynyStrzalkaPrawa->Font = gcnew System::Drawing::Font(pfc->Families[0], 36);
+			WskaznikDruzynyStrzalkaLewa->Font = gcnew System::Drawing::Font(pfc->Families[0], 36);
 
-			WskaznikDruzynyStrzalka->Visible = false;
+			WskaznikDruzynyStrzalkaPrawa->Visible = false;
+			WskaznikDruzynyStrzalkaLewa->Visible = false;
 
-			PanelOdpowiedzi->Controls->Add(WskaznikDruzynyStrzalka);
+			PanelOdpowiedzi->Controls->Add(WskaznikDruzynyStrzalkaPrawa);
+			PanelOdpowiedzi->Controls->Add(WskaznikDruzynyStrzalkaLewa);
+
+
+			WskaznikDruzynyStrzalkaPrawa->Text = "->";
+
+			WskaznikDruzynyStrzalkaLewa->Text = "<-";
+
+			InicjalizujPanelFinal();
+
+
+
+			finalQuestions = gcnew cli::array<String^>(5);
+
+			finalQuestions[0] = "Wymien owoc";
+			finalQuestions[1] = "Wymien zwierzê";
+			finalQuestions[2] = "Wymien kolor";
+			finalQuestions[3] = "Wymien sport";
+			finalQuestions[4] = "Wymien napój";
 
 		}
 
@@ -183,6 +214,7 @@ namespace Familiada {
 	private: System::Windows::Forms::Button^ DalejBtn;
 	private: System::Windows::Forms::Panel^ PanelPytanie;
 	private: System::Windows::Forms::Label^ TrescPytaniaLBL;
+			private: System::Windows::Forms::Label^ TrescPytaniaLBL2;
 
 
 
@@ -218,7 +250,7 @@ namespace Familiada {
 
 
 
-	private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
+	//private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
 	private: System::Windows::Forms::Label^ WskaznikDruzyny;
 
 	   bool buzzerZablokowany = false;
@@ -238,11 +270,33 @@ namespace Familiada {
 
 	private:
 		Druzyna aktywnaDruzyna = Druzyna::Lewa;
+	private: System::Windows::Forms::Panel^ PanelFinal;
 
-	private: System::Windows::Forms::Label^ WskaznikDruzynyStrzalka;
+	private: System::Windows::Forms::Label^ WskaznikDruzynyStrzalkaPrawa;
+			private: System::Windows::Forms::Label^ WskaznikDruzynyStrzalkaLewa;
+
+	private: System::Windows::Forms::Label^ FinalPlayerLbl;
+	private: System::Windows::Forms::Label^ FinalQuestionLbl;
+	private: System::Windows::Forms::Label^ FinalTimerLbl;
+
+	private: System::Windows::Forms::TextBox^ FinalAnswerTB;
 
 
+	private:
+		cli::array<String^>^ finalQuestions;
 
+	private:
+		int finalQuestionIndex = 0;
+
+private: System::Windows::Forms::TextBox^ OdpowiedzTB;
+
+	   private:
+		   cli::array<Label^>^ odpNr;
+		   cli::array<Label^>^ odpHaslo;
+		   cli::array<Label^>^ odpPunkty;
+
+private: Label^ PunktyDruzyny1LBL;
+private: Label^ PunktyDruzyny2LBL;
 
 
 
@@ -304,6 +358,7 @@ namespace Familiada {
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
 			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
+			this->PanelFinal = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->PanelStart->SuspendLayout();
 			this->PanelGracze->SuspendLayout();
@@ -447,9 +502,9 @@ namespace Familiada {
 			// 
 			// NazwaDruzyny2TB
 			// 
-			this->NazwaDruzyny2TB->Location = System::Drawing::Point(614, 81);
+			this->NazwaDruzyny2TB->Location = System::Drawing::Point(695, 80);
 			this->NazwaDruzyny2TB->Name = L"NazwaDruzyny2TB";
-			this->NazwaDruzyny2TB->Size = System::Drawing::Size(334, 20);
+			this->NazwaDruzyny2TB->Size = System::Drawing::Size(250, 20);
 			this->NazwaDruzyny2TB->TabIndex = 6;
 			this->NazwaDruzyny2TB->TextAlign = System::Windows::Forms::HorizontalAlignment::Right;
 			this->NazwaDruzyny2TB->Click += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny2TB_Click);
@@ -457,9 +512,9 @@ namespace Familiada {
 			// 
 			// NazwaDruzyny1TB
 			// 
-			this->NazwaDruzyny1TB->Location = System::Drawing::Point(12, 82);
+			this->NazwaDruzyny1TB->Location = System::Drawing::Point(25, 80);
 			this->NazwaDruzyny1TB->Name = L"NazwaDruzyny1TB";
-			this->NazwaDruzyny1TB->Size = System::Drawing::Size(333, 20);
+			this->NazwaDruzyny1TB->Size = System::Drawing::Size(250, 20);
 			this->NazwaDruzyny1TB->TabIndex = 5;
 			this->NazwaDruzyny1TB->Click += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny1TB_Click);
 			this->NazwaDruzyny1TB->Leave += gcnew System::EventHandler(this, &MainWin::NazwaDruzyny1TB_Leave);
@@ -562,8 +617,9 @@ namespace Familiada {
 			this->TrescPytaniaLBL->Name = L"TrescPytaniaLBL";
 			this->TrescPytaniaLBL->Size = System::Drawing::Size(35, 13);
 			this->TrescPytaniaLBL->TabIndex = 2;
-			this->TrescPytaniaLBL->Text = L"label1";
-			this->TrescPytaniaLBL->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			this->TrescPytaniaLBL->Text = L"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA";
+			this->TrescPytaniaLBL->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+
 			// 
 			// PanelCzek
 			// 
@@ -596,6 +652,14 @@ namespace Familiada {
 			this->PanelOdpowiedzi->Size = System::Drawing::Size(960, 585);
 			this->PanelOdpowiedzi->TabIndex = 9;
 			// 
+			// PanelFinal
+			// 
+			this->PanelFinal->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->PanelFinal->Location = System::Drawing::Point(0, 0);
+			this->PanelFinal->Name = L"PanelFinal";
+			this->PanelFinal->Size = System::Drawing::Size(960, 585);
+			this->PanelFinal->TabIndex = 10;
+			// 
 			// MainWin
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -604,6 +668,7 @@ namespace Familiada {
 			this->AutoSizeMode = System::Windows::Forms::AutoSizeMode::GrowAndShrink;
 			this->ClientSize = System::Drawing::Size(960, 585);
 			this->Controls->Add(this->PanelStart);
+			this->Controls->Add(this->PanelFinal);
 			this->Controls->Add(this->PanelCzek);
 			this->Controls->Add(this->PanelOdpowiedzi);
 			this->Controls->Add(this->PanelPytanie);
@@ -848,12 +913,25 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 	private: System::Void MainWin_KeyDown(System::Object^ sender,
 		System::Windows::Forms::KeyEventArgs^ e)
 	{
+
+		if (e->KeyCode == Keys::F)
+		{
+			finalQuestionIndex = 0;
+
+			PokazPytanieFinalowe();
+
+			FinalPlayerLbl->Text = "GRACZ 1";
+			FinalTimerLbl->Text = "20";
+			FinalAnswerTB->Clear();
+
+			PokazEkran(PanelFinal);
+		}
 		// B³êdy dzia³aj¹ zawsze
-		//if (e->KeyCode == Keys::X)
-		//{
-		//	DodajBlad();
-		//	return;
-		//}
+		if (e->KeyCode == Keys::X)
+		{
+			DodajBlad();
+			return;
+		}
 
 		// Dalej logika buzzerów
 		if (!czyNasluchiwacBuzzerow) return;
@@ -883,66 +961,281 @@ private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) 
 			UstawAktywnaDruzyne(true);
 		}
 
+
+
+
 	}
 
-private: System::Void InicjalizujPanelOdpowiedzi() {
-	odpHaslo = gcnew cli::array<System::Windows::Forms::TextBox^>(5);
+private: System::Void InicjalizujPanelOdpowiedzi()
+{
 
-	for (int i = 0; i < 5; i++) {
-		odpHaslo[i] = gcnew TextBox();
-		odpHaslo[i]->Text = "............";
-		odpHaslo[i]->Size = System::Drawing::Size(600, 60);
-		odpHaslo[i]->Location = Point(180, 50 + (i * 70));
+	// PUNKTY DRU¯YNY 1
+	PunktyDruzyny1LBL = gcnew Label();
+	PunktyDruzyny1LBL->Text = "999";
+	PunktyDruzyny1LBL->Size = Drawing::Size(100, 60);
 
-		// Stylizacja "przyciskowa"
-		odpHaslo[i]->Multiline = true;
-		odpHaslo[i]->BorderStyle = BorderStyle::None;
+	PunktyDruzyny1LBL->Location = Point(NazwaDruzyny1TB->Left, NazwaDruzyny1TB->Bottom + 5);
+
+	PunktyDruzyny1LBL->BackColor = Color::Transparent;
+	PunktyDruzyny1LBL->ForeColor = Color::Yellow;
+	PunktyDruzyny1LBL->TextAlign = ContentAlignment::MiddleCenter;
+	PunktyDruzyny1LBL->Font =
+		gcnew Drawing::Font(pfc->Families[0], 20);
+
+	PanelOdpowiedzi->Controls->Add(PunktyDruzyny1LBL);
+
+
+	// PUNKTY DRU¯YNY 2
+	PunktyDruzyny2LBL = gcnew Label();
+	PunktyDruzyny2LBL->Text = "999";
+	PunktyDruzyny2LBL->Size = Drawing::Size(100, 60);
+
+	PunktyDruzyny2LBL->Location = Point(
+		this->ClientSize.Width - PunktyDruzyny2LBL->Width - 20,
+		NazwaDruzyny2TB->Bottom + 5);
+
+	PunktyDruzyny2LBL->BackColor = Color::Transparent;
+	PunktyDruzyny2LBL->ForeColor = Color::Yellow;
+	PunktyDruzyny2LBL->TextAlign = ContentAlignment::MiddleCenter;
+	PunktyDruzyny2LBL->Font =
+		gcnew Drawing::Font(pfc->Families[0], 20);
+
+	PanelOdpowiedzi->Controls->Add(PunktyDruzyny2LBL);
+
+	// NAZWA DRUZYNY 1 
+	Label^ NazwaDruzyny1LBL = gcnew Label();
+
+	NazwaDruzyny1LBL->Text = NazwaDruzyny1TB->Text;
+	NazwaDruzyny1LBL->Font = gcnew System::Drawing::Font(pfc->Families[0], 30, FontStyle::Regular);
+	NazwaDruzyny1LBL->ForeColor = Color::Yellow;
+
+	NazwaDruzyny1LBL->Size = Drawing::Size(NazwaDruzyny1TB->Size);
+	NazwaDruzyny1LBL->Location = Point(
+		PunktyDruzyny1LBL->Left,
+		PunktyDruzyny1LBL->Top - 45);
+
+	NazwaDruzyny1LBL->BackColor = Color::Black;
+	NazwaDruzyny1LBL->ForeColor = Color::Yellow;
+
+	NazwaDruzyny1LBL->Font =
+		gcnew Drawing::Font(pfc->Families[0], 20);
+
+
+	PanelOdpowiedzi->Controls->Add(NazwaDruzyny1LBL);
+
+	// NAZWA DRUZYNY 2
+
+	Label^ NazwaDruzyny2LBL = gcnew Label();
+
+	NazwaDruzyny2LBL->Text = NazwaDruzyny2TB->Text;
+	NazwaDruzyny2LBL->Font = gcnew System::Drawing::Font(pfc->Families[0], 30, FontStyle::Regular);
+	NazwaDruzyny2LBL->ForeColor = Color::Yellow;
+
+	NazwaDruzyny2LBL->Size = Drawing::Size(NazwaDruzyny1TB->Size);
+	NazwaDruzyny2LBL->Location = Point(695,
+		PunktyDruzyny2LBL->Top - 45);
+
+	NazwaDruzyny2LBL->BackColor = Color::Black;
+	NazwaDruzyny2LBL->ForeColor = Color::Yellow;
+
+	NazwaDruzyny2LBL->Font =
+		gcnew Drawing::Font(pfc->Families[0], 20);
+
+	NazwaDruzyny2LBL->AutoSize = false;
+	NazwaDruzyny2LBL->Size = Drawing::Size(250, 40);
+
+	//NazwaDruzyny2LBL->Anchor =
+	//	AnchorStyles::Top | AnchorStyles::Right;
+
+	NazwaDruzyny2LBL->TextAlign = ContentAlignment::MiddleRight;
+
+
+	PanelOdpowiedzi->Controls->Add(NazwaDruzyny2LBL);
+
+	
+
+	// ==========================
+	// TREŒÆ PYTANIA
+	// ==========================
+
+	Label^ TrescPytaniaLBL2 = gcnew Label();
+
+	TrescPytaniaLBL2->Text = TrescPytaniaLBL->Text;
+	TrescPytaniaLBL2->Font = gcnew System::Drawing::Font(pfc->Families[0], 30, FontStyle::Regular);
+	TrescPytaniaLBL2->ForeColor = Color::Yellow;
+
+	TrescPytaniaLBL2->Size = Drawing::Size(400, 80);
+	TrescPytaniaLBL2->Location = Point(300, 20);
+
+	TrescPytaniaLBL2->BackColor = Color::Black;
+	TrescPytaniaLBL2->ForeColor = Color::Yellow;
+
+	TrescPytaniaLBL2->Font =
+		gcnew Drawing::Font(pfc->Families[0], 20);
+
+	TrescPytaniaLBL2->TextAlign =
+		System::Drawing::ContentAlignment::MiddleCenter;
+
+	PanelOdpowiedzi->Controls->Add(TrescPytaniaLBL2);
+
+	odpNr = gcnew cli::array<Label^>(5);
+	odpHaslo = gcnew cli::array<Label^>(5);
+	odpPunkty = gcnew cli::array<Label^>(5);
+
+	int startY = 150;
+	int odstep = 60;
+
+	for (int i = 0; i < 5; i++)
+	{
+		// ==========================
+		// NUMER ODPOWIEDZI
+		// ==========================
+		odpNr[i] = gcnew Label();
+		odpNr[i]->Text = (i + 1).ToString() + ".";
+		odpNr[i]->Size = Drawing::Size(50, 50);
+		odpNr[i]->Location = Point(220, startY + (i * odstep));
+
+		odpNr[i]->BackColor = Color::Black;
+		odpNr[i]->ForeColor = Color::Yellow;
+		odpNr[i]->Font =
+			gcnew Drawing::Font(pfc->Families[0], 18);
+
+		odpNr[i]->TextAlign =
+			System::Drawing::ContentAlignment::MiddleCenter;
+
+		// ==========================
+		// UKRYTA ODPOWIED
+		// ==========================
+		odpHaslo[i] = gcnew Label();
+		odpHaslo[i]->Text = "........................";
+		odpHaslo[i]->Size = Drawing::Size(350, 50);
+		odpHaslo[i]->Location = Point(300, startY + (i * odstep));
+
 		odpHaslo[i]->BackColor = Color::Black;
 		odpHaslo[i]->ForeColor = Color::Yellow;
-		odpHaslo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 20, FontStyle::Regular);
-		odpHaslo[i]->TextAlign = HorizontalAlignment::Center;
+		odpHaslo[i]->Font =
+			gcnew Drawing::Font(pfc->Families[0], 18);
 
-		// Na pocz¹tku tylko do odczytu
-		odpHaslo[i]->ReadOnly = true;
+		odpHaslo[i]->TextAlign =
+			System::Drawing::ContentAlignment::MiddleCenter;
 
-		// Podpinamy zdarzenie klikniêcia, aby "odkryæ" pole
-		odpHaslo[i]->Click += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Click);
-		odpHaslo[i]->KeyDown += gcnew KeyEventHandler(this, &MainWin::PoleOdpowiedzi_KeyDown);
-		odpHaslo[i]->Leave += gcnew EventHandler(this, &MainWin::PoleOdpowiedzi_Leave);
+		// ==========================
+		// PUNKTY
+		// ==========================
+		odpPunkty[i] = gcnew Label();
+		odpPunkty[i]->Text = "....";
+		odpPunkty[i]->Size = Drawing::Size(80, 50);
+		odpPunkty[i]->Location = Point(680, startY + (i * odstep));
 
+		odpPunkty[i]->BackColor = Color::Black;
+		odpPunkty[i]->ForeColor = Color::Yellow;
+		odpPunkty[i]->Font =
+			gcnew Drawing::Font(pfc->Families[0], 18);
+
+		odpPunkty[i]->TextAlign =
+			System::Drawing::ContentAlignment::MiddleCenter;
+
+		PanelOdpowiedzi->Controls->Add(odpNr[i]);
 		PanelOdpowiedzi->Controls->Add(odpHaslo[i]);
+		PanelOdpowiedzi->Controls->Add(odpPunkty[i]);
 	}
-}
-	   private: System::Void PoleOdpowiedzi_Click(System::Object^ sender, System::EventArgs^ e) {
-		   TextBox^ kliknietePole = safe_cast<TextBox^>(sender);
 
-		   // Jeœli pole jest ukryte, "odkrywamy" je i pozwalamy na wpisanie odpowiedzi
-		   if (kliknietePole->ReadOnly == true) {
-			   kliknietePole->ReadOnly = false;
-			   kliknietePole->Text = ""; // Czyœcimy kropki
-			   kliknietePole->Focus();   // Ustawiamy kursor, ¿eby od razu pisaæ
+	OdpowiedzTB = gcnew TextBox();
+
+	OdpowiedzTB->Text = "Wpisz odpowiedz";
+	OdpowiedzTB->ForeColor = Color::Gray;
+
+	OdpowiedzTB->Size = Drawing::Size(350, 50);
+	OdpowiedzTB->Location = Point(300, 540);
+
+	OdpowiedzTB->BackColor = Color::Black;
+	OdpowiedzTB->ForeColor = Color::Yellow;
+	OdpowiedzTB->BorderStyle = BorderStyle::None;
+
+	OdpowiedzTB->Font =
+		gcnew Drawing::Font(pfc->Families[0], 18);
+
+	OdpowiedzTB->TextAlign =
+		HorizontalAlignment::Center;
+
+	OdpowiedzTB->Enter +=
+		gcnew EventHandler(this, &MainWin::OdpowiedzTB_Enter);
+
+	OdpowiedzTB->Leave +=
+		gcnew EventHandler(this, &MainWin::OdpowiedzTB_Leave);
+
+	PanelOdpowiedzi->Controls->Add(OdpowiedzTB);
+
+
+	Label^ SumaPunkty = gcnew Label();
+
+	SumaPunkty->Text = "....";
+	SumaPunkty->Size = Drawing::Size(80, 50);
+	SumaPunkty->Location = Point(680, 540);
+
+	SumaPunkty->BackColor = Color::Black;
+	SumaPunkty->ForeColor = Color::Yellow;
+	SumaPunkty->Font =
+		gcnew Drawing::Font(pfc->Families[0], 18);
+
+	SumaPunkty->TextAlign =
+		System::Drawing::ContentAlignment::MiddleCenter;
+
+	PanelOdpowiedzi->Controls->Add(SumaPunkty);
+
+}
+
+private: System::Void OdpowiedzTB_Enter(
+		   System::Object^ sender,
+		   System::EventArgs^ e)
+	   {
+		   if (OdpowiedzTB->Text == "Wpisz odpowiedz")
+		   {
+			   OdpowiedzTB->Text = "";
+			   OdpowiedzTB->ForeColor = Color::Yellow;
 		   }
 	   }
 
-	private: System::Void PoleOdpowiedzi_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
-		if (e->KeyCode == Keys::Enter) {
-			TextBox^ pole = safe_cast<TextBox^>(sender);
-			pole->ReadOnly = true; 
-			e->SuppressKeyPress = true; 
-			// TUTAJ SPRAWDZIC CZY ODPOWIEDZ JEST PRAWIDLOWA 
-
-		}
-	}
-
-private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::EventArgs^ e) {
-	TextBox^ pole = safe_cast<TextBox^>(sender);
-
-	if (String::IsNullOrWhiteSpace(pole->Text))
+private: System::Void OdpowiedzTB_Leave(
+	System::Object^ sender,
+	System::EventArgs^ e)
+{
+	if (String::IsNullOrWhiteSpace(OdpowiedzTB->Text))
 	{
-		pole->Text = "............";
-		pole->ReadOnly = true;
+		OdpowiedzTB->Text = "Wpisz odpowiedz";
+		OdpowiedzTB->ForeColor = Color::Gray;
 	}
 }
+//	   private: System::Void PoleOdpowiedzi_Click(System::Object^ sender, System::EventArgs^ e) {
+//		   TextBox^ kliknietePole = safe_cast<TextBox^>(sender);
+//
+//		   // Jeœli pole jest ukryte, "odkrywamy" je i pozwalamy na wpisanie odpowiedzi
+//		   if (kliknietePole->ReadOnly == true) {
+//			   kliknietePole->ReadOnly = false;
+//			   kliknietePole->Text = ""; // Czyœcimy kropki
+//			   kliknietePole->Focus();   // Ustawiamy kursor, ¿eby od razu pisaæ
+//		   }
+//	   }
+//
+//	private: System::Void PoleOdpowiedzi_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
+//		if (e->KeyCode == Keys::Enter) {
+//			TextBox^ pole = safe_cast<TextBox^>(sender);
+//			pole->ReadOnly = true; 
+//			e->SuppressKeyPress = true; 
+//			// TUTAJ SPRAWDZIC CZY ODPOWIEDZ JEST PRAWIDLOWA 
+//
+//		}
+//	}
+//
+//private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::EventArgs^ e) {
+//	TextBox^ pole = safe_cast<TextBox^>(sender);
+//
+//	if (String::IsNullOrWhiteSpace(pole->Text))
+//	{
+//		pole->Text = "............";
+//		pole->ReadOnly = true;
+//	}
+//}
 	   private: System::Void InicjalizujBledy() {
 		   bledyLewo = gcnew cli::array<Label^>(3);
 		   bledyPrawo = gcnew cli::array<Label^>(3);
@@ -957,7 +1250,7 @@ private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::Event
 			   bledyLewo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 48);
 
 			   bledyLewo[i]->AutoSize = true;
-			   bledyLewo[i]->Location = Point(40, 150 + (i * 90));
+			   bledyLewo[i]->Location = Point(40, 240 + (i * 90));
 			   bledyLewo[i]->Visible = false;
 
 			   // PRAWA STRONA
@@ -968,7 +1261,7 @@ private: System::Void PoleOdpowiedzi_Leave(System::Object^ sender, System::Event
 			   bledyPrawo[i]->Font = gcnew System::Drawing::Font(pfc->Families[0], 48);
 
 			   bledyPrawo[i]->AutoSize = true;
-			   bledyPrawo[i]->Location = Point(850, 150 + (i * 90));
+			   bledyPrawo[i]->Location = Point(850, 240 + (i * 90));
 			   bledyPrawo[i]->Visible = false;
 
 			   PanelOdpowiedzi->Controls->Add(bledyLewo[i]);
@@ -1014,16 +1307,177 @@ private: System::Void UstawAktywnaDruzyne(bool lewa)
 {
 	if (lewa) {
 
-		WskaznikDruzynyStrzalka->Text = "->";
+		WskaznikDruzynyStrzalkaPrawa->Visible = true;
+		WskaznikDruzynyStrzalkaLewa->Visible = false;
 		//MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
 	}
 	else {
-		WskaznikDruzynyStrzalka->Text = "<-";
+		WskaznikDruzynyStrzalkaPrawa->Visible = false;
+		WskaznikDruzynyStrzalkaLewa->Visible = true;
 		//MessageBox::Show("Tekst ustawiony na: " + WskaznikDruzynyStrzalka->Text);
 	}
 
-	WskaznikDruzynyStrzalka->Visible = true;
 }
 
+private: System::Void InicjalizujPanelFinal()
+{
+	// U¿ywamy panelu stworzonego przez Designera
+	PanelFinal->BackColor = Color::Black;
+	PanelFinal->Visible = false;
+
+	// =========================
+	// NAZWA GRACZA
+	// =========================
+	FinalPlayerLbl = gcnew Label();
+	FinalPlayerLbl->Text = "GRACZ 1";
+	FinalPlayerLbl->ForeColor = Color::Yellow;
+	FinalPlayerLbl->BackColor = Color::Black;
+	FinalPlayerLbl->AutoSize = true;
+	FinalPlayerLbl->Location = Point(40, 30);
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalPlayerLbl->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				28,
+				FontStyle::Regular);
+	}
+
+	// =========================
+	// LICZNIK CZASU
+	// =========================
+	FinalTimerLbl = gcnew Label();
+	FinalTimerLbl->Text = "20";
+	FinalTimerLbl->ForeColor = Color::Yellow;
+	FinalTimerLbl->BackColor = Color::Black;
+	FinalTimerLbl->AutoSize = true;
+	FinalTimerLbl->Location = Point(850, 30);
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalTimerLbl->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				36,
+				FontStyle::Regular);
+	}
+
+	// =========================
+	// PYTANIE
+	// =========================
+	FinalQuestionLbl = gcnew Label();
+	FinalQuestionLbl->Text = "PYTANIE";
+	FinalQuestionLbl->ForeColor = Color::Yellow;
+	FinalQuestionLbl->BackColor = Color::Black;
+	FinalQuestionLbl->Size = Drawing::Size(800, 150);
+	FinalQuestionLbl->Location = Point(80, 150);
+	FinalQuestionLbl->TextAlign = ContentAlignment::MiddleCenter;
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalQuestionLbl->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				32,
+				FontStyle::Regular);
+	}
+
+	// =========================
+	// POLE ODPOWIEDZI
+	// =========================
+	FinalAnswerTB = gcnew TextBox();
+
+	FinalAnswerTB->Location = Point(180, 380);
+	FinalAnswerTB->Size = Drawing::Size(600, 60);
+
+	FinalAnswerTB->Text = "............";
+
+	FinalAnswerTB->Multiline = true;
+	FinalAnswerTB->ReadOnly = true;
+
+	FinalAnswerTB->BackColor = Color::Black;
+	FinalAnswerTB->ForeColor = Color::Yellow;
+	FinalAnswerTB->BorderStyle = BorderStyle::None;
+	FinalAnswerTB->TextAlign = HorizontalAlignment::Center;
+
+	if (pfc->Families->Length > 0)
+	{
+		FinalAnswerTB->Font =
+			gcnew System::Drawing::Font(
+				pfc->Families[0],
+				28,
+				FontStyle::Regular);
+	}
+
+	FinalAnswerTB->Click +=
+		gcnew EventHandler(this, &MainWin::FinalAnswerTB_Click);
+
+	FinalAnswerTB->Leave +=
+		gcnew EventHandler(this, &MainWin::FinalAnswerTB_Leave);
+
+	FinalAnswerTB->KeyDown +=
+		gcnew KeyEventHandler(this, &MainWin::FinalAnswerTB_KeyDown);
+
+	// Enter = nastêpne pytanie
+	FinalAnswerTB->KeyDown +=
+		gcnew KeyEventHandler(
+			this,
+			&MainWin::FinalAnswerTB_KeyDown);
+
+	// =========================
+	// DODANIE DO PANELU
+	// =========================
+	PanelFinal->Controls->Add(FinalPlayerLbl);
+	PanelFinal->Controls->Add(FinalTimerLbl);
+	PanelFinal->Controls->Add(FinalQuestionLbl);
+	PanelFinal->Controls->Add(FinalAnswerTB);
+}
+
+private: System::Void PokazPytanieFinalowe()
+{
+	FinalQuestionLbl->Text =
+		finalQuestions[finalQuestionIndex];
+}
+
+private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+{
+    if (e->KeyCode == Keys::Enter)
+    {
+        finalQuestionIndex++;
+
+        if (finalQuestionIndex >= 5)
+        {
+            MessageBox::Show("Koniec pytan");
+            return;
+        }
+
+        PokazPytanieFinalowe();
+
+		FinalAnswerTB->Text = "............";
+		FinalAnswerTB->ReadOnly = true;
+
+        e->SuppressKeyPress = true;
+    }
+}
+
+private: System::Void FinalAnswerTB_Click(System::Object^ sender, System::EventArgs^ e)
+{
+	if (FinalAnswerTB->ReadOnly)
+	{
+		FinalAnswerTB->ReadOnly = false;
+		FinalAnswerTB->Text = "";
+		FinalAnswerTB->Focus();
+	}
+}
+
+private: System::Void FinalAnswerTB_Leave(System::Object^ sender, System::EventArgs^ e)
+{
+	if (String::IsNullOrWhiteSpace(FinalAnswerTB->Text))
+	{
+		FinalAnswerTB->Text = "............";
+		FinalAnswerTB->ReadOnly = true;
+	}
+}
 	};
 };
