@@ -1660,6 +1660,7 @@ namespace Familiada {
 
 					// Setup dla Gracza 2
 					aktualnyGraczFinalowy = 2;
+					finalCzasPozostaly = 50;
 					finalQuestionIndex = 0;
 					FinalPlayerLbl->Text = nazwaGracza2;
 					PokazPytanieFinalowe();
