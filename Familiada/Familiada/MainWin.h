@@ -288,6 +288,9 @@ namespace Familiada {
 	private: Label^ PunktyDruzyny1LBL;
 	private: Label^ PunktyDruzyny2LBL;
 
+	private: Label^ NazwaDruzyny1LBL;
+	private: Label^ NazwaDruzyny2LBL;
+
 	private: TGra* silnikGry;
 
 
@@ -896,10 +899,15 @@ namespace Familiada {
 			nazwaPrawa = "Dru¿yna Prawa";
 		}
 
+		NazwaDruzyny1LBL->Text = gcnew System::String(nazwaLewa.c_str());
+		NazwaDruzyny2LBL->Text = gcnew System::String(nazwaPrawa.c_str());
+
 		// Odpalamy silnik z pewnymi nazwami!
 		silnikGry->inicjalizuj(nazwaLewa, nazwaPrawa);
 		silnikGry->getDruzynaLewa()->ResetujBledy();
 		silnikGry->getDruzynaPrawa()->ResetujBledy();
+
+		silnikGry->UstawLiczbeRund(Box->GetLength(0));
 		// ==========================================
 		// [NOWE] £ADOWANIE I LOSOWANIE PYTANIA Z BAZY JSON
 		// ==========================================
@@ -1046,6 +1054,9 @@ namespace Familiada {
 
 				PokazEkran(PanelOdpowiedzi);
 				UstawAktywnaDruzyne(Druzyna::Lewa);
+
+				silnikGry->UstawWlascicielaRundy(Druzyna::Lewa);
+				silnikGry->UstawPrzejecieRundy(false);
 			}
 		}
 		else if (e->KeyCode == Keys::P)
@@ -1056,6 +1067,9 @@ namespace Familiada {
 
 				PokazEkran(PanelOdpowiedzi);
 				UstawAktywnaDruzyne(Druzyna::Prawa);
+
+				silnikGry->UstawWlascicielaRundy(Druzyna::Prawa);
+				silnikGry->UstawPrzejecieRundy(false);
 			}
 		}
 	}
@@ -1065,7 +1079,7 @@ namespace Familiada {
 
 		// PUNKTY DRU¯YNY 1
 		PunktyDruzyny1LBL = gcnew Label();
-		PunktyDruzyny1LBL->Text = "999";
+		PunktyDruzyny1LBL->Text = "0";
 		PunktyDruzyny1LBL->Size = Drawing::Size(100, 60);
 		PunktyDruzyny1LBL->Location = Point(NazwaDruzyny1TB->Left, NazwaDruzyny1TB->Bottom + 5);
 
@@ -1078,7 +1092,7 @@ namespace Familiada {
 		PanelOdpowiedzi->Controls->Add(PunktyDruzyny1LBL);
 		// PUNKTY DRU¯YNY 2
 		PunktyDruzyny2LBL = gcnew Label();
-		PunktyDruzyny2LBL->Text = "999";
+		PunktyDruzyny2LBL->Text = "0";
 		PunktyDruzyny2LBL->Size = Drawing::Size(100, 60);
 		PunktyDruzyny2LBL->Location = Point(
 			this->ClientSize.Width - PunktyDruzyny2LBL->Width - 20,
@@ -1093,7 +1107,7 @@ namespace Familiada {
 		PanelOdpowiedzi->Controls->Add(PunktyDruzyny2LBL);
 
 		// NAZWA DRUZYNY 1 
-		Label^ NazwaDruzyny1LBL = gcnew Label();
+		NazwaDruzyny1LBL = gcnew Label();
 
 		NazwaDruzyny1LBL->Text = NazwaDruzyny1TB->Text;
 		NazwaDruzyny1LBL->Font = gcnew System::Drawing::Font(pfc->Families[0], 30, FontStyle::Regular);
@@ -1115,7 +1129,7 @@ namespace Familiada {
 
 		// NAZWA DRUZYNY 2
 
-		Label^ NazwaDruzyny2LBL = gcnew Label();
+		NazwaDruzyny2LBL = gcnew Label();
 
 		NazwaDruzyny2LBL->Text = NazwaDruzyny2TB->Text;
 		NazwaDruzyny2LBL->Font = gcnew System::Drawing::Font(pfc->Families[0], 30, FontStyle::Regular);
@@ -1376,6 +1390,8 @@ namespace Familiada {
 		// Automatyczna zmiana po 3 b³êdach
 		if (czyZmianaDruzyny)
 		{
+			silnikGry->UstawPrzejecieRundy(true);
+
 			if (aktywna == Druzyna::Lewa) {
 				UstawAktywnaDruzyne(Druzyna::Prawa);
 			}
@@ -1571,15 +1587,77 @@ namespace Familiada {
 		}
 	}
 
+	private: System::Void KoniecRundyUI() {
+		// Odœwie¿enie tablic z punktami dynamicznie z silnika gry
+		PunktyDruzyny1LBL->Text = silnikGry->getDruzynaLewa()->getPunkty().ToString();
+		PunktyDruzyny2LBL->Text = silnikGry->getDruzynaPrawa()->getPunkty().ToString();
+
+		// Zerowanie puli punktów na œrodku
+		SumaPunkty->Text = "....";
+
+		// Wyœwietlenie komunikatu (tu docelowo mo¿esz podpi¹æ przejœcie do kolejnego pytania)
+		MessageBox::Show("Punkty przyznane! Runda " + silnikGry->PobierzAktualnaRunde().ToString() + " zakonczona.");
+	
+		// Przechodzimy do kolejnej rundy w silniku
+		silnikGry->InkrementujRunde();
+
+		// Sprawdzamy warunek koñca rund zasadniczych
+		if (silnikGry->CzyKoniecGry()) {
+			MessageBox::Show("Koniec rund zasadniczych! Przechodzimy do FINA£U.");
+
+			// Automatyczne przejœcie do fina³u
+			finalQuestionIndex = 0;
+			PokazPytanieFinalowe();
+			FinalPlayerLbl->Text = "GRACZ 1";
+			FinalTimerLbl->Text = "20";
+			FinalAnswerTB->Clear();
+			PokazEkran(PanelFinal);
+		}
+		else {
+			// Jeœli to nie koniec, czyœcimy stó³ i gramy dalej
+			RozpocznijNastepnaRunde();
+		}
+	}
+
+	private: System::Void RozpocznijNastepnaRunde() {
+		// 1. Reset wizualny tablicy odpowiedzi i punktów rundy
+		for (int i = 0; i < 5; i++) {
+			odpHaslo[i]->Text = "........................";
+			odpPunkty[i]->Text = "....";
+		}
+
+		// 2. Reset b³êdów (czyœci krzy¿yki na UI oraz stany w strukturach TDruzyna)
+		ResetujBledy();
+
+		// 3. Reset wizualny buzzerów (przywrócenie domyœlnych, wygaszonych grafik)
+		LewaDruzBuzzPB->Visible = true;
+		LewaDruzzBuzzONpb->Visible = false;
+		PrawaDruzBuzzPB->Visible = true;
+		PrawaDruzzBuzzONpb->Visible = false;
+		silnikGry->OdblokujBuzzery();
+
+		// 4. Losowanie nowego pytania z bazy i podmiana napisów
+		silnikGry->losujPytanie();
+		TPytanie wylosowane = silnikGry->getAktualnePytanie();
+		System::String^ trescStr = gcnew System::String(wylosowane.getTresc().c_str());
+
+		TrescPytaniaLBL->Text = trescStr;
+		TrescPytaniaLBL2->Text = trescStr;
+
+		// 5. Powrót do ekranu odliczania (PanelCzek) przed wejœciem na buzzery
+		PokazEkran(PanelCzek);
+		czasPozostaly = 6;
+		timer1->Start();
+	}
+
+	
+
 	private: System::Void SprawdzOdpowiedz() {
 		std::string wpisana = msclr::interop::marshal_as<std::string>(OdpowiedzTB->Text);
-
-		// Pytamy silnik gry, czy odpowiedŸ jest poprawna
 		int trafionyIndeks = silnikGry->SprawdzOdpowiedz(wpisana);
 
-		if (trafionyIndeks != -1) { // -1 oznacza b³¹d, inny numer to trafienie!
-
-			// Pobieramy pytanie tylko po to, ¿eby zaktualizowaæ interfejs (UI)
+		if (trafionyIndeks != -1) {
+			// --- TRAFIENIE ---
 			TPytanie& aktualne = silnikGry->getAktualnePytanie();
 			auto& odpowiedzi = aktualne.getOdpowiedzi();
 
@@ -1588,14 +1666,32 @@ namespace Familiada {
 			odpPunkty[trafionyIndeks]->Text = odpowiedzi[trafionyIndeks].punkty.ToString();
 			odpPunkty[trafionyIndeks]->Visible = true;
 
-			// Aktualizujemy etykietê z punktami ca³ej rundy
 			this->SumaPunkty->Text = silnikGry->PobierzPunktyRundy().ToString();
 			OdpowiedzTB->Text = "";
+
+			// Weryfikacja warunków koñca rundy
+			if (silnikGry->CzyRundaPrzejeta()) {
+				silnikGry->RozliczPunkty(true); // Udana kradzie¿
+				KoniecRundyUI();
+			}
+			else if (aktualne.CzyWszystkieOdkryte()) {
+				silnikGry->RozliczPunkty(true); // Wyczyszczono planszê bez kradzie¿y
+				KoniecRundyUI();
+			}
 		}
 		else {
-			// Pud³o
-			DodajBlad();
+			// --- PUD£O ---
 			OdpowiedzTB->Text = "";
+
+			if (silnikGry->CzyRundaPrzejeta()) {
+				// Nieudana próba kradzie¿y - punkty wracaj¹ do w³aœciciela
+				silnikGry->RozliczPunkty(false);
+				KoniecRundyUI();
+			}
+			else {
+				// Zwyk³y b³¹d w standardowym toku rundy
+				DodajBlad();
+			}
 		}
 	}
 	

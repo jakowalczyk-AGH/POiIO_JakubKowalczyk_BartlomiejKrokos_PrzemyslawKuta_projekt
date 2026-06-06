@@ -1,6 +1,3 @@
 ﻿  MainWin.cpp
-  TGra.cpp
-C:\Studia\6sem\POiIO\Familiada\Familiada\Familiada\TGra.cpp(7,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  Generowanie kodu...
   MainWin.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
-  Familiada.vcxproj -> C:\Studia\6sem\POiIO\Familiada\Familiada\x64\Debug\Familiada.exe
+  Familiada.vcxproj -> C:\Studia\6sem\POiIO\FAMILIADA\Familiada\x64\Debug\Familiada.exe

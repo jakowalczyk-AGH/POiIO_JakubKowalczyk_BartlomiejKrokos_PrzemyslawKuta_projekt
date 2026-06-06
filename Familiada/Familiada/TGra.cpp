@@ -167,3 +167,53 @@ bool TGra::WcisnijBuzzer(Druzyna dr) {
 void TGra::OdblokujBuzzery() {
     buzzerZablokowany = false;
 }
+
+void TGra::UstawWlascicielaRundy(Druzyna dr) {
+    wlascicielRundy = dr;
+}
+
+Druzyna TGra::PobierzWlascicielaRundy() const {
+    return wlascicielRundy;
+}
+
+void TGra::UstawPrzejecieRundy(bool wartosc) {
+    rundaPrzejeta = wartosc;
+}
+
+bool TGra::CzyRundaPrzejeta() const {
+    return rundaPrzejeta;
+}
+
+// Logika przyznawania punktów przeniesiona poza MainWin
+void TGra::RozliczPunkty(bool sukcesAktywnej) {
+    if (rundaPrzejeta) {
+        if (sukcesAktywnej) {
+            // Przejęcie udane! Kradnąca drużyna (obecnie aktywna) dostaje wszystko
+            PrzyznajPunktyDruzynie(aktywnaDruzyna);
+        }
+        else {
+            // Przejęcie nieudane! Punkty wracają do pierwotnego właściciela
+            PrzyznajPunktyDruzynie(wlascicielRundy);
+        }
+    }
+    else {
+        // Runda normalna, wszystko odkryte bez błędów
+        PrzyznajPunktyDruzynie(wlascicielRundy);
+    }
+}
+
+void TGra::UstawLiczbeRund(int ile) {
+    liczbaRund = ile;
+}
+
+int TGra::PobierzAktualnaRunde() const {
+    return aktualnaRunda;
+}
+
+void TGra::InkrementujRunde() {
+    aktualnaRunda++;
+}
+
+bool TGra::CzyKoniecGry() const {
+    return aktualnaRunda > liczbaRund;
+}

@@ -25,10 +25,10 @@
     "id": 3,
     "pytanie": "Przyklad komiksowego superbohatera",
     "odpowiedzi": [
-      { "tekst": "Superman", "punkty": 30 },
-      { "tekst": "Batman", "punkty": 24 },
-      { "tekst": "Spiderman", "punkty": 17 },
-      { "tekst": "Ironman", "punkty": 9 },
+      { "tekst": "superman", "punkty": 30 },
+      { "tekst": "batman", "punkty": 24 },
+      { "tekst": "spiderman", "punkty": 17 },
+      { "tekst": "ironman", "punkty": 9 },
       { "tekst": "kapitan ameryka", "punkty": 8 }
     ]
   },
@@ -112,7 +112,7 @@
   },
   {
     "id": 11,
-    "pytanie": "Czesc garderoby na litere \"S\"?",
+    "pytanie": "Czesc garderoby na litere S?",
     "odpowiedzi": [
       { "tekst": "spodnie", "punkty": 31 },
       { "tekst": "sweter", "punkty": 23 },

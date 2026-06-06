@@ -43,6 +43,11 @@ public:
     void DodajPunktyRundy(int pkt);
     void ResetujPunktyRundy();
 
+    void UstawLiczbeRund(int ile);
+    int PobierzAktualnaRunde() const;
+    void InkrementujRunde();
+    bool CzyKoniecGry() const;
+
     int PobierzPunktyRundy() const;
     void UstawAktywnaDruzyne(Druzyna dr);
     Druzyna PobierzAktywnaDruzyne() const;
@@ -50,6 +55,7 @@ public:
     Druzyna PobierzWlascicielaRundy() const;
     void UstawPrzejecieRundy(bool wartosc);
     bool CzyRundaPrzejeta() const;
+    void RozliczPunkty(bool sukcesAktywnej);
     void PrzyznajPunktyDruzynie(Druzyna dr);
     int PobierzBledyAktywnejDruzyny() const;
     bool DodajBladAktywnejDruzynie(); // Zwraca true, jeśli po błędzie nastąpiła zmiana drużyny
