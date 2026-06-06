@@ -1607,34 +1607,110 @@ namespace Familiada {
 		FinalTimer->Start();
 	}
 
-	/*private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
-	{
-		if (e->KeyCode == Keys::Enter)
-		{
-			finalQuestionIndex++;
-			if (finalQuestionIndex >= 5)
-			{
-				MessageBox::Show("Koniec pytan");
-				return;
-			}
+	//private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+	//{
+	//	if (e->KeyCode == Keys::Enter)
+	//	{
+	//		// 1. Zapisujemy wpisan¹ odpowiedŸ i wyliczamy punkty
+	//		String^ wpisana = FinalAnswerTB->Text;
+	//		std::string wpisanaStd = msclr::interop::marshal_as<std::string>(wpisana);
+	//		int pkt = silnikGry->SprawdzOdpowiedzFinalowa(finalQuestionIndex, wpisanaStd);
 
-			PokazPytanieFinalowe();
+	//		// Zabezpieczenie: jeœli to koniec czasu, symulowany Enter móg³by zapisaæ "............" jako odpowiedŸ
+	//		if (finalCzasPozostaly <= 0 && FinalAnswerTB->Text == "............") {
+	//			wpisana = "BRAK CZASU";
+	//			pkt = 0;
+	//		}
 
-			FinalAnswerTB->Text = "............";
-			FinalAnswerTB->ReadOnly = true;
+	//		// 2. Wrzucamy do odpowiedniego worka
+	//		if (aktualnyGraczFinalowy == 1) {
+	//			odpGracz1[finalQuestionIndex] = wpisana;
+	//			pktGracz1[finalQuestionIndex] = pkt;
+	//		}
+	//		else {
+	//			odpGracz2[finalQuestionIndex] = wpisana;
+	//			pktGracz2[finalQuestionIndex] = pkt;
+	//		}
 
-			e->SuppressKeyPress = true;
-		}
-	}*/
+	//		// Przechodzimy do kolejnego pytania
+	//		finalQuestionIndex++;
+
+	//		// 3. Sprawdzamy czy to koniec tury gracza (odpowiedzia³ na 5 pytañ LUB skoñczy³ mu siê czas)
+	//		if (finalQuestionIndex >= 5 || finalCzasPozostaly <= 0)
+	//		{
+	//			e->SuppressKeyPress = true; // Ucisza beep
+
+	//			if (aktualnyGraczFinalowy == 1) {
+	//				// Koniec Gracza 1 - okienko z podsumowaniem
+	//				PokazPodsumowanieGracza1();
+
+	//				// Setup dla Gracza 2
+	//				aktualnyGraczFinalowy = 2;
+	//				finalCzasPozostaly = 50; // Reset zegara dla drugiego gracza
+	//				finalQuestionIndex = 0;
+	//				FinalPlayerLbl->Text = nazwaGracza2;
+	//				PokazPytanieFinalowe();
+
+	//				FinalAnswerTB->Text = "............";
+	//				FinalAnswerTB->ReadOnly = true;
+	//			}
+	//			else {
+	//				// Koniec Gracza 2 - okienko fina³owe ca³ej gry!
+	//				PokazPodsumowanieKoncowe();
+	//			}
+	//			return; // Zakoñczenie metody, bo zmieniamy gracza lub koñczymy grê
+	//		}
+
+	//		// 4. Jeœli gramy dalej (index < 5 i jest czas), odœwie¿amy UI dla kolejnego pytania
+	//		PokazPytanieFinalowe();
+	//		FinalAnswerTB->Text = "............";
+	//		FinalAnswerTB->ReadOnly = true;
+
+	//		e->SuppressKeyPress = true;
+	//	}
+	//}
 
 	private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
-			// 1. Zapisujemy wpisan¹ odpowiedŸ i wyliczamy punkty
 			String^ wpisana = FinalAnswerTB->Text;
+
+			// =========================================================
+			// 1. SPRAWDZANIE DUPLIKATÓW DLA GRACZA 2
+			// =========================================================
+			if (aktualnyGraczFinalowy == 2 && finalCzasPozostaly > 0)
+			{
+				bool czyByla = false;
+				for (int i = 0; i < 5; i++)
+				{
+					// Sprawdzamy ignoruj¹c wielkoœæ liter
+					if (String::Equals(wpisana, odpGracz1[i], StringComparison::OrdinalIgnoreCase))
+					{
+						czyByla = true;
+						break;
+					}
+				}
+
+				if (czyByla)
+				{
+					// Wyœwietlamy ostrze¿enie, czyœcimy pole i przerywamy klawisz Enter
+					MessageBox::Show("BZZZZ! Ta odpowiedŸ ju¿ pad³a! Musisz wymyœliæ coœ innego.", "Powtórka", MessageBoxButtons::OK, MessageBoxIcon::Warning);
+					FinalAnswerTB->Text = "";
+					e->SuppressKeyPress = true;
+					return; // Wychodzimy st¹d, ¿eby gracz musia³ wpisaæ now¹ odpowiedŸ
+				}
+			}
+			// =========================================================
+
 			std::string wpisanaStd = msclr::interop::marshal_as<std::string>(wpisana);
 			int pkt = silnikGry->SprawdzOdpowiedzFinalowa(finalQuestionIndex, wpisanaStd);
+
+			// Zabezpieczenie na koniec czasu
+			if (finalCzasPozostaly <= 0 && FinalAnswerTB->Text == "............") {
+				wpisana = "BRAK CZASU";
+				pkt = 0;
+			}
 
 			// 2. Wrzucamy do odpowiedniego worka
 			if (aktualnyGraczFinalowy == 1) {
@@ -1646,36 +1722,17 @@ namespace Familiada {
 				pktGracz2[finalQuestionIndex] = pkt;
 			}
 
-			// Przechodzimy do kolejnego pytania
 			finalQuestionIndex++;
 
-			if (finalCzasPozostaly == 0) {
-				// Koniec Gracza 1 - okienko z podsumowaniem
-				PokazPodsumowanieGracza1();
-
-				// Setup dla Gracza 2
-				aktualnyGraczFinalowy = 2;
-				finalCzasPozostaly = 50;
-				finalQuestionIndex = 0;
-				FinalPlayerLbl->Text = nazwaGracza2;
-				PokazPytanieFinalowe();
-
-				FinalAnswerTB->Text = "............";
-				FinalAnswerTB->ReadOnly = true;
-			}
-			else {
-				// Koniec Gracza 2 - okienko fina³owe ca³ej gry!
-				PokazPodsumowanieKoncowe();
-			}
-			return;
-
 			// 3. Sprawdzamy czy to koniec tury gracza
-			if (finalQuestionIndex >= 5)
+			if (finalQuestionIndex >= 5 || finalCzasPozostaly <= 0)
 			{
-				e->SuppressKeyPress = true; // Ucisza beep
+				e->SuppressKeyPress = true;
+
+				// ZATRZYMUJEMY ZEGAR W MOMENCIE UKOÑCZENIA PYTAÑ LUB CZASU!
+				FinalTimer->Stop();
 
 				if (aktualnyGraczFinalowy == 1) {
-					// Koniec Gracza 1 - okienko z podsumowaniem
 					PokazPodsumowanieGracza1();
 
 					// Setup dla Gracza 2
@@ -1683,19 +1740,21 @@ namespace Familiada {
 					finalCzasPozostaly = 50;
 					finalQuestionIndex = 0;
 					FinalPlayerLbl->Text = nazwaGracza2;
+
+					// To wywo³anie od nowa wystartuje zatrzymany wy¿ej zegar
 					PokazPytanieFinalowe();
 
 					FinalAnswerTB->Text = "............";
 					FinalAnswerTB->ReadOnly = true;
 				}
 				else {
-					// Koniec Gracza 2 - okienko fina³owe ca³ej gry!
+					// Po zatrzymaniu zegara pokazujemy ostateczne okno
 					PokazPodsumowanieKoncowe();
 				}
 				return;
 			}
 
-			// Odœwie¿enie UI dla kolejnego pytania (jeœli index < 5)
+			// 4. Jeœli gramy dalej, odœwie¿amy UI
 			PokazPytanieFinalowe();
 			FinalAnswerTB->Text = "............";
 			FinalAnswerTB->ReadOnly = true;

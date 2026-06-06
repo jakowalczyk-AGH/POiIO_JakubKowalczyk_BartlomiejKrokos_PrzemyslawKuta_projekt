@@ -3,3254 +3,1365 @@
     "id": 1,
     "pytanie": "Jakie zwierze mozesz spotkac podczas spaceru przez pola?",
     "odpowiedzi": [
-      {
-        "tekst": "krowa",
-        "punkty": 35
-      },
-      {
-        "tekst": "zajac",
-        "punkty": 19
-      },
-      {
-        "tekst": "sarna",
-        "punkty": 14
-      },
-      {
-        "tekst": "bocian",
-        "punkty": 12
-      },
-      {
-        "tekst": "mysz",
-        "punkty": 7
-      }
+      { "tekst": "krowa", "punkty": 35 },
+      { "tekst": "zajac", "punkty": 19 },
+      { "tekst": "sarna", "punkty": 14 },
+      { "tekst": "bocian", "punkty": 12 },
+      { "tekst": "mysz", "punkty": 7 }
     ]
   },
   {
     "id": 2,
     "pytanie": "Co kupujemy w tubce?",
     "odpowiedzi": [
-      {
-        "tekst": "pasta do zebow",
-        "punkty": 33
-      },
-      {
-        "tekst": "krem do rak",
-        "punkty": 19
-      },
-      {
-        "tekst": "klej",
-        "punkty": 14
-      },
-      {
-        "tekst": "farba",
-        "punkty": 12
-      },
-      {
-        "tekst": "mleko",
-        "punkty": 8
-      }
+      { "tekst": "pasta do zebow", "punkty": 33 },
+      { "tekst": "krem do rak", "punkty": 19 },
+      { "tekst": "klej", "punkty": 14 },
+      { "tekst": "farba", "punkty": 12 },
+      { "tekst": "mleko", "punkty": 8 }
     ]
   },
   {
     "id": 3,
     "pytanie": "Przyklad komiksowego superbohatera",
     "odpowiedzi": [
-      {
-        "tekst": "superman",
-        "punkty": 30
-      },
-      {
-        "tekst": "batman",
-        "punkty": 24
-      },
-      {
-        "tekst": "spiderman",
-        "punkty": 17
-      },
-      {
-        "tekst": "ironman",
-        "punkty": 9
-      },
-      {
-        "tekst": "kapitan ameryka",
-        "punkty": 8
-      }
+      { "tekst": "superman", "punkty": 30 },
+      { "tekst": "batman", "punkty": 24 },
+      { "tekst": "spiderman", "punkty": 17 },
+      { "tekst": "ironman", "punkty": 9 },
+      { "tekst": "kapitan ameryka", "punkty": 8 }
     ]
   },
   {
     "id": 4,
     "pytanie": "Sport, w ktorym walczymy z przeciwnikiem, ale go nie dotykamy",
     "odpowiedzi": [
-      {
-        "tekst": "tenis",
-        "punkty": 31
-      },
-      {
-        "tekst": "tenis stolowy",
-        "punkty": 24
-      },
-      {
-        "tekst": "siatkowka",
-        "punkty": 18
-      },
-      {
-        "tekst": "badminton",
-        "punkty": 12
-      },
-      {
-        "tekst": "szachy",
-        "punkty": 8
-      }
+      { "tekst": "tenis", "punkty": 31 },
+      { "tekst": "tenis stolowy", "punkty": 24 },
+      { "tekst": "siatkowka", "punkty": 18 },
+      { "tekst": "badminton", "punkty": 12 },
+      { "tekst": "szachy", "punkty": 8 }
     ]
   },
   {
     "id": 5,
     "pytanie": "Wymien przyklad emocji",
     "odpowiedzi": [
-      {
-        "tekst": "strach",
-        "punkty": 21
-      },
-      {
-        "tekst": "zlosc",
-        "punkty": 16
-      },
-      {
-        "tekst": "wstret",
-        "punkty": 14
-      },
-      {
-        "tekst": "smutek",
-        "punkty": 11
-      },
-      {
-        "tekst": "radosc",
-        "punkty": 11
-      },
-      {
-        "tekst": "zaskoczenie",
-        "punkty": 11
-      }
+      { "tekst": "strach", "punkty": 21 },
+      { "tekst": "zlosc", "punkty": 16 },
+      { "tekst": "wstret", "punkty": 14 },
+      { "tekst": "smutek", "punkty": 11 },
+      { "tekst": "radosc", "punkty": 11 },
+      { "tekst": "zaskoczenie", "punkty": 11 }
     ]
   },
   {
     "id": 6,
     "pytanie": "Panstwo, ktorego nazwa konczy sie na -nia",
     "odpowiedzi": [
-      {
-        "tekst": "dania",
-        "punkty": 28
-      },
-      {
-        "tekst": "hiszpania",
-        "punkty": 18
-      },
-      {
-        "tekst": "japonia",
-        "punkty": 10
-      },
-      {
-        "tekst": "estonia",
-        "punkty": 5
-      },
-      {
-        "tekst": "rumunia",
-        "punkty": 4
-      }
+      { "tekst": "dania", "punkty": 28 },
+      { "tekst": "hiszpania", "punkty": 18 },
+      { "tekst": "japonia", "punkty": 10 },
+      { "tekst": "estonia", "punkty": 5 },
+      { "tekst": "rumunia", "punkty": 4 }
     ]
   },
   {
     "id": 7,
     "pytanie": "Co jest w pociagu i w domu?",
     "odpowiedzi": [
-      {
-        "tekst": "okna",
-        "punkty": 35
-      },
-      {
-        "tekst": "drzwi",
-        "punkty": 29
-      },
-      {
-        "tekst": "toaleta",
-        "punkty": 14
-      },
-      {
-        "tekst": "fotele",
-        "punkty": 12
-      },
-      {
-        "tekst": "ludzie",
-        "punkty": 9
-      }
+      { "tekst": "okna", "punkty": 35 },
+      { "tekst": "drzwi", "punkty": 29 },
+      { "tekst": "toaleta", "punkty": 14 },
+      { "tekst": "fotele", "punkty": 12 },
+      { "tekst": "ludzie", "punkty": 9 }
     ]
   },
   {
     "id": 8,
     "pytanie": "Dyscyplina sportowa w ktorej zawodnicy wystepuja w parach?",
     "odpowiedzi": [
-      {
-        "tekst": "jazda figurowa",
-        "punkty": 32
-      },
-      {
-        "tekst": "tenis ziemny",
-        "punkty": 24
-      },
-      {
-        "tekst": "tenis stolowy",
-        "punkty": 14
-      },
-      {
-        "tekst": "wioslarstwo",
-        "punkty": 12
-      },
-      {
-        "tekst": "siatkowka plazowa",
-        "punkty": 2
-      }
+      { "tekst": "jazda figurowa", "punkty": 32 },
+      { "tekst": "tenis ziemny", "punkty": 24 },
+      { "tekst": "tenis stolowy", "punkty": 14 },
+      { "tekst": "wioslarstwo", "punkty": 12 },
+      { "tekst": "siatkowka plazowa", "punkty": 2 }
     ]
   },
   {
     "id": 9,
     "pytanie": "Czym moze byc pokryty dach?",
     "odpowiedzi": [
-      {
-        "tekst": "dachowka",
-        "punkty": 28
-      },
-      {
-        "tekst": "blacha",
-        "punkty": 25
-      },
-      {
-        "tekst": "papa",
-        "punkty": 14
-      },
-      {
-        "tekst": "eternit",
-        "punkty": 13
-      },
-      {
-        "tekst": "gont",
-        "punkty": 2
-      }
+      { "tekst": "dachowka", "punkty": 28 },
+      { "tekst": "blacha", "punkty": 25 },
+      { "tekst": "papa", "punkty": 14 },
+      { "tekst": "eternit", "punkty": 13 },
+      { "tekst": "gont", "punkty": 2 }
     ]
   },
   {
     "id": 10,
     "pytanie": "Co potrafia robic ptaki?",
     "odpowiedzi": [
-      {
-        "tekst": "latanie",
-        "punkty": 36
-      },
-      {
-        "tekst": "spiewanie",
-        "punkty": 24
-      },
-      {
-        "tekst": "znoszenie jaj",
-        "punkty": 14
-      },
-      {
-        "tekst": "polowanie",
-        "punkty": 12
-      },
-      {
-        "tekst": "wicie gniazd",
-        "punkty": 2
-      }
+      { "tekst": "latanie", "punkty": 36 },
+      { "tekst": "spiewanie", "punkty": 24 },
+      { "tekst": "znoszenie jaj", "punkty": 14 },
+      { "tekst": "polowanie", "punkty": 12 },
+      { "tekst": "wicie gniazd", "punkty": 2 }
     ]
   },
   {
     "id": 11,
     "pytanie": "Czesc garderoby na litere S?",
     "odpowiedzi": [
-      {
-        "tekst": "spodnie",
-        "punkty": 31
-      },
-      {
-        "tekst": "sweter",
-        "punkty": 23
-      },
-      {
-        "tekst": "sukienka",
-        "punkty": 14
-      },
-      {
-        "tekst": "spodnica",
-        "punkty": 12
-      },
-      {
-        "tekst": "szorty",
-        "punkty": 5
-      }
+      { "tekst": "spodnie", "punkty": 31 },
+      { "tekst": "sweter", "punkty": 23 },
+      { "tekst": "sukienka", "punkty": 14 },
+      { "tekst": "spodnica", "punkty": 12 },
+      { "tekst": "szorty", "punkty": 5 }
     ]
   },
   {
     "id": 12,
     "pytanie": "Co robimy w pociagu?",
     "odpowiedzi": [
-      {
-        "tekst": "czytanie",
-        "punkty": 32
-      },
-      {
-        "tekst": "spanie",
-        "punkty": 24
-      },
-      {
-        "tekst": "rozmawianie",
-        "punkty": 14
-      },
-      {
-        "tekst": "sluchanie muzyki",
-        "punkty": 12
-      },
-      {
-        "tekst": "wygladanie przez okno",
-        "punkty": 2
-      }
+      { "tekst": "czytanie", "punkty": 32 },
+      { "tekst": "spanie", "punkty": 24 },
+      { "tekst": "rozmawianie", "punkty": 14 },
+      { "tekst": "sluchanie muzyki", "punkty": 12 },
+      { "tekst": "wygladanie przez okno", "punkty": 2 }
     ]
   },
   {
     "id": 13,
     "pytanie": "Co znajduje sie w lazience?",
     "odpowiedzi": [
-      {
-        "tekst": "mydlo",
-        "punkty": 37
-      },
-      {
-        "tekst": "szampon",
-        "punkty": 27
-      },
-      {
-        "tekst": "szczoteczka do zebow",
-        "punkty": 14
-      },
-      {
-        "tekst": "recznik",
-        "punkty": 11
-      },
-      {
-        "tekst": "lustro",
-        "punkty": 7
-      }
+      { "tekst": "mydlo", "punkty": 37 },
+      { "tekst": "szampon", "punkty": 27 },
+      { "tekst": "szczoteczka do zebow", "punkty": 14 },
+      { "tekst": "recznik", "punkty": 11 },
+      { "tekst": "lustro", "punkty": 7 }
     ]
   },
   {
     "id": 14,
     "pytanie": "Czego szukamy w szafce kuchennej?",
     "odpowiedzi": [
-      {
-        "tekst": "przyprawy",
-        "punkty": 38
-      },
-      {
-        "tekst": "makaron",
-        "punkty": 21
-      },
-      {
-        "tekst": "cukier",
-        "punkty": 18
-      },
-      {
-        "tekst": "herbata",
-        "punkty": 14
-      },
-      {
-        "tekst": "sloiki",
-        "punkty": 4
-      }
+      { "tekst": "przyprawy", "punkty": 38 },
+      { "tekst": "makaron", "punkty": 21 },
+      { "tekst": "cukier", "punkty": 18 },
+      { "tekst": "herbata", "punkty": 14 },
+      { "tekst": "sloiki", "punkty": 4 }
     ]
   },
   {
     "id": 15,
     "pytanie": "Jakie zwierze mozna miec w domu?",
     "odpowiedzi": [
-      {
-        "tekst": "pies",
-        "punkty": 29
-      },
-      {
-        "tekst": "kot",
-        "punkty": 24
-      },
-      {
-        "tekst": "rybki",
-        "punkty": 21
-      },
-      {
-        "tekst": "swinka morska",
-        "punkty": 13
-      },
-      {
-        "tekst": "chomik",
-        "punkty": 10
-      }
+      { "tekst": "pies", "punkty": 29 },
+      { "tekst": "kot", "punkty": 24 },
+      { "tekst": "rybki", "punkty": 21 },
+      { "tekst": "swinka morska", "punkty": 13 },
+      { "tekst": "chomik", "punkty": 10 }
     ]
   },
   {
     "id": 16,
     "pytanie": "Co mozna robic w parku?",
     "odpowiedzi": [
-      {
-        "tekst": "spacerowanie",
-        "punkty": 38
-      },
-      {
-        "tekst": "piknik",
-        "punkty": 23
-      },
-      {
-        "tekst": "bieganie",
-        "punkty": 21
-      },
-      {
-        "tekst": "jazda na rowerze",
-        "punkty": 8
-      },
-      {
-        "tekst": "czytanie ksiazki",
-        "punkty": 6
-      }
+      { "tekst": "spacerowanie", "punkty": 38 },
+      { "tekst": "piknik", "punkty": 23 },
+      { "tekst": "bieganie", "punkty": 21 },
+      { "tekst": "jazda na rowerze", "punkty": 8 },
+      { "tekst": "czytanie ksiazki", "punkty": 6 }
     ]
   },
   {
     "id": 17,
     "pytanie": "Jaki sport uprawiamy na swiezym powietrzu?",
     "odpowiedzi": [
-      {
-        "tekst": "bieganie",
-        "punkty": 31
-      },
-      {
-        "tekst": "pilka nozna",
-        "punkty": 26
-      },
-      {
-        "tekst": "jazda na rowerze",
-        "punkty": 23
-      },
-      {
-        "tekst": "siatkowka plazowa",
-        "punkty": 10
-      },
-      {
-        "tekst": "tenis",
-        "punkty": 6
-      }
+      { "tekst": "bieganie", "punkty": 31 },
+      { "tekst": "pilka nozna", "punkty": 26 },
+      { "tekst": "jazda na rowerze", "punkty": 23 },
+      { "tekst": "siatkowka plazowa", "punkty": 10 },
+      { "tekst": "tenis", "punkty": 6 }
     ]
   },
   {
     "id": 18,
     "pytanie": "Jakie zwierze spotykamy w lesie?",
     "odpowiedzi": [
-      {
-        "tekst": "sarna",
-        "punkty": 26
-      },
-      {
-        "tekst": "dzik",
-        "punkty": 22
-      },
-      {
-        "tekst": "zajac",
-        "punkty": 20
-      },
-      {
-        "tekst": "wiewiorka",
-        "punkty": 15
-      },
-      {
-        "tekst": "lis",
-        "punkty": 12
-      }
+      { "tekst": "sarna", "punkty": 26 },
+      { "tekst": "dzik", "punkty": 22 },
+      { "tekst": "zajac", "punkty": 20 },
+      { "tekst": "wiewiorka", "punkty": 15 },
+      { "tekst": "lis", "punkty": 12 }
     ]
   },
   {
     "id": 19,
     "pytanie": "Co robimy po wstaniu z lozka?",
     "odpowiedzi": [
-      {
-        "tekst": "scielenie lozka",
-        "punkty": 33
-      },
-      {
-        "tekst": "mycie zebow",
-        "punkty": 25
-      },
-      {
-        "tekst": "jedzenie sniadania",
-        "punkty": 20
-      },
-      {
-        "tekst": "picie kawy",
-        "punkty": 12
-      },
-      {
-        "tekst": "ubieranie sie",
-        "punkty": 6
-      }
+      { "tekst": "scielenie lozka", "punkty": 33 },
+      { "tekst": "mycie zebow", "punkty": 25 },
+      { "tekst": "jedzenie sniadania", "punkty": 20 },
+      { "tekst": "picie kawy", "punkty": 12 },
+      { "tekst": "ubieranie sie", "punkty": 6 }
     ]
   },
   {
     "id": 20,
     "pytanie": "Czego ludzie boja sie w nocy?",
     "odpowiedzi": [
-      {
-        "tekst": "ciemnosc",
-        "punkty": 28
-      },
-      {
-        "tekst": "potwory",
-        "punkty": 22
-      },
-      {
-        "tekst": "koszmary",
-        "punkty": 19
-      },
-      {
-        "tekst": "halas",
-        "punkty": 16
-      },
-      {
-        "tekst": "wlamywacze",
-        "punkty": 11
-      }
+      { "tekst": "ciemnosc", "punkty": 28 },
+      { "tekst": "potwory", "punkty": 22 },
+      { "tekst": "koszmary", "punkty": 19 },
+      { "tekst": "halas", "punkty": 16 },
+      { "tekst": "wlamywacze", "punkty": 11 }
     ]
   },
   {
     "id": 21,
     "pytanie": "Jakie urzadzenie elektryczne jest w kazdym domu?",
     "odpowiedzi": [
-      {
-        "tekst": "lodowka",
-        "punkty": 34
-      },
-      {
-        "tekst": "telewizor",
-        "punkty": 23
-      },
-      {
-        "tekst": "pralka",
-        "punkty": 22
-      },
-      {
-        "tekst": "mikrofala",
-        "punkty": 13
-      },
-      {
-        "tekst": "czajnik",
-        "punkty": 4
-      }
+      { "tekst": "lodowka", "punkty": 34 },
+      { "tekst": "telewizor", "punkty": 23 },
+      { "tekst": "pralka", "punkty": 22 },
+      { "tekst": "mikrofala", "punkty": 13 },
+      { "tekst": "czajnik", "punkty": 4 }
     ]
   },
   {
     "id": 22,
     "pytanie": "Co wkladamy pod choinke?",
     "odpowiedzi": [
-      {
-        "tekst": "prezenty",
-        "punkty": 35
-      },
-      {
-        "tekst": "swiatelka",
-        "punkty": 29
-      },
-      {
-        "tekst": "ozdoby",
-        "punkty": 17
-      },
-      {
-        "tekst": "stroik",
-        "punkty": 12
-      },
-      {
-        "tekst": "pierniczki",
-        "punkty": 3
-      }
+      { "tekst": "prezenty", "punkty": 35 },
+      { "tekst": "swiatelka", "punkty": 29 },
+      { "tekst": "ozdoby", "punkty": 17 },
+      { "tekst": "stroik", "punkty": 12 },
+      { "tekst": "pierniczki", "punkty": 3 }
     ]
   },
   {
     "id": 23,
     "pytanie": "Co podajemy na swiateczny obiad?",
     "odpowiedzi": [
-      {
-        "tekst": "barszcz czerwony z uszkami",
-        "punkty": 30
-      },
-      {
-        "tekst": "zupa grzybowa",
-        "punkty": 24
-      },
-      {
-        "tekst": "karp",
-        "punkty": 20
-      },
-      {
-        "tekst": "pierogi",
-        "punkty": 13
-      },
-      {
-        "tekst": "sernik",
-        "punkty": 8
-      }
+      { "tekst": "barszcz czerwony z uszkami", "punkty": 30 },
+      { "tekst": "zupa grzybowa", "punkty": 24 },
+      { "tekst": "karp", "punkty": 20 },
+      { "tekst": "pierogi", "punkty": 13 },
+      { "tekst": "sernik", "punkty": 8 }
     ]
   },
   {
     "id": 24,
     "pytanie": "Jakie atrakcje sa na weselach?",
     "odpowiedzi": [
-      {
-        "tekst": "oczepiny",
-        "punkty": 36
-      },
-      {
-        "tekst": "pierwszy taniec",
-        "punkty": 33
-      },
-      {
-        "tekst": "tort weselny",
-        "punkty": 13
-      },
-      {
-        "tekst": "konkursy",
-        "punkty": 9
-      },
-      {
-        "tekst": "zespol muzyczny",
-        "punkty": 5
-      }
+      { "tekst": "oczepiny", "punkty": 36 },
+      { "tekst": "pierwszy taniec", "punkty": 33 },
+      { "tekst": "tort weselny", "punkty": 13 },
+      { "tekst": "konkursy", "punkty": 9 },
+      { "tekst": "zespol muzyczny", "punkty": 5 }
     ]
   },
   {
     "id": 25,
     "pytanie": "Co mozna robic w deszczowy dzien?",
     "odpowiedzi": [
-      {
-        "tekst": "ogladanie telewizji",
-        "punkty": 36
-      },
-      {
-        "tekst": "czytanie ksiazek",
-        "punkty": 25
-      },
-      {
-        "tekst": "granie w gry",
-        "punkty": 16
-      },
-      {
-        "tekst": "picie herbaty",
-        "punkty": 15
-      },
-      {
-        "tekst": "sluchanie muzyki",
-        "punkty": 4
-      }
+      { "tekst": "ogladanie telewizji", "punkty": 36 },
+      { "tekst": "czytanie ksiazek", "punkty": 25 },
+      { "tekst": "granie w gry", "punkty": 16 },
+      { "tekst": "picie herbaty", "punkty": 15 },
+      { "tekst": "sluchanie muzyki", "punkty": 4 }
     ]
   },
   {
     "id": 26,
     "pytanie": "Jakie programy ogladamy w telewizji?",
     "odpowiedzi": [
-      {
-        "tekst": "seriale",
-        "punkty": 30
-      },
-      {
-        "tekst": "wiadomosci",
-        "punkty": 27
-      },
-      {
-        "tekst": "programy rozrywkowe",
-        "punkty": 14
-      },
-      {
-        "tekst": "filmy",
-        "punkty": 13
-      },
-      {
-        "tekst": "sport",
-        "punkty": 11
-      }
+      { "tekst": "seriale", "punkty": 30 },
+      { "tekst": "wiadomosci", "punkty": 27 },
+      { "tekst": "programy rozrywkowe", "punkty": 14 },
+      { "tekst": "filmy", "punkty": 13 },
+      { "tekst": "sport", "punkty": 11 }
     ]
   },
   {
     "id": 27,
     "pytanie": "Z czego slynie Francja?",
     "odpowiedzi": [
-      {
-        "tekst": "wieza eiffla",
-        "punkty": 39
-      },
-      {
-        "tekst": "szampan",
-        "punkty": 27
-      },
-      {
-        "tekst": "luwr",
-        "punkty": 16
-      },
-      {
-        "tekst": "wino",
-        "punkty": 9
-      },
-      {
-        "tekst": "festiwal filmowy w cannes",
-        "punkty": 6
-      }
+      { "tekst": "wieza eiffla", "punkty": 39 },
+      { "tekst": "szampan", "punkty": 27 },
+      { "tekst": "luwr", "punkty": 16 },
+      { "tekst": "wino", "punkty": 9 },
+      { "tekst": "festiwal filmowy w cannes", "punkty": 6 }
     ]
   },
   {
     "id": 28,
     "pytanie": "Wymien miejsce, w ktorym mozna plywac:",
     "odpowiedzi": [
-      {
-        "tekst": "morze",
-        "punkty": 32
-      },
-      {
-        "tekst": "basen",
-        "punkty": 26
-      },
-      {
-        "tekst": "jezioro",
-        "punkty": 20
-      },
-      {
-        "tekst": "ocean",
-        "punkty": 11
-      },
-      {
-        "tekst": "rzeka",
-        "punkty": 7
-      }
+      { "tekst": "morze", "punkty": 32 },
+      { "tekst": "basen", "punkty": 26 },
+      { "tekst": "jezioro", "punkty": 20 },
+      { "tekst": "ocean", "punkty": 11 },
+      { "tekst": "rzeka", "punkty": 7 }
     ]
   },
   {
     "id": 29,
     "pytanie": "Podaj przyklad ptaka, ktory ma plewiaste stopy:",
     "odpowiedzi": [
-      {
-        "tekst": "kaczka",
-        "punkty": 32
-      },
-      {
-        "tekst": "labedz",
-        "punkty": 27
-      },
-      {
-        "tekst": "pingwin",
-        "punkty": 20
-      },
-      {
-        "tekst": "ges",
-        "punkty": 14
-      },
-      {
-        "tekst": "albatros",
-        "punkty": 4
-      }
+      { "tekst": "kaczka", "punkty": 32 },
+      { "tekst": "labedz", "punkty": 27 },
+      { "tekst": "pingwin", "punkty": 20 },
+      { "tekst": "ges", "punkty": 14 },
+      { "tekst": "albatros", "punkty": 4 }
     ]
   },
   {
     "id": 30,
     "pytanie": "Jakie zwierze mozna spotkac w Indiach?",
     "odpowiedzi": [
-      {
-        "tekst": "nosorozec",
-        "punkty": 31
-      },
-      {
-        "tekst": "tygrys",
-        "punkty": 27
-      },
-      {
-        "tekst": "slon",
-        "punkty": 19
-      },
-      {
-        "tekst": "waz",
-        "punkty": 13
-      },
-      {
-        "tekst": "lampart",
-        "punkty": 6
-      }
+      { "tekst": "nosorozec", "punkty": 31 },
+      { "tekst": "tygrys", "punkty": 27 },
+      { "tekst": "slon", "punkty": 19 },
+      { "tekst": "waz", "punkty": 13 },
+      { "tekst": "lampart", "punkty": 6 }
     ]
   },
   {
     "id": 31,
     "pytanie": "Na czym mozna sluchac muzyki?",
     "odpowiedzi": [
-      {
-        "tekst": "telefon komorkowy",
-        "punkty": 31
-      },
-      {
-        "tekst": "radio",
-        "punkty": 26
-      },
-      {
-        "tekst": "komputer",
-        "punkty": 17
-      },
-      {
-        "tekst": "sluchawki",
-        "punkty": 14
-      },
-      {
-        "tekst": "odtwarzacz mp3",
-        "punkty": 7
-      }
+      { "tekst": "telefon komorkowy", "punkty": 31 },
+      { "tekst": "radio", "punkty": 26 },
+      { "tekst": "komputer", "punkty": 17 },
+      { "tekst": "sluchawki", "punkty": 14 },
+      { "tekst": "odtwarzacz mp3", "punkty": 7 }
     ]
   },
   {
     "id": 32,
     "pytanie": "Co moze kojarzyc sie z czarownicami?",
     "odpowiedzi": [
-      {
-        "tekst": "miotla",
-        "punkty": 31
-      },
-      {
-        "tekst": "magia",
-        "punkty": 28
-      },
-      {
-        "tekst": "kapelusz",
-        "punkty": 19
-      },
-      {
-        "tekst": "kociolek",
-        "punkty": 11
-      },
-      {
-        "tekst": "czarny kot",
-        "punkty": 8
-      }
+      { "tekst": "miotla", "punkty": 31 },
+      { "tekst": "magia", "punkty": 28 },
+      { "tekst": "kapelusz", "punkty": 19 },
+      { "tekst": "kociolek", "punkty": 11 },
+      { "tekst": "czarny kot", "punkty": 8 }
     ]
   },
   {
     "id": 33,
     "pytanie": "Co mozna powiesic?",
     "odpowiedzi": [
-      {
-        "tekst": "kosz",
-        "punkty": 30
-      },
-      {
-        "tekst": "plecak",
-        "punkty": 25
-      },
-      {
-        "tekst": "lustro",
-        "punkty": 21
-      },
-      {
-        "tekst": "obrazek",
-        "punkty": 15
-      },
-      {
-        "tekst": "dzielo sztuki",
-        "punkty": 6
-      }
+      { "tekst": "kosz", "punkty": 30 },
+      { "tekst": "plecak", "punkty": 25 },
+      { "tekst": "lustro", "punkty": 21 },
+      { "tekst": "obrazek", "punkty": 15 },
+      { "tekst": "dzielo sztuki", "punkty": 6 }
     ]
   },
   {
     "id": 34,
     "pytanie": "Wymien skladniki salatki owocowej:",
     "odpowiedzi": [
-      {
-        "tekst": "truskawki",
-        "punkty": 29
-      },
-      {
-        "tekst": "winogrona",
-        "punkty": 27
-      },
-      {
-        "tekst": "jablka",
-        "punkty": 21
-      },
-      {
-        "tekst": "brzoskwinie",
-        "punkty": 11
-      },
-      {
-        "tekst": "ananas",
-        "punkty": 7
-      }
+      { "tekst": "truskawki", "punkty": 29 },
+      { "tekst": "winogrona", "punkty": 27 },
+      { "tekst": "jablka", "punkty": 21 },
+      { "tekst": "brzoskwinie", "punkty": 11 },
+      { "tekst": "ananas", "punkty": 7 }
     ]
   },
   {
     "id": 35,
     "pytanie": "Jakie rzeczy moga zniknac za sprawa magika?",
     "odpowiedzi": [
-      {
-        "tekst": "krolik",
-        "punkty": 29
-      },
-      {
-        "tekst": "osoba",
-        "punkty": 24
-      },
-      {
-        "tekst": "karta",
-        "punkty": 19
-      },
-      {
-        "tekst": "kapelusz",
-        "punkty": 15
-      },
-      {
-        "tekst": "pieniadze",
-        "punkty": 8
-      }
+      { "tekst": "krolik", "punkty": 29 },
+      { "tekst": "osoba", "punkty": 24 },
+      { "tekst": "karta", "punkty": 19 },
+      { "tekst": "kapelusz", "punkty": 15 },
+      { "tekst": "pieniadze", "punkty": 8 }
     ]
   },
   {
     "id": 36,
     "pytanie": "Jakie zwierze mozna spotkac w Australii?",
     "odpowiedzi": [
-      {
-        "tekst": "kangur",
-        "punkty": 31
-      },
-      {
-        "tekst": "skorpion",
-        "punkty": 23
-      },
-      {
-        "tekst": "pajak",
-        "punkty": 20
-      },
-      {
-        "tekst": "koala",
-        "punkty": 14
-      },
-      {
-        "tekst": "kolczatka",
-        "punkty": 9
-      }
+      { "tekst": "kangur", "punkty": 31 },
+      { "tekst": "skorpion", "punkty": 23 },
+      { "tekst": "pajak", "punkty": 20 },
+      { "tekst": "koala", "punkty": 14 },
+      { "tekst": "kolczatka", "punkty": 9 }
     ]
   },
   {
     "id": 37,
     "pytanie": "Na co mozna sie wspiac?",
     "odpowiedzi": [
-      {
-        "tekst": "wzgorza",
-        "punkty": 32
-      },
-      {
-        "tekst": "klif",
-        "punkty": 27
-      },
-      {
-        "tekst": "drzewo",
-        "punkty": 19
-      },
-      {
-        "tekst": "gora",
-        "punkty": 12
-      },
-      {
-        "tekst": "dach",
-        "punkty": 6
-      }
+      { "tekst": "wzgorza", "punkty": 32 },
+      { "tekst": "klif", "punkty": 27 },
+      { "tekst": "drzewo", "punkty": 19 },
+      { "tekst": "gora", "punkty": 12 },
+      { "tekst": "dach", "punkty": 6 }
     ]
   },
   {
     "id": 38,
     "pytanie": "Co porusza sie bardzo powoli?",
     "odpowiedzi": [
-      {
-        "tekst": "slimak",
-        "punkty": 33
-      },
-      {
-        "tekst": "zolw",
-        "punkty": 24
-      },
-      {
-        "tekst": "leniwiec",
-        "punkty": 22
-      },
-      {
-        "tekst": "starsi ludzie",
-        "punkty": 12
-      },
-      {
-        "tekst": "dziecko",
-        "punkty": 5
-      }
+      { "tekst": "slimak", "punkty": 33 },
+      { "tekst": "zolw", "punkty": 24 },
+      { "tekst": "leniwiec", "punkty": 22 },
+      { "tekst": "starsi ludzie", "punkty": 12 },
+      { "tekst": "dziecko", "punkty": 5 }
     ]
   },
   {
     "id": 39,
     "pytanie": "Co robi duzo halasu?",
     "odpowiedzi": [
-      {
-        "tekst": "samochody",
-        "punkty": 32
-      },
-      {
-        "tekst": "muzyka",
-        "punkty": 26
-      },
-      {
-        "tekst": "samolot",
-        "punkty": 18
-      },
-      {
-        "tekst": "dzieci",
-        "punkty": 11
-      },
-      {
-        "tekst": "fajerwerki",
-        "punkty": 8
-      }
+      { "tekst": "samochody", "punkty": 32 },
+      { "tekst": "muzyka", "punkty": 26 },
+      { "tekst": "samolot", "punkty": 18 },
+      { "tekst": "dzieci", "punkty": 11 },
+      { "tekst": "fajerwerki", "punkty": 8 }
     ]
   },
   {
     "id": 40,
     "pytanie": "Podaj przyklad czegos z wlosiem:",
     "odpowiedzi": [
-      {
-        "tekst": "szczotka",
-        "punkty": 31
-      },
-      {
-        "tekst": "szczoteczka do zebow",
-        "punkty": 27
-      },
-      {
-        "tekst": "szczotka do toalety",
-        "punkty": 17
-      },
-      {
-        "tekst": "pedzel do malowania",
-        "punkty": 11
-      },
-      {
-        "tekst": "wlosie nylonowe",
-        "punkty": 4
-      }
+      { "tekst": "szczotka", "punkty": 31 },
+      { "tekst": "szczoteczka do zebow", "punkty": 27 },
+      { "tekst": "szczotka do toalety", "punkty": 17 },
+      { "tekst": "pedzel do malowania", "punkty": 11 },
+      { "tekst": "wlosie nylonowe", "punkty": 4 }
     ]
   },
   {
     "id": 41,
     "pytanie": "Dzieki czemu mozna okreslic czas?",
     "odpowiedzi": [
-      {
-        "tekst": "zegar",
-        "punkty": 33
-      },
-      {
-        "tekst": "zegarek",
-        "punkty": 28
-      },
-      {
-        "tekst": "telefon komorkowy",
-        "punkty": 19
-      },
-      {
-        "tekst": "zegarek na reke",
-        "punkty": 11
-      },
-      {
-        "tekst": "slonce",
-        "punkty": 5
-      }
+      { "tekst": "zegar", "punkty": 33 },
+      { "tekst": "zegarek", "punkty": 28 },
+      { "tekst": "telefon komorkowy", "punkty": 19 },
+      { "tekst": "zegarek na reke", "punkty": 11 },
+      { "tekst": "slonce", "punkty": 5 }
     ]
   },
   {
     "id": 42,
     "pytanie": "Co idzie w gore i w dol?",
     "odpowiedzi": [
-      {
-        "tekst": "schody",
-        "punkty": 29
-      },
-      {
-        "tekst": "samolot",
-        "punkty": 24
-      },
-      {
-        "tekst": "winda",
-        "punkty": 21
-      },
-      {
-        "tekst": "hustawka",
-        "punkty": 14
-      },
-      {
-        "tekst": "pilka",
-        "punkty": 8
-      }
+      { "tekst": "schody", "punkty": 29 },
+      { "tekst": "samolot", "punkty": 24 },
+      { "tekst": "winda", "punkty": 21 },
+      { "tekst": "hustawka", "punkty": 14 },
+      { "tekst": "pilka", "punkty": 8 }
     ]
   },
   {
     "id": 43,
     "pytanie": "Czym mozna jesc?",
     "odpowiedzi": [
-      {
-        "tekst": "rece",
-        "punkty": 29
-      },
-      {
-        "tekst": "widelec",
-        "punkty": 26
-      },
-      {
-        "tekst": "lyzka",
-        "punkty": 20
-      },
-      {
-        "tekst": "noz",
-        "punkty": 13
-      },
-      {
-        "tekst": "paleczki",
-        "punkty": 8
-      }
+      { "tekst": "rece", "punkty": 29 },
+      { "tekst": "widelec", "punkty": 26 },
+      { "tekst": "lyzka", "punkty": 20 },
+      { "tekst": "noz", "punkty": 13 },
+      { "tekst": "paleczki", "punkty": 8 }
     ]
   },
   {
     "id": 44,
     "pytanie": "Czego pieniadze nie moga kupic?",
     "odpowiedzi": [
-      {
-        "tekst": "milosc",
-        "punkty": 29
-      },
-      {
-        "tekst": "szczescie",
-        "punkty": 24
-      },
-      {
-        "tekst": "zdrowie",
-        "punkty": 21
-      },
-      {
-        "tekst": "zaufanie",
-        "punkty": 12
-      },
-      {
-        "tekst": "szacunek",
-        "punkty": 11
-      }
+      { "tekst": "milosc", "punkty": 29 },
+      { "tekst": "szczescie", "punkty": 24 },
+      { "tekst": "zdrowie", "punkty": 21 },
+      { "tekst": "zaufanie", "punkty": 12 },
+      { "tekst": "szacunek", "punkty": 11 }
     ]
   },
   {
     "id": 45,
     "pytanie": "Co jemy w czasie Swiat Bozonarodzeniowych?",
     "odpowiedzi": [
-      {
-        "tekst": "barszcz czerwony z uszkami",
-        "punkty": 30
-      },
-      {
-        "tekst": "zupa grzybowa",
-        "punkty": 24
-      },
-      {
-        "tekst": "karp",
-        "punkty": 20
-      },
-      {
-        "tekst": "pierogi",
-        "punkty": 13
-      },
-      {
-        "tekst": "sernik",
-        "punkty": 8
-      }
+      { "tekst": "barszcz czerwony z uszkami", "punkty": 30 },
+      { "tekst": "zupa grzybowa", "punkty": 24 },
+      { "tekst": "karp", "punkty": 20 },
+      { "tekst": "pierogi", "punkty": 13 },
+      { "tekst": "sernik", "punkty": 8 }
     ]
   },
   {
     "id": 46,
     "pytanie": "Co robimy gdy nie mozemy zasnac?",
     "odpowiedzi": [
-      {
-        "tekst": "czytanie",
-        "punkty": 29
-      },
-      {
-        "tekst": "ogladamy telewizje",
-        "punkty": 25
-      },
-      {
-        "tekst": "liczymy owce",
-        "punkty": 19
-      },
-      {
-        "tekst": "jemy",
-        "punkty": 17
-      },
-      {
-        "tekst": "pijemy mleko",
-        "punkty": 6
-      }
+      { "tekst": "czytanie", "punkty": 29 },
+      { "tekst": "ogladamy telewizje", "punkty": 25 },
+      { "tekst": "liczymy owce", "punkty": 19 },
+      { "tekst": "jemy", "punkty": 17 },
+      { "tekst": "pijemy mleko", "punkty": 6 }
     ]
   },
   {
     "id": 47,
     "pytanie": "Co mozna nosic na stopach?",
     "odpowiedzi": [
-      {
-        "tekst": "buty",
-        "punkty": 30
-      },
-      {
-        "tekst": "skarpety",
-        "punkty": 27
-      },
-      {
-        "tekst": "obuwie sportowe",
-        "punkty": 21
-      },
-      {
-        "tekst": "kozaki",
-        "punkty": 11
-      },
-      {
-        "tekst": "trzewiki",
-        "punkty": 7
-      }
+      { "tekst": "buty", "punkty": 30 },
+      { "tekst": "skarpety", "punkty": 27 },
+      { "tekst": "obuwie sportowe", "punkty": 21 },
+      { "tekst": "kozaki", "punkty": 11 },
+      { "tekst": "trzewiki", "punkty": 7 }
     ]
   },
   {
     "id": 48,
     "pytanie": "Co mozna zastosowac na bol glowy?",
     "odpowiedzi": [
-      {
-        "tekst": "tabletki przeciwbolowe",
-        "punkty": 34
-      },
-      {
-        "tekst": "paracetamol",
-        "punkty": 28
-      },
-      {
-        "tekst": "kawa",
-        "punkty": 15
-      },
-      {
-        "tekst": "herbata",
-        "punkty": 11
-      },
-      {
-        "tekst": "drzemka",
-        "punkty": 8
-      }
+      { "tekst": "tabletki przeciwbolowe", "punkty": 34 },
+      { "tekst": "paracetamol", "punkty": 28 },
+      { "tekst": "kawa", "punkty": 15 },
+      { "tekst": "herbata", "punkty": 11 },
+      { "tekst": "drzemka", "punkty": 8 }
     ]
   },
   {
     "id": 49,
     "pytanie": "Podaj przyklad czegos, co moze sie wykluc:",
     "odpowiedzi": [
-      {
-        "tekst": "jaja",
-        "punkty": 37
-      },
-      {
-        "tekst": "ptaki",
-        "punkty": 26
-      },
-      {
-        "tekst": "gady",
-        "punkty": 14
-      },
-      {
-        "tekst": "owady",
-        "punkty": 10
-      },
-      {
-        "tekst": "ryby",
-        "punkty": 7
-      }
+      { "tekst": "jaja", "punkty": 37 },
+      { "tekst": "ptaki", "punkty": 26 },
+      { "tekst": "gady", "punkty": 14 },
+      { "tekst": "owady", "punkty": 10 },
+      { "tekst": "ryby", "punkty": 7 }
     ]
   },
   {
     "id": 50,
     "pytanie": "Podaj przyklad czegos, co traci waznosc:",
     "odpowiedzi": [
-      {
-        "tekst": "mleko",
-        "punkty": 29
-      },
-      {
-        "tekst": "mieso",
-        "punkty": 27
-      },
-      {
-        "tekst": "bilet parkingowy",
-        "punkty": 19
-      },
-      {
-        "tekst": "prawo jazdy",
-        "punkty": 12
-      },
-      {
-        "tekst": "karta bankowa",
-        "punkty": 8
-      }
+      { "tekst": "mleko", "punkty": 29 },
+      { "tekst": "mieso", "punkty": 27 },
+      { "tekst": "bilet parkingowy", "punkty": 19 },
+      { "tekst": "prawo jazdy", "punkty": 12 },
+      { "tekst": "karta bankowa", "punkty": 8 }
     ]
   },
   {
     "id": 51,
     "pytanie": "Co zyje w skorupie?",
     "odpowiedzi": [
-      {
-        "tekst": "zolw",
-        "punkty": 31
-      },
-      {
-        "tekst": "slimak",
-        "punkty": 26
-      },
-      {
-        "tekst": "zolw",
-        "punkty": 21
-      },
-      {
-        "tekst": "malze",
-        "punkty": 11
-      },
-      {
-        "tekst": "ostrygi",
-        "punkty": 6
-      }
+      { "tekst": "zolw", "punkty": 31 },
+      { "tekst": "slimak", "punkty": 26 },
+      { "tekst": "zolw", "punkty": 21 },
+      { "tekst": "malze", "punkty": 11 },
+      { "tekst": "ostrygi", "punkty": 6 }
     ]
   },
   {
     "id": 52,
     "pytanie": "Co mozna powiesic na scianie?",
     "odpowiedzi": [
-      {
-        "tekst": "zdjecie",
-        "punkty": 27
-      },
-      {
-        "tekst": "telewizor",
-        "punkty": 25
-      },
-      {
-        "tekst": "lustro",
-        "punkty": 20
-      },
-      {
-        "tekst": "obraz",
-        "punkty": 15
-      },
-      {
-        "tekst": "zegar",
-        "punkty": 9
-      }
+      { "tekst": "zdjecie", "punkty": 27 },
+      { "tekst": "telewizor", "punkty": 25 },
+      { "tekst": "lustro", "punkty": 20 },
+      { "tekst": "obraz", "punkty": 15 },
+      { "tekst": "zegar", "punkty": 9 }
     ]
   },
   {
     "id": 53,
     "pytanie": "Na co swiezo upieczeni rodzice poswiecaja najwiecej czasu?",
     "odpowiedzi": [
-      {
-        "tekst": "zmiana pieluch",
-        "punkty": 30
-      },
-      {
-        "tekst": "karmienie dziecka",
-        "punkty": 26
-      },
-      {
-        "tekst": "robienie prania",
-        "punkty": 22
-      },
-      {
-        "tekst": "kolysanie dziecka",
-        "punkty": 11
-      },
-      {
-        "tekst": "opieka nad dzieckiem",
-        "punkty": 7
-      }
+      { "tekst": "zmiana pieluch", "punkty": 30 },
+      { "tekst": "karmienie dziecka", "punkty": 26 },
+      { "tekst": "robienie prania", "punkty": 22 },
+      { "tekst": "kolysanie dziecka", "punkty": 11 },
+      { "tekst": "opieka nad dzieckiem", "punkty": 7 }
     ]
   },
   {
     "id": 54,
     "pytanie": "W co dzieci moga zbierac cukierki podczas Halloween?",
     "odpowiedzi": [
-      {
-        "tekst": "torba",
-        "punkty": 33
-      },
-      {
-        "tekst": "plastikowa dynia",
-        "punkty": 29
-      },
-      {
-        "tekst": "poszewka na poduszce",
-        "punkty": 19
-      },
-      {
-        "tekst": "wiadro",
-        "punkty": 12
-      },
-      {
-        "tekst": "kapelusz",
-        "punkty": 4
-      }
+      { "tekst": "torba", "punkty": 33 },
+      { "tekst": "plastikowa dynia", "punkty": 29 },
+      { "tekst": "poszewka na poduszce", "punkty": 19 },
+      { "tekst": "wiadro", "punkty": 12 },
+      { "tekst": "kapelusz", "punkty": 4 }
     ]
   },
   {
     "id": 55,
     "pytanie": "Wymien cos, co spodziewasz sie zobaczyc w Paryzu:",
     "odpowiedzi": [
-      {
-        "tekst": "wieza eiffla",
-        "punkty": 30
-      },
-      {
-        "tekst": "katedra notre dame",
-        "punkty": 28
-      },
-      {
-        "tekst": "luwr",
-        "punkty": 20
-      },
-      {
-        "tekst": "croissant",
-        "punkty": 12
-      },
-      {
-        "tekst": "francuzi",
-        "punkty": 7
-      }
+      { "tekst": "wieza eiffla", "punkty": 30 },
+      { "tekst": "katedra notre dame", "punkty": 28 },
+      { "tekst": "luwr", "punkty": 20 },
+      { "tekst": "croissant", "punkty": 12 },
+      { "tekst": "francuzi", "punkty": 7 }
     ]
   },
   {
     "id": 56,
     "pytanie": "Co mozna wygrac w parku rozrywki?",
     "odpowiedzi": [
-      {
-        "tekst": "wypchane zwierzatka",
-        "punkty": 38
-      },
-      {
-        "tekst": "wata cukrowa",
-        "punkty": 27
-      },
-      {
-        "tekst": "zabawka",
-        "punkty": 18
-      },
-      {
-        "tekst": "balony",
-        "punkty": 9
-      },
-      {
-        "tekst": "plakat",
-        "punkty": 3
-      }
+      { "tekst": "wypchane zwierzatka", "punkty": 38 },
+      { "tekst": "wata cukrowa", "punkty": 27 },
+      { "tekst": "zabawka", "punkty": 18 },
+      { "tekst": "balony", "punkty": 9 },
+      { "tekst": "plakat", "punkty": 3 }
     ]
   },
   {
     "id": 57,
     "pytanie": "Podaj przyklad gry, w ktora mozna grac samemu:",
     "odpowiedzi": [
-      {
-        "tekst": "pasjans",
-        "punkty": 33
-      },
-      {
-        "tekst": "klasy",
-        "punkty": 27
-      },
-      {
-        "tekst": "gry wideo",
-        "punkty": 19
-      },
-      {
-        "tekst": "memory",
-        "punkty": 11
-      },
-      {
-        "tekst": "koszykowka",
-        "punkty": 6
-      }
+      { "tekst": "pasjans", "punkty": 33 },
+      { "tekst": "klasy", "punkty": 27 },
+      { "tekst": "gry wideo", "punkty": 19 },
+      { "tekst": "memory", "punkty": 11 },
+      { "tekst": "koszykowka", "punkty": 6 }
     ]
   },
   {
     "id": 58,
     "pytanie": "Co mozna robic rozmawiajac przez telefon?",
     "odpowiedzi": [
-      {
-        "tekst": "gadanie",
-        "punkty": 31
-      },
-      {
-        "tekst": "pisanie",
-        "punkty": 26
-      },
-      {
-        "tekst": "granie w gry",
-        "punkty": 20
-      },
-      {
-        "tekst": "sluchanie muzyki",
-        "punkty": 12
-      },
-      {
-        "tekst": "sprawdzanie w internecie",
-        "punkty": 6
-      }
+      { "tekst": "gadanie", "punkty": 31 },
+      { "tekst": "pisanie", "punkty": 26 },
+      { "tekst": "granie w gry", "punkty": 20 },
+      { "tekst": "sluchanie muzyki", "punkty": 12 },
+      { "tekst": "sprawdzanie w internecie", "punkty": 6 }
     ]
   },
   {
     "id": 59,
     "pytanie": "Co moze sie przeterminowac?",
     "odpowiedzi": [
-      {
-        "tekst": "mleko",
-        "punkty": 35
-      },
-      {
-        "tekst": "jajka",
-        "punkty": 25
-      },
-      {
-        "tekst": "zywnosc",
-        "punkty": 16
-      },
-      {
-        "tekst": "ser",
-        "punkty": 12
-      },
-      {
-        "tekst": "mieso",
-        "punkty": 7
-      }
+      { "tekst": "mleko", "punkty": 35 },
+      { "tekst": "jajka", "punkty": 25 },
+      { "tekst": "zywnosc", "punkty": 16 },
+      { "tekst": "ser", "punkty": 12 },
+      { "tekst": "mieso", "punkty": 7 }
     ]
   },
   {
     "id": 60,
     "pytanie": "Wymien cos, czego nie mozna by bylo zrobic bez ust:",
     "odpowiedzi": [
-      {
-        "tekst": "jedzenie",
-        "punkty": 32
-      },
-      {
-        "tekst": "picie",
-        "punkty": 27
-      },
-      {
-        "tekst": "calowanie",
-        "punkty": 18
-      },
-      {
-        "tekst": "rozmawianie",
-        "punkty": 13
-      },
-      {
-        "tekst": "gwizdanie",
-        "punkty": 7
-      }
+      { "tekst": "jedzenie", "punkty": 32 },
+      { "tekst": "picie", "punkty": 27 },
+      { "tekst": "calowanie", "punkty": 18 },
+      { "tekst": "rozmawianie", "punkty": 13 },
+      { "tekst": "gwizdanie", "punkty": 7 }
     ]
   },
   {
     "id": 61,
     "pytanie": "Wymien cos, co kojarzy sie z latawcami:",
     "odpowiedzi": [
-      {
-        "tekst": "wiatr",
-        "punkty": 34
-      },
-      {
-        "tekst": "sznurek",
-        "punkty": 26
-      },
-      {
-        "tekst": "latanie",
-        "punkty": 20
-      },
-      {
-        "tekst": "niebo",
-        "punkty": 10
-      },
-      {
-        "tekst": "dzieci",
-        "punkty": 5
-      }
+      { "tekst": "wiatr", "punkty": 34 },
+      { "tekst": "sznurek", "punkty": 26 },
+      { "tekst": "latanie", "punkty": 20 },
+      { "tekst": "niebo", "punkty": 10 },
+      { "tekst": "dzieci", "punkty": 5 }
     ]
   },
   {
     "id": 62,
     "pytanie": "Podaj przyklad czegos, co lata:",
     "odpowiedzi": [
-      {
-        "tekst": "ptaki",
-        "punkty": 34
-      },
-      {
-        "tekst": "samoloty",
-        "punkty": 24
-      },
-      {
-        "tekst": "motyl",
-        "punkty": 21
-      },
-      {
-        "tekst": "mucha",
-        "punkty": 11
-      },
-      {
-        "tekst": "latawiec",
-        "punkty": 6
-      }
+      { "tekst": "ptaki", "punkty": 34 },
+      { "tekst": "samoloty", "punkty": 24 },
+      { "tekst": "motyl", "punkty": 21 },
+      { "tekst": "mucha", "punkty": 11 },
+      { "tekst": "latawiec", "punkty": 6 }
     ]
   },
   {
     "id": 63,
     "pytanie": "Wymien cos, z czego slynie Kanada:",
     "odpowiedzi": [
-      {
-        "tekst": "hokej",
-        "punkty": 34
-      },
-      {
-        "tekst": "zimno",
-        "punkty": 24
-      },
-      {
-        "tekst": "wodospad niagara",
-        "punkty": 21
-      },
-      {
-        "tekst": "gorale",
-        "punkty": 12
-      },
-      {
-        "tekst": "piwo",
-        "punkty": 5
-      }
+      { "tekst": "hokej", "punkty": 34 },
+      { "tekst": "zimno", "punkty": 24 },
+      { "tekst": "wodospad niagara", "punkty": 21 },
+      { "tekst": "gorale", "punkty": 12 },
+      { "tekst": "piwo", "punkty": 5 }
     ]
   },
   {
     "id": 64,
     "pytanie": "Co mozna wycisnac?",
     "odpowiedzi": [
-      {
-        "tekst": "cytryna",
-        "punkty": 35
-      },
-      {
-        "tekst": "pomarancza",
-        "punkty": 27
-      },
-      {
-        "tekst": "pasta do zebow",
-        "punkty": 15
-      },
-      {
-        "tekst": "keczup",
-        "punkty": 12
-      },
-      {
-        "tekst": "pryszcz",
-        "punkty": 7
-      }
+      { "tekst": "cytryna", "punkty": 35 },
+      { "tekst": "pomarancza", "punkty": 27 },
+      { "tekst": "pasta do zebow", "punkty": 15 },
+      { "tekst": "keczup", "punkty": 12 },
+      { "tekst": "pryszcz", "punkty": 7 }
     ]
   },
   {
     "id": 65,
     "pytanie": "Nazwij cos, co trudno jest zmyc:",
     "odpowiedzi": [
-      {
-        "tekst": "farba",
-        "punkty": 32
-      },
-      {
-        "tekst": "atrament",
-        "punkty": 30
-      },
-      {
-        "tekst": "smar",
-        "punkty": 20
-      },
-      {
-        "tekst": "marker permanentny",
-        "punkty": 10
-      },
-      {
-        "tekst": "olej",
-        "punkty": 4
-      }
+      { "tekst": "farba", "punkty": 32 },
+      { "tekst": "atrament", "punkty": 30 },
+      { "tekst": "smar", "punkty": 20 },
+      { "tekst": "marker permanentny", "punkty": 10 },
+      { "tekst": "olej", "punkty": 4 }
     ]
   },
   {
     "id": 66,
     "pytanie": "Podaj przyklad czegos, co mozna trzymac w samochodzie:",
     "odpowiedzi": [
-      {
-        "tekst": "kable rozruchowe",
-        "punkty": 32
-      },
-      {
-        "tekst": "apteczka",
-        "punkty": 27
-      },
-      {
-        "tekst": "okulary",
-        "punkty": 17
-      },
-      {
-        "tekst": "ubrania na zmiane",
-        "punkty": 12
-      },
-      {
-        "tekst": "parasol",
-        "punkty": 6
-      }
+      { "tekst": "kable rozruchowe", "punkty": 32 },
+      { "tekst": "apteczka", "punkty": 27 },
+      { "tekst": "okulary", "punkty": 17 },
+      { "tekst": "ubrania na zmiane", "punkty": 12 },
+      { "tekst": "parasol", "punkty": 6 }
     ]
   },
   {
     "id": 67,
     "pytanie": "Co zakladamy do spania?",
     "odpowiedzi": [
-      {
-        "tekst": "pizama",
-        "punkty": 30
-      },
-      {
-        "tekst": "bielizna",
-        "punkty": 28
-      },
-      {
-        "tekst": "koszula nocna",
-        "punkty": 18
-      },
-      {
-        "tekst": "skarpety",
-        "punkty": 12
-      },
-      {
-        "tekst": "koszulka",
-        "punkty": 8
-      }
+      { "tekst": "pizama", "punkty": 30 },
+      { "tekst": "bielizna", "punkty": 28 },
+      { "tekst": "koszula nocna", "punkty": 18 },
+      { "tekst": "skarpety", "punkty": 12 },
+      { "tekst": "koszulka", "punkty": 8 }
     ]
   },
   {
     "id": 68,
     "pytanie": "Co kojarzy sie z muzyka jazzowa?",
     "odpowiedzi": [
-      {
-        "tekst": "saksofon",
-        "punkty": 32
-      },
-      {
-        "tekst": "trabka",
-        "punkty": 27
-      },
-      {
-        "tekst": "pianino",
-        "punkty": 21
-      },
-      {
-        "tekst": "nowy orlean",
-        "punkty": 10
-      },
-      {
-        "tekst": "blues",
-        "punkty": 5
-      }
+      { "tekst": "saksofon", "punkty": 32 },
+      { "tekst": "trabka", "punkty": 27 },
+      { "tekst": "pianino", "punkty": 21 },
+      { "tekst": "nowy orlean", "punkty": 10 },
+      { "tekst": "blues", "punkty": 5 }
     ]
   },
   {
     "id": 69,
     "pytanie": "Co nastolatek moze przyniesc do szkoly?",
     "odpowiedzi": [
-      {
-        "tekst": "telefon",
-        "punkty": 33
-      },
-      {
-        "tekst": "plecak",
-        "punkty": 26
-      },
-      {
-        "tekst": "ksiazki",
-        "punkty": 21
-      },
-      {
-        "tekst": "odtwarzacz mp3",
-        "punkty": 10
-      },
-      {
-        "tekst": "drugie sniadanie",
-        "punkty": 7
-      }
+      { "tekst": "telefon", "punkty": 33 },
+      { "tekst": "plecak", "punkty": 26 },
+      { "tekst": "ksiazki", "punkty": 21 },
+      { "tekst": "odtwarzacz mp3", "punkty": 10 },
+      { "tekst": "drugie sniadanie", "punkty": 7 }
     ]
   },
   {
     "id": 70,
     "pytanie": "Podaj przyklad czegos, co lubi kot:",
     "odpowiedzi": [
-      {
-        "tekst": "kocimietka",
-        "punkty": 31
-      },
-      {
-        "tekst": "myszy",
-        "punkty": 24
-      },
-      {
-        "tekst": "mleko",
-        "punkty": 18
-      },
-      {
-        "tekst": "karma dla kotow",
-        "punkty": 13
-      },
-      {
-        "tekst": "glaskanie",
-        "punkty": 10
-      }
+      { "tekst": "kocimietka", "punkty": 31 },
+      { "tekst": "myszy", "punkty": 24 },
+      { "tekst": "mleko", "punkty": 18 },
+      { "tekst": "karma dla kotow", "punkty": 13 },
+      { "tekst": "glaskanie", "punkty": 10 }
     ]
   },
   {
     "id": 71,
     "pytanie": "Wymien cos, co ludzie robia, podczas treningu:",
     "odpowiedzi": [
-      {
-        "tekst": "bieganie",
-        "punkty": 34
-      },
-      {
-        "tekst": "sztuki walki",
-        "punkty": 27
-      },
-      {
-        "tekst": "przysiady",
-        "punkty": 19
-      },
-      {
-        "tekst": "podnoszenie ciezarow",
-        "punkty": 9
-      },
-      {
-        "tekst": "joga",
-        "punkty": 7
-      }
+      { "tekst": "bieganie", "punkty": 34 },
+      { "tekst": "sztuki walki", "punkty": 27 },
+      { "tekst": "przysiady", "punkty": 19 },
+      { "tekst": "podnoszenie ciezarow", "punkty": 9 },
+      { "tekst": "joga", "punkty": 7 }
     ]
   },
   {
     "id": 72,
     "pytanie": "Podaj przyklad czegos, co moze utknac na drzewie:",
     "odpowiedzi": [
-      {
-        "tekst": "kot",
-        "punkty": 31
-      },
-      {
-        "tekst": "latawiec",
-        "punkty": 26
-      },
-      {
-        "tekst": "pilka",
-        "punkty": 17
-      },
-      {
-        "tekst": "dzieci",
-        "punkty": 11
-      },
-      {
-        "tekst": "frisbee",
-        "punkty": 5
-      }
+      { "tekst": "kot", "punkty": 31 },
+      { "tekst": "latawiec", "punkty": 26 },
+      { "tekst": "pilka", "punkty": 17 },
+      { "tekst": "dzieci", "punkty": 11 },
+      { "tekst": "frisbee", "punkty": 5 }
     ]
   },
   {
     "id": 73,
     "pytanie": "Wymien cos, co kojarzy sie z Rodzina Soprano:",
     "odpowiedzi": [
-      {
-        "tekst": "mafia",
-        "punkty": 32
-      },
-      {
-        "tekst": "wlosi",
-        "punkty": 24
-      },
-      {
-        "tekst": "rodzina",
-        "punkty": 16
-      },
-      {
-        "tekst": "program telewizyjny",
-        "punkty": 8
-      },
-      {
-        "tekst": "psychoterapia",
-        "punkty": 5
-      }
+      { "tekst": "mafia", "punkty": 32 },
+      { "tekst": "wlosi", "punkty": 24 },
+      { "tekst": "rodzina", "punkty": 16 },
+      { "tekst": "program telewizyjny", "punkty": 8 },
+      { "tekst": "psychoterapia", "punkty": 5 }
     ]
   },
   {
     "id": 74,
     "pytanie": "Podaj przyklad czegos, co mozna okreslic jako zmieniajace zycie:",
     "odpowiedzi": [
-      {
-        "tekst": "posiadanie dzieci",
-        "punkty": 32
-      },
-      {
-        "tekst": "choroba",
-        "punkty": 26
-      },
-      {
-        "tekst": "milosc",
-        "punkty": 16
-      },
-      {
-        "tekst": "smierc w rodzinie",
-        "punkty": 14
-      },
-      {
-        "tekst": "rozwod",
-        "punkty": 8
-      }
+      { "tekst": "posiadanie dzieci", "punkty": 32 },
+      { "tekst": "choroba", "punkty": 26 },
+      { "tekst": "milosc", "punkty": 16 },
+      { "tekst": "smierc w rodzinie", "punkty": 14 },
+      { "tekst": "rozwod", "punkty": 8 }
     ]
   },
   {
     "id": 75,
     "pytanie": "Do czego rodzice zmuszaja swoje dziecko?",
     "odpowiedzi": [
-      {
-        "tekst": "obowiazki domowe",
-        "punkty": 37
-      },
-      {
-        "tekst": "jedzenie warzyw",
-        "punkty": 28
-      },
-      {
-        "tekst": "odrabianie lekcji",
-        "punkty": 18
-      },
-      {
-        "tekst": "kapiel",
-        "punkty": 8
-      },
-      {
-        "tekst": "spanie",
-        "punkty": 6
-      }
+      { "tekst": "obowiazki domowe", "punkty": 37 },
+      { "tekst": "jedzenie warzyw", "punkty": 28 },
+      { "tekst": "odrabianie lekcji", "punkty": 18 },
+      { "tekst": "kapiel", "punkty": 8 },
+      { "tekst": "spanie", "punkty": 6 }
     ]
   },
   {
     "id": 76,
     "pytanie": "Co moze denerowac podczas jazdy samochodem?",
     "odpowiedzi": [
-      {
-        "tekst": "objazdy",
-        "punkty": 34
-      },
-      {
-        "tekst": "wolna jazda",
-        "punkty": 23
-      },
-      {
-        "tekst": "korek",
-        "punkty": 16
-      },
-      {
-        "tekst": "inni kierowcy",
-        "punkty": 9
-      },
-      {
-        "tekst": "dziury w drodze",
-        "punkty": 13
-      }
+      { "tekst": "objazdy", "punkty": 34 },
+      { "tekst": "wolna jazda", "punkty": 23 },
+      { "tekst": "korek", "punkty": 16 },
+      { "tekst": "inni kierowcy", "punkty": 9 },
+      { "tekst": "dziury w drodze", "punkty": 13 }
     ]
   },
   {
     "id": 77,
     "pytanie": "Co mozna jesc kawalkami?",
     "odpowiedzi": [
-      {
-        "tekst": "chleb",
-        "punkty": 31
-      },
-      {
-        "tekst": "pizza",
-        "punkty": 28
-      },
-      {
-        "tekst": "ciasto",
-        "punkty": 20
-      },
-      {
-        "tekst": "placki",
-        "punkty": 12
-      },
-      {
-        "tekst": "ser",
-        "punkty": 6
-      }
+      { "tekst": "chleb", "punkty": 31 },
+      { "tekst": "pizza", "punkty": 28 },
+      { "tekst": "ciasto", "punkty": 20 },
+      { "tekst": "placki", "punkty": 12 },
+      { "tekst": "ser", "punkty": 6 }
     ]
   },
   {
     "id": 78,
     "pytanie": "Podaj przyklad czegos, czego ludzie sie boja:",
     "odpowiedzi": [
-      {
-        "tekst": "pajaki",
-        "punkty": 28
-      },
-      {
-        "tekst": "ciemnosc",
-        "punkty": 25
-      },
-      {
-        "tekst": "weze",
-        "punkty": 21
-      },
-      {
-        "tekst": "duchy",
-        "punkty": 13
-      },
-      {
-        "tekst": "wysokosc",
-        "punkty": 8
-      }
+      { "tekst": "pajaki", "punkty": 28 },
+      { "tekst": "ciemnosc", "punkty": 25 },
+      { "tekst": "weze", "punkty": 21 },
+      { "tekst": "duchy", "punkty": 13 },
+      { "tekst": "wysokosc", "punkty": 8 }
     ]
   },
   {
     "id": 79,
     "pytanie": "Czym dzieci moga w siebie rzucac?",
     "odpowiedzi": [
-      {
-        "tekst": "sniezki",
-        "punkty": 35
-      },
-      {
-        "tekst": "balony z woda",
-        "punkty": 26
-      },
-      {
-        "tekst": "kamienie",
-        "punkty": 20
-      },
-      {
-        "tekst": "poduszki",
-        "punkty": 11
-      },
-      {
-        "tekst": "bloto",
-        "punkty": 5
-      }
+      { "tekst": "sniezki", "punkty": 35 },
+      { "tekst": "balony z woda", "punkty": 26 },
+      { "tekst": "kamienie", "punkty": 20 },
+      { "tekst": "poduszki", "punkty": 11 },
+      { "tekst": "bloto", "punkty": 5 }
     ]
   },
   {
     "id": 80,
     "pytanie": "Podaj przyklad czegos, co gladiator moze zabrac ze soba do walki:",
     "odpowiedzi": [
-      {
-        "tekst": "miecz",
-        "punkty": 34
-      },
-      {
-        "tekst": "tarcza",
-        "punkty": 26
-      },
-      {
-        "tekst": "helm",
-        "punkty": 17
-      },
-      {
-        "tekst": "topor",
-        "punkty": 14
-      },
-      {
-        "tekst": "trojzab",
-        "punkty": 6
-      }
+      { "tekst": "miecz", "punkty": 34 },
+      { "tekst": "tarcza", "punkty": 26 },
+      { "tekst": "helm", "punkty": 17 },
+      { "tekst": "topor", "punkty": 14 },
+      { "tekst": "trojzab", "punkty": 6 }
     ]
   },
   {
     "id": 81,
     "pytanie": "Wymien cos, co cie wiaze/co moze byc wiazace:",
     "odpowiedzi": [
-      {
-        "tekst": "posiadanie dzieci",
-        "punkty": 35
-      },
-      {
-        "tekst": "praca",
-        "punkty": 26
-      },
-      {
-        "tekst": "druga polowa",
-        "punkty": 20
-      },
-      {
-        "tekst": "lina",
-        "punkty": 11
-      },
-      {
-        "tekst": "rachunki",
-        "punkty": 5
-      }
+      { "tekst": "posiadanie dzieci", "punkty": 35 },
+      { "tekst": "praca", "punkty": 26 },
+      { "tekst": "druga polowa", "punkty": 20 },
+      { "tekst": "lina", "punkty": 11 },
+      { "tekst": "rachunki", "punkty": 5 }
     ]
   },
   {
     "id": 82,
     "pytanie": "Wymien cos, co kojarzy sie z Rat Pack:",
     "odpowiedzi": [
-      {
-        "tekst": "frank sinatra",
-        "punkty": 31
-      },
-      {
-        "tekst": "muzyka",
-        "punkty": 25
-      },
-      {
-        "tekst": "dean martin",
-        "punkty": 20
-      },
-      {
-        "tekst": "sammy davis jr",
-        "punkty": 15
-      },
-      {
-        "tekst": "las vegas",
-        "punkty": 5
-      }
+      { "tekst": "frank sinatra", "punkty": 31 },
+      { "tekst": "muzyka", "punkty": 25 },
+      { "tekst": "dean martin", "punkty": 20 },
+      { "tekst": "sammy davis jr", "punkty": 15 },
+      { "tekst": "las vegas", "punkty": 5 }
     ]
   },
   {
     "id": 83,
     "pytanie": "Co ludzie czesto kupuja na kredyt?",
     "odpowiedzi": [
-      {
-        "tekst": "samochod",
-        "punkty": 34
-      },
-      {
-        "tekst": "dom",
-        "punkty": 30
-      },
-      {
-        "tekst": "ubrania",
-        "punkty": 18
-      },
-      {
-        "tekst": "meble",
-        "punkty": 10
-      },
-      {
-        "tekst": "sprzet elektroniczny",
-        "punkty": 4
-      }
+      { "tekst": "samochod", "punkty": 34 },
+      { "tekst": "dom", "punkty": 30 },
+      { "tekst": "ubrania", "punkty": 18 },
+      { "tekst": "meble", "punkty": 10 },
+      { "tekst": "sprzet elektroniczny", "punkty": 4 }
     ]
   },
   {
     "id": 84,
     "pytanie": "Wymien cos, co kojarzy sie z Kopciuszkiem:",
     "odpowiedzi": [
-      {
-        "tekst": "szklane pantofelki",
-        "punkty": 33
-      },
-      {
-        "tekst": "ksiaze",
-        "punkty": 27
-      },
-      {
-        "tekst": "wrozka chrzestna",
-        "punkty": 18
-      },
-      {
-        "tekst": "myszy",
-        "punkty": 12
-      },
-      {
-        "tekst": "polnoc",
-        "punkty": 6
-      }
+      { "tekst": "szklane pantofelki", "punkty": 33 },
+      { "tekst": "ksiaze", "punkty": 27 },
+      { "tekst": "wrozka chrzestna", "punkty": 18 },
+      { "tekst": "myszy", "punkty": 12 },
+      { "tekst": "polnoc", "punkty": 6 }
     ]
   },
   {
     "id": 85,
     "pytanie": "Co odrozniania ssaki od innych zwierzat?",
     "odpowiedzi": [
-      {
-        "tekst": "stalocieplnosc",
-        "punkty": 36
-      },
-      {
-        "tekst": "porod naturalny",
-        "punkty": 24
-      },
-      {
-        "tekst": "wlosy lub futro",
-        "punkty": 18
-      },
-      {
-        "tekst": "produkowanie mleka",
-        "punkty": 10
-      },
-      {
-        "tekst": "lozysko",
-        "punkty": 7
-      }
+      { "tekst": "stalocieplnosc", "punkty": 36 },
+      { "tekst": "porod naturalny", "punkty": 24 },
+      { "tekst": "wlosy lub futro", "punkty": 18 },
+      { "tekst": "produkowanie mleka", "punkty": 10 },
+      { "tekst": "lozysko", "punkty": 7 }
     ]
   },
   {
     "id": 86,
     "pytanie": "Co mozna naprawic?",
     "odpowiedzi": [
-      {
-        "tekst": "zlamane serce",
-        "punkty": 35
-      },
-      {
-        "tekst": "ubrania",
-        "punkty": 24
-      },
-      {
-        "tekst": "zwiazek",
-        "punkty": 18
-      },
-      {
-        "tekst": "plot",
-        "punkty": 7
-      },
-      {
-        "tekst": "samochod",
-        "punkty": 15
-      }
+      { "tekst": "zlamane serce", "punkty": 35 },
+      { "tekst": "ubrania", "punkty": 24 },
+      { "tekst": "zwiazek", "punkty": 18 },
+      { "tekst": "plot", "punkty": 7 },
+      { "tekst": "samochod", "punkty": 15 }
     ]
   },
   {
     "id": 87,
     "pytanie": "Co mozna robic w ladny dzien?",
     "odpowiedzi": [
-      {
-        "tekst": "opalanie sie",
-        "punkty": 28
-      },
-      {
-        "tekst": "praca w ogrodzie",
-        "punkty": 24
-      },
-      {
-        "tekst": "jazda na rowerze",
-        "punkty": 16
-      },
-      {
-        "tekst": "plywanie",
-        "punkty": 10
-      },
-      {
-        "tekst": "spacer",
-        "punkty": 18
-      }
+      { "tekst": "opalanie sie", "punkty": 28 },
+      { "tekst": "praca w ogrodzie", "punkty": 24 },
+      { "tekst": "jazda na rowerze", "punkty": 16 },
+      { "tekst": "plywanie", "punkty": 10 },
+      { "tekst": "spacer", "punkty": 18 }
     ]
   },
   {
     "id": 88,
     "pytanie": "Podaj przyklad czegos, co moze zostac uzyte przez lekarza:",
     "odpowiedzi": [
-      {
-        "tekst": "stetoskop",
-        "punkty": 29
-      },
-      {
-        "tekst": "bialy fartuch",
-        "punkty": 25
-      },
-      {
-        "tekst": "pacjenci",
-        "punkty": 20
-      },
-      {
-        "tekst": "stopien naukowy",
-        "punkty": 15
-      },
-      {
-        "tekst": "medycyna",
-        "punkty": 7
-      }
+      { "tekst": "stetoskop", "punkty": 29 },
+      { "tekst": "bialy fartuch", "punkty": 25 },
+      { "tekst": "pacjenci", "punkty": 20 },
+      { "tekst": "stopien naukowy", "punkty": 15 },
+      { "tekst": "medycyna", "punkty": 7 }
     ]
   },
   {
     "id": 89,
     "pytanie": "Co ludzie moga robic podczas zlego filmu?",
     "odpowiedzi": [
-      {
-        "tekst": "zasypianie",
-        "punkty": 33
-      },
-      {
-        "tekst": "wychodzenie",
-        "punkty": 25
-      },
-      {
-        "tekst": "rozmawianie",
-        "punkty": 21
-      },
-      {
-        "tekst": "buczenie",
-        "punkty": 11
-      },
-      {
-        "tekst": "ziewanie",
-        "punkty": 6
-      }
+      { "tekst": "zasypianie", "punkty": 33 },
+      { "tekst": "wychodzenie", "punkty": 25 },
+      { "tekst": "rozmawianie", "punkty": 21 },
+      { "tekst": "buczenie", "punkty": 11 },
+      { "tekst": "ziewanie", "punkty": 6 }
     ]
   },
   {
     "id": 90,
     "pytanie": "Czym mozemy polewac jedzenie?",
     "odpowiedzi": [
-      {
-        "tekst": "sos",
-        "punkty": 31
-      },
-      {
-        "tekst": "keczup",
-        "punkty": 26
-      },
-      {
-        "tekst": "syrop",
-        "punkty": 19
-      },
-      {
-        "tekst": "mleko",
-        "punkty": 11
-      },
-      {
-        "tekst": "maslo",
-        "punkty": 9
-      }
+      { "tekst": "sos", "punkty": 31 },
+      { "tekst": "keczup", "punkty": 26 },
+      { "tekst": "syrop", "punkty": 19 },
+      { "tekst": "mleko", "punkty": 11 },
+      { "tekst": "maslo", "punkty": 9 }
     ]
   },
   {
     "id": 91,
     "pytanie": "Podaj przyklad czegos, co mozna uzupelnic/wypelnic:",
     "odpowiedzi": [
-      {
-        "tekst": "recepta",
-        "punkty": 31
-      },
-      {
-        "tekst": "butelka",
-        "punkty": 27
-      },
-      {
-        "tekst": "zbiornik paliwowy",
-        "punkty": 19
-      },
-      {
-        "tekst": "filizanka kawy",
-        "punkty": 10
-      },
-      {
-        "tekst": "formularz",
-        "punkty": 9
-      }
+      { "tekst": "recepta", "punkty": 31 },
+      { "tekst": "butelka", "punkty": 27 },
+      { "tekst": "zbiornik paliwowy", "punkty": 19 },
+      { "tekst": "filizanka kawy", "punkty": 10 },
+      { "tekst": "formularz", "punkty": 9 }
     ]
   },
   {
     "id": 92,
     "pytanie": "Co mozna palic?",
     "odpowiedzi": [
-      {
-        "tekst": "papierosy",
-        "punkty": 31
-      },
-      {
-        "tekst": "cygara",
-        "punkty": 27
-      },
-      {
-        "tekst": "grilla",
-        "punkty": 15
-      },
-      {
-        "tekst": "drewno w kominku",
-        "punkty": 10
-      },
-      {
-        "tekst": "liscie",
-        "punkty": 7
-      }
+      { "tekst": "papierosy", "punkty": 31 },
+      { "tekst": "cygara", "punkty": 27 },
+      { "tekst": "grilla", "punkty": 15 },
+      { "tekst": "drewno w kominku", "punkty": 10 },
+      { "tekst": "liscie", "punkty": 7 }
     ]
   },
   {
     "id": 93,
     "pytanie": "Podaj przyklad czegos, co jest zrobione z mleka:",
     "odpowiedzi": [
-      {
-        "tekst": "maslo",
-        "punkty": 30
-      },
-      {
-        "tekst": "ser",
-        "punkty": 26
-      },
-      {
-        "tekst": "lody",
-        "punkty": 20
-      },
-      {
-        "tekst": "jogurt",
-        "punkty": 12
-      },
-      {
-        "tekst": "mleko skondensowane",
-        "punkty": 8
-      }
+      { "tekst": "maslo", "punkty": 30 },
+      { "tekst": "ser", "punkty": 26 },
+      { "tekst": "lody", "punkty": 20 },
+      { "tekst": "jogurt", "punkty": 12 },
+      { "tekst": "mleko skondensowane", "punkty": 8 }
     ]
   },
   {
     "id": 94,
     "pytanie": "Co moze pojsc nie tak na randce?",
     "odpowiedzi": [
-      {
-        "tekst": "popsuty samochod",
-        "punkty": 30
-      },
-      {
-        "tekst": "brak pieniedzy",
-        "punkty": 25
-      },
-      {
-        "tekst": "bycie wystawionym",
-        "punkty": 21
-      },
-      {
-        "tekst": "klotnia",
-        "punkty": 13
-      },
-      {
-        "tekst": "wylany napoj",
-        "punkty": 6
-      }
+      { "tekst": "popsuty samochod", "punkty": 30 },
+      { "tekst": "brak pieniedzy", "punkty": 25 },
+      { "tekst": "bycie wystawionym", "punkty": 21 },
+      { "tekst": "klotnia", "punkty": 13 },
+      { "tekst": "wylany napoj", "punkty": 6 }
     ]
   },
   {
     "id": 95,
     "pytanie": "Co ludzie pija, a co jest czerwone?",
     "odpowiedzi": [
-      {
-        "tekst": "czerwone wino",
-        "punkty": 31
-      },
-      {
-        "tekst": "oranzada",
-        "punkty": 29
-      },
-      {
-        "tekst": "sok pomidorowy",
-        "punkty": 19
-      },
-      {
-        "tekst": "sok zurawinowy",
-        "punkty": 11
-      },
-      {
-        "tekst": "poncz owocowy",
-        "punkty": 6
-      }
+      { "tekst": "czerwone wino", "punkty": 31 },
+      { "tekst": "oranzada", "punkty": 29 },
+      { "tekst": "sok pomidorowy", "punkty": 19 },
+      { "tekst": "sok zurawinowy", "punkty": 11 },
+      { "tekst": "poncz owocowy", "punkty": 6 }
     ]
   },
   {
     "id": 96,
     "pytanie": "Podaj przyklad czegos, czego mozna uzywac do zebow?",
     "odpowiedzi": [
-      {
-        "tekst": "pasta do zebow",
-        "punkty": 31
-      },
-      {
-        "tekst": "aparat ortodontyczny",
-        "punkty": 25
-      },
-      {
-        "tekst": "produktow wybielajacych",
-        "punkty": 18
-      },
-      {
-        "tekst": "szczoteczka do zebow",
-        "punkty": 13
-      },
-      {
-        "tekst": "nakladki",
-        "punkty": 8
-      }
+      { "tekst": "pasta do zebow", "punkty": 31 },
+      { "tekst": "aparat ortodontyczny", "punkty": 25 },
+      { "tekst": "produktow wybielajacych", "punkty": 18 },
+      { "tekst": "szczoteczka do zebow", "punkty": 13 },
+      { "tekst": "nakladki", "punkty": 8 }
     ]
   },
   {
     "id": 97,
     "pytanie": "Czym mozna poplamic ubranie?",
     "odpowiedzi": [
-      {
-        "tekst": "wino",
-        "punkty": 37
-      },
-      {
-        "tekst": "trawa",
-        "punkty": 26
-      },
-      {
-        "tekst": "krew",
-        "punkty": 15
-      },
-      {
-        "tekst": "brud",
-        "punkty": 12
-      },
-      {
-        "tekst": "olej",
-        "punkty": 6
-      }
+      { "tekst": "wino", "punkty": 37 },
+      { "tekst": "trawa", "punkty": 26 },
+      { "tekst": "krew", "punkty": 15 },
+      { "tekst": "brud", "punkty": 12 },
+      { "tekst": "olej", "punkty": 6 }
     ]
   },
   {
     "id": 98,
     "pytanie": "Na co mozna buczec/co mozna wybuczec?",
     "odpowiedzi": [
-      {
-        "tekst": "zle aktorstwo",
-        "punkty": 32
-      },
-      {
-        "tekst": "druzyna przeciwna",
-        "punkty": 27
-      },
-      {
-        "tekst": "zly zart",
-        "punkty": 17
-      },
-      {
-        "tekst": "zla muzyka",
-        "punkty": 12
-      },
-      {
-        "tekst": "sedzia",
-        "punkty": 8
-      }
+      { "tekst": "zle aktorstwo", "punkty": 32 },
+      { "tekst": "druzyna przeciwna", "punkty": 27 },
+      { "tekst": "zly zart", "punkty": 17 },
+      { "tekst": "zla muzyka", "punkty": 12 },
+      { "tekst": "sedzia", "punkty": 8 }
     ]
   },
   {
     "id": 99,
     "pytanie": "Wymien, czym lub co mozna potrzasnac/wstrzasnac:",
     "odpowiedzi": [
-      {
-        "tekst": "dressing do salatki",
-        "punkty": 29
-      },
-      {
-        "tekst": "rece",
-        "punkty": 26
-      },
-      {
-        "tekst": "glowa",
-        "punkty": 20
-      },
-      {
-        "tekst": "butelka",
-        "punkty": 14
-      },
-      {
-        "tekst": "koktajl",
-        "punkty": 7
-      }
+      { "tekst": "dressing do salatki", "punkty": 29 },
+      { "tekst": "rece", "punkty": 26 },
+      { "tekst": "glowa", "punkty": 20 },
+      { "tekst": "butelka", "punkty": 14 },
+      { "tekst": "koktajl", "punkty": 7 }
     ]
   },
   {
     "id": 100,
     "pytanie": "Podaj przyklad czegos, co ma korzenie:",
     "odpowiedzi": [
-      {
-        "tekst": "drzewo",
-        "punkty": 30
-      },
-      {
-        "tekst": "wlosy",
-        "punkty": 25
-      },
-      {
-        "tekst": "roslina",
-        "punkty": 21
-      },
-      {
-        "tekst": "zeby",
-        "punkty": 11
-      },
-      {
-        "tekst": "kwiaty",
-        "punkty": 7
-      }
+      { "tekst": "drzewo", "punkty": 30 },
+      { "tekst": "wlosy", "punkty": 25 },
+      { "tekst": "roslina", "punkty": 21 },
+      { "tekst": "zeby", "punkty": 11 },
+      { "tekst": "kwiaty", "punkty": 7 }
     ]
   },
   {
     "id": 101,
     "pytanie": "Wymien cos, o czym lubia spiewac piosenkarze country:",
     "odpowiedzi": [
-      {
-        "tekst": "milosc",
-        "punkty": 37
-      },
-      {
-        "tekst": "zerwanie",
-        "punkty": 27
-      },
-      {
-        "tekst": "ameryka",
-        "punkty": 16
-      },
-      {
-        "tekst": "picie",
-        "punkty": 9
-      },
-      {
-        "tekst": "samochod",
-        "punkty": 8
-      }
+      { "tekst": "milosc", "punkty": 37 },
+      { "tekst": "zerwanie", "punkty": 27 },
+      { "tekst": "ameryka", "punkty": 16 },
+      { "tekst": "picie", "punkty": 9 },
+      { "tekst": "samochod", "punkty": 8 }
     ]
   },
   {
     "id": 102,
     "pytanie": "Co napelnia sie powietrzem?",
     "odpowiedzi": [
-      {
-        "tekst": "balon",
-        "punkty": 36
-      },
-      {
-        "tekst": "opona",
-        "punkty": 25
-      },
-      {
-        "tekst": "ponton",
-        "punkty": 19
-      },
-      {
-        "tekst": "materac",
-        "punkty": 10
-      },
-      {
-        "tekst": "pilka plazowa",
-        "punkty": 6
-      }
+      { "tekst": "balon", "punkty": 36 },
+      { "tekst": "opona", "punkty": 25 },
+      { "tekst": "ponton", "punkty": 19 },
+      { "tekst": "materac", "punkty": 10 },
+      { "tekst": "pilka plazowa", "punkty": 6 }
     ]
   },
   {
     "id": 103,
     "pytanie": "Co mozna kupic uzywane?",
     "odpowiedzi": [
-      {
-        "tekst": "samochody",
-        "punkty": 30
-      },
-      {
-        "tekst": "ubrania",
-        "punkty": 28
-      },
-      {
-        "tekst": "meble",
-        "punkty": 18
-      },
-      {
-        "tekst": "ksiazki",
-        "punkty": 13
-      },
-      {
-        "tekst": "elektronika",
-        "punkty": 8
-      }
+      { "tekst": "samochody", "punkty": 30 },
+      { "tekst": "ubrania", "punkty": 28 },
+      { "tekst": "meble", "punkty": 18 },
+      { "tekst": "ksiazki", "punkty": 13 },
+      { "tekst": "elektronika", "punkty": 8 }
     ]
   },
   {
     "id": 104,
     "pytanie": "Podaj przyklad czegos, co znajduje sie w kazdym filmie o Jamesie Bondzie:",
     "odpowiedzi": [
-      {
-        "tekst": "james bond",
-        "punkty": 31
-      },
-      {
-        "tekst": "pistolety",
-        "punkty": 27
-      },
-      {
-        "tekst": "samochody",
-        "punkty": 21
-      },
-      {
-        "tekst": "alkohol",
-        "punkty": 10
-      },
-      {
-        "tekst": "eksplozje",
-        "punkty": 7
-      }
+      { "tekst": "james bond", "punkty": 31 },
+      { "tekst": "pistolety", "punkty": 27 },
+      { "tekst": "samochody", "punkty": 21 },
+      { "tekst": "alkohol", "punkty": 10 },
+      { "tekst": "eksplozje", "punkty": 7 }
     ]
   },
   {
     "id": 105,
     "pytanie": "Wymien cos, co mozna robic na Facebooku:",
     "odpowiedzi": [
-      {
-        "tekst": "udostepnianie tresci",
-        "punkty": 38
-      },
-      {
-        "tekst": "czatowanie",
-        "punkty": 25
-      },
-      {
-        "tekst": "granie w gry",
-        "punkty": 14
-      },
-      {
-        "tekst": "sledzenie innych",
-        "punkty": 11
-      },
-      {
-        "tekst": "szukanie znajomych",
-        "punkty": 7
-      }
+      { "tekst": "udostepnianie tresci", "punkty": 38 },
+      { "tekst": "czatowanie", "punkty": 25 },
+      { "tekst": "granie w gry", "punkty": 14 },
+      { "tekst": "sledzenie innych", "punkty": 11 },
+      { "tekst": "szukanie znajomych", "punkty": 7 }
     ]
   },
   {
     "id": 106,
     "pytanie": "Wymien cos, co kojarzy sie z Nowym Jorkiem:",
     "odpowiedzi": [
-      {
-        "tekst": "statua wolnosci",
-        "punkty": 34
-      },
-      {
-        "tekst": "empire state building",
-        "punkty": 24
-      },
-      {
-        "tekst": "times square",
-        "punkty": 20
-      },
-      {
-        "tekst": "wielkie jablko",
-        "punkty": 11
-      },
-      {
-        "tekst": "broadway",
-        "punkty": 8
-      }
+      { "tekst": "statua wolnosci", "punkty": 34 },
+      { "tekst": "empire state building", "punkty": 24 },
+      { "tekst": "times square", "punkty": 20 },
+      { "tekst": "wielkie jablko", "punkty": 11 },
+      { "tekst": "broadway", "punkty": 8 }
     ]
   },
   {
     "id": 107,
     "pytanie": "Wymien cos, co kazde dziecko chce dostac na swieta:",
     "odpowiedzi": [
-      {
-        "tekst": "zabawki",
-        "punkty": 33
-      },
-      {
-        "tekst": "rower",
-        "punkty": 24
-      },
-      {
-        "tekst": "pieniadze",
-        "punkty": 19
-      },
-      {
-        "tekst": "szczeniak",
-        "punkty": 13
-      },
-      {
-        "tekst": "gry wideo",
-        "punkty": 7
-      }
+      { "tekst": "zabawki", "punkty": 33 },
+      { "tekst": "rower", "punkty": 24 },
+      { "tekst": "pieniadze", "punkty": 19 },
+      { "tekst": "szczeniak", "punkty": 13 },
+      { "tekst": "gry wideo", "punkty": 7 }
     ]
   },
   {
     "id": 108,
     "pytanie": "Wymien cos, na co dzieci zawsze narzekaja:",
     "odpowiedzi": [
-      {
-        "tekst": "praca domowa",
-        "punkty": 34
-      },
-      {
-        "tekst": "chodzenie do szkoly",
-        "punkty": 24
-      },
-      {
-        "tekst": "obowiazki domowe",
-        "punkty": 17
-      },
-      {
-        "tekst": "pora do spania",
-        "punkty": 15
-      },
-      {
-        "tekst": "glod",
-        "punkty": 6
-      }
+      { "tekst": "praca domowa", "punkty": 34 },
+      { "tekst": "chodzenie do szkoly", "punkty": 24 },
+      { "tekst": "obowiazki domowe", "punkty": 17 },
+      { "tekst": "pora do spania", "punkty": 15 },
+      { "tekst": "glod", "punkty": 6 }
     ]
   },
   {
     "id": 109,
     "pytanie": "Co mozna ciac/obciac?",
     "odpowiedzi": [
-      {
-        "tekst": "wlosy",
-        "punkty": 32
-      },
-      {
-        "tekst": "papier",
-        "punkty": 24
-      },
-      {
-        "tekst": "trawa",
-        "punkty": 19
-      },
-      {
-        "tekst": "mieso",
-        "punkty": 14
-      },
-      {
-        "tekst": "paznokcie",
-        "punkty": 7
-      }
+      { "tekst": "wlosy", "punkty": 32 },
+      { "tekst": "papier", "punkty": 24 },
+      { "tekst": "trawa", "punkty": 19 },
+      { "tekst": "mieso", "punkty": 14 },
+      { "tekst": "paznokcie", "punkty": 7 }
     ]
   },
   {
     "id": 110,
     "pytanie": "Wymien cos, do czego mozna dodac cukier:",
     "odpowiedzi": [
-      {
-        "tekst": "platki sniadaniowe",
-        "punkty": 30
-      },
-      {
-        "tekst": "kawa",
-        "punkty": 26
-      },
-      {
-        "tekst": "ciasto",
-        "punkty": 18
-      },
-      {
-        "tekst": "truskawki",
-        "punkty": 13
-      },
-      {
-        "tekst": "napoj",
-        "punkty": 8
-      }
+      { "tekst": "platki sniadaniowe", "punkty": 30 },
+      { "tekst": "kawa", "punkty": 26 },
+      { "tekst": "ciasto", "punkty": 18 },
+      { "tekst": "truskawki", "punkty": 13 },
+      { "tekst": "napoj", "punkty": 8 }
     ]
   },
   {
     "id": 111,
     "pytanie": "Wymien cos, od czego ludzie ubezpieczaja swoj dom:",
     "odpowiedzi": [
-      {
-        "tekst": "ogien",
-        "punkty": 33
-      },
-      {
-        "tekst": "powodz",
-        "punkty": 27
-      },
-      {
-        "tekst": "kradziez",
-        "punkty": 16
-      },
-      {
-        "tekst": "huragan",
-        "punkty": 11
-      },
-      {
-        "tekst": "wichura",
-        "punkty": 9
-      }
+      { "tekst": "ogien", "punkty": 33 },
+      { "tekst": "powodz", "punkty": 27 },
+      { "tekst": "kradziez", "punkty": 16 },
+      { "tekst": "huragan", "punkty": 11 },
+      { "tekst": "wichura", "punkty": 9 }
     ]
   },
   {
     "id": 112,
     "pytanie": "Wymien cos, co kojarzy sie z The Beatles:",
     "odpowiedzi": [
-      {
-        "tekst": "muzyka",
-        "punkty": 32
-      },
-      {
-        "tekst": "john lennon",
-        "punkty": 21
-      },
-      {
-        "tekst": "wlosy",
-        "punkty": 19
-      },
-      {
-        "tekst": "anglia",
-        "punkty": 14
-      },
-      {
-        "tekst": "paul mccartney",
-        "punkty": 9
-      }
+      { "tekst": "muzyka", "punkty": 32 },
+      { "tekst": "john lennon", "punkty": 21 },
+      { "tekst": "wlosy", "punkty": 19 },
+      { "tekst": "anglia", "punkty": 14 },
+      { "tekst": "paul mccartney", "punkty": 9 }
     ]
   },
   {
     "id": 113,
     "pytanie": "Nazwij cos, co mozna posprzatac:",
     "odpowiedzi": [
-      {
-        "tekst": "lazienka",
-        "punkty": 29
-      },
-      {
-        "tekst": "kuchnia",
-        "punkty": 24
-      },
-      {
-        "tekst": "naczynia",
-        "punkty": 16
-      },
-      {
-        "tekst": "ubrania",
-        "punkty": 9
-      },
-      {
-        "tekst": "pokoj",
-        "punkty": 19
-      }
+      { "tekst": "lazienka", "punkty": 29 },
+      { "tekst": "kuchnia", "punkty": 24 },
+      { "tekst": "naczynia", "punkty": 16 },
+      { "tekst": "ubrania", "punkty": 9 },
+      { "tekst": "pokoj", "punkty": 19 }
     ]
   },
   {
     "id": 114,
     "pytanie": "Wymien cos, co kojarzy sie z Supermanem:",
     "odpowiedzi": [
-      {
-        "tekst": "przyladek",
-        "punkty": 29
-      },
-      {
-        "tekst": "latanie",
-        "punkty": 26
-      },
-      {
-        "tekst": "lois lane",
-        "punkty": 21
-      },
-      {
-        "tekst": "krypton",
-        "punkty": 12
-      },
-      {
-        "tekst": "clark kent",
-        "punkty": 8
-      }
+      { "tekst": "przyladek", "punkty": 29 },
+      { "tekst": "latanie", "punkty": 26 },
+      { "tekst": "lois lane", "punkty": 21 },
+      { "tekst": "krypton", "punkty": 12 },
+      { "tekst": "clark kent", "punkty": 8 }
     ]
   },
   {
     "id": 115,
     "pytanie": "Wymien cos zwiazanego z Alicja w Krainie Czarow:",
     "odpowiedzi": [
-      {
-        "tekst": "szalony kapelusznik",
-        "punkty": 30
-      },
-      {
-        "tekst": "bialy krolik",
-        "punkty": 27
-      },
-      {
-        "tekst": "kot z cheshire",
-        "punkty": 19
-      },
-      {
-        "tekst": "alicja",
-        "punkty": 12
-      },
-      {
-        "tekst": "krolowa kier",
-        "punkty": 8
-      }
+      { "tekst": "szalony kapelusznik", "punkty": 30 },
+      { "tekst": "bialy krolik", "punkty": 27 },
+      { "tekst": "kot z cheshire", "punkty": 19 },
+      { "tekst": "alicja", "punkty": 12 },
+      { "tekst": "krolowa kier", "punkty": 8 }
     ]
   },
   {
     "id": 116,
     "pytanie": "Wymien cos, co robisz, gdy dzwoni telemarketer:",
     "odpowiedzi": [
-      {
-        "tekst": "rozlaczanie sie",
-        "punkty": 29
-      },
-      {
-        "tekst": "nieodbieranie",
-        "punkty": 25
-      },
-      {
-        "tekst": "odmawianie",
-        "punkty": 18
-      },
-      {
-        "tekst": "odbieranie",
-        "punkty": 10
-      },
-      {
-        "tekst": "zablokowanie numeru",
-        "punkty": 14
-      }
+      { "tekst": "rozlaczanie sie", "punkty": 29 },
+      { "tekst": "nieodbieranie", "punkty": 25 },
+      { "tekst": "odmawianie", "punkty": 18 },
+      { "tekst": "odbieranie", "punkty": 10 },
+      { "tekst": "zablokowanie numeru", "punkty": 14 }
     ]
   },
   {
     "id": 117,
     "pytanie": "Podaj przyklad czegos, co sprawia, ze sie pocisz:",
     "odpowiedzi": [
-      {
-        "tekst": "cwiczenia/sport",
-        "punkty": 33
-      },
-      {
-        "tekst": "cieplo",
-        "punkty": 28
-      },
-      {
-        "tekst": "bieganie",
-        "punkty": 19
-      },
-      {
-        "tekst": "pikantne jedzenie",
-        "punkty": 10
-      },
-      {
-        "tekst": "opalanie sie",
-        "punkty": 6
-      }
+      { "tekst": "cwiczenia/sport", "punkty": 33 },
+      { "tekst": "cieplo", "punkty": 28 },
+      { "tekst": "bieganie", "punkty": 19 },
+      { "tekst": "pikantne jedzenie", "punkty": 10 },
+      { "tekst": "opalanie sie", "punkty": 6 }
     ]
   },
   {
     "id": 118,
     "pytanie": "Wymien cos, co dziecko moze robic, aby zarobic pieniadze:",
     "odpowiedzi": [
-      {
-        "tekst": "sprzedawanie lemoniady",
-        "punkty": 29
-      },
-      {
-        "tekst": "koszenie trawnika",
-        "punkty": 25
-      },
-      {
-        "tekst": "obowiazki domowe",
-        "punkty": 17
-      },
-      {
-        "tekst": "roznoszenie ulotek",
-        "punkty": 9
-      },
-      {
-        "tekst": "wyprowadzanie psa",
-        "punkty": 15
-      }
+      { "tekst": "sprzedawanie lemoniady", "punkty": 29 },
+      { "tekst": "koszenie trawnika", "punkty": 25 },
+      { "tekst": "obowiazki domowe", "punkty": 17 },
+      { "tekst": "roznoszenie ulotek", "punkty": 9 },
+      { "tekst": "wyprowadzanie psa", "punkty": 15 }
     ]
   },
   {
     "id": 119,
     "pytanie": "Wymien cos, z czym ludzie przesadzaja:",
     "odpowiedzi": [
-      {
-        "tekst": "makijaz",
-        "punkty": 35
-      },
-      {
-        "tekst": "cwiczenia",
-        "punkty": 25
-      },
-      {
-        "tekst": "jedzenie",
-        "punkty": 16
-      },
-      {
-        "tekst": "praca",
-        "punkty": 9
-      },
-      {
-        "tekst": "alkohol",
-        "punkty": 11
-      }
+      { "tekst": "makijaz", "punkty": 35 },
+      { "tekst": "cwiczenia", "punkty": 25 },
+      { "tekst": "jedzenie", "punkty": 16 },
+      { "tekst": "praca", "punkty": 9 },
+      { "tekst": "alkohol", "punkty": 11 }
     ]
   },
   {
     "id": 120,
     "pytanie": "Wymien cos, co sprawdzasz codziennie:",
     "odpowiedzi": [
-      {
-        "tekst": "e-mail",
-        "punkty": 34
-      },
-      {
-        "tekst": "czas/godzina",
-        "punkty": 25
-      },
-      {
-        "tekst": "konto bankowe",
-        "punkty": 19
-      },
-      {
-        "tekst": "wiadomosci",
-        "punkty": 12
-      },
-      {
-        "tekst": "wlosy",
-        "punkty": 6
-      }
+      { "tekst": "e-mail", "punkty": 34 },
+      { "tekst": "czas/godzina", "punkty": 25 },
+      { "tekst": "konto bankowe", "punkty": 19 },
+      { "tekst": "wiadomosci", "punkty": 12 },
+      { "tekst": "wlosy", "punkty": 6 }
     ]
   },
   {
     "id": 121,
     "pytanie": "Podaj przyklad czegos, co zmienia kolor:",
     "odpowiedzi": [
-      {
-        "tekst": "kameleon",
-        "punkty": 34
-      },
-      {
-        "tekst": "jaszczurka",
-        "punkty": 28
-      },
-      {
-        "tekst": "niebo",
-        "punkty": 18
-      },
-      {
-        "tekst": "wlosy",
-        "punkty": 10
-      },
-      {
-        "tekst": "liscie",
-        "punkty": 6
-      }
+      { "tekst": "kameleon", "punkty": 34 },
+      { "tekst": "jaszczurka", "punkty": 28 },
+      { "tekst": "niebo", "punkty": 18 },
+      { "tekst": "wlosy", "punkty": 10 },
+      { "tekst": "liscie", "punkty": 6 }
     ]
   },
   {
     "id": 122,
     "pytanie": "Co ludzie moga robic pod prysznicem:",
     "odpowiedzi": [
-      {
-        "tekst": "spiewanie",
-        "punkty": 36
-      },
-      {
-        "tekst": "kapanie sie",
-        "punkty": 28
-      },
-      {
-        "tekst": "mycie wlosow",
-        "punkty": 15
-      },
-      {
-        "tekst": "golenie sie",
-        "punkty": 9
-      },
-      {
-        "tekst": "placz",
-        "punkty": 6
-      }
+      { "tekst": "spiewanie", "punkty": 36 },
+      { "tekst": "kapanie sie", "punkty": 28 },
+      { "tekst": "mycie wlosow", "punkty": 15 },
+      { "tekst": "golenie sie", "punkty": 9 },
+      { "tekst": "placz", "punkty": 6 }
     ]
   },
   {
     "id": 123,
     "pytanie": "Podaj przyklad czegos, co mozna znalezc w garazu:",
     "odpowiedzi": [
-      {
-        "tekst": "samochod",
-        "punkty": 35
-      },
-      {
-        "tekst": "narzedzia",
-        "punkty": 24
-      },
-      {
-        "tekst": "kosiarka",
-        "punkty": 20
-      },
-      {
-        "tekst": "rower",
-        "punkty": 10
-      },
-      {
-        "tekst": "smietniki",
-        "punkty": 6
-      }
+      { "tekst": "samochod", "punkty": 35 },
+      { "tekst": "narzedzia", "punkty": 24 },
+      { "tekst": "kosiarka", "punkty": 20 },
+      { "tekst": "rower", "punkty": 10 },
+      { "tekst": "smietniki", "punkty": 6 }
     ]
   },
   {
     "id": 124,
     "pytanie": "Co mozna kupic dla kota?",
     "odpowiedzi": [
-      {
-        "tekst": "kocimietka",
-        "punkty": 30
-      },
-      {
-        "tekst": "pojemnik na smieci",
-        "punkty": 27
-      },
-      {
-        "tekst": "karma dla kotow",
-        "punkty": 15
-      },
-      {
-        "tekst": "wloczka",
-        "punkty": 11
-      },
-      {
-        "tekst": "pilka",
-        "punkty": 9
-      }
-    ]
-  },
-  {
-    "id": 125,
-    "pytanie": "Wiecej niz jedno zwierze:",
-    "odpowiedzi": [
-      {
-        "tekst": "owca",
-        "punkty": 35
-      },
-      {
-        "tekst": "lama",
-        "punkty": 27
-      },
-      {
-        "tekst": "stado",
-        "punkty": 18
-      },
-      {
-        "tekst": "wataha",
-        "punkty": 12
-      },
-      {
-        "tekst": "kolonia",
-        "punkty": 8
-      }
+      { "tekst": "kocimietka", "punkty": 30 },
+      { "tekst": "pojemnik na smieci", "punkty": 27 },
+      { "tekst": "karma dla kotow", "punkty": 15 },
+      { "tekst": "wloczka", "punkty": 11 },
+      { "tekst": "pilka", "punkty": 9 }
     ]
   }
 ]
