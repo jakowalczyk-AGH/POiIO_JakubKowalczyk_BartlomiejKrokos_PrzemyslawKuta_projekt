@@ -57,13 +57,13 @@
   },
   {
     "id": 6,
-    "pytanie": "Panstwo, ktorego nazwa konczy sie na \"nia\"",
+    "pytanie": "Panstwo, ktorego nazwa konczy sie na -nia",
     "odpowiedzi": [
-      { "tekst": "Dania", "punkty": 28 },
-      { "tekst": "Hiszpania", "punkty": 18 },
-      { "tekst": "Japonia", "punkty": 10 },
-      { "tekst": "Estonia", "punkty": 5 },
-      { "tekst": "Rumunia", "punkty": 4 }
+      { "tekst": "dania", "punkty": 28 },
+      { "tekst": "hiszpania", "punkty": 18 },
+      { "tekst": "japonia", "punkty": 10 },
+      { "tekst": "estonia", "punkty": 5 },
+      { "tekst": "rumunia", "punkty": 4 }
     ]
   },
   {

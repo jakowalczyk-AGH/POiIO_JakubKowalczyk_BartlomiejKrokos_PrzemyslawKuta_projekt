@@ -75,3 +75,19 @@ TPytanie TBazaPytan::losujPytanie() {
     if (pytania.empty()) return TPytanie("Brak pytan - sprawdz plik JSON");
     return pytania[rand() % pytania.size()];
 }
+
+std::vector<TPytanie> TBazaPytan::pobierzUnikalnePytania(int ile) {
+    std::vector<TPytanie> wynik;
+    std::vector<TPytanie> kopia = pytania; // Tworzymy tymczasową kopię całej bazy
+
+    for (int i = 0; i < ile; i++) {
+        if (kopia.empty()) break; // Zabezpieczenie, gdyby w bazie było mniej niż 5 pytań
+
+        int indeks = rand() % kopia.size();
+        wynik.push_back(kopia[indeks]);
+
+        // Wywalamy wylosowane pytanie z kopii, żeby się nie powtórzyło!
+        kopia.erase(kopia.begin() + indeks);
+    }
+    return wynik;
+}

@@ -175,15 +175,15 @@ namespace Familiada {
 
 
 
-			finalQuestions = gcnew cli::array<String^>(5);
+			/*finalQuestions = gcnew cli::array<String^>(5);
 
 			finalQuestions[0] = "Wymien owoc";
 			finalQuestions[1] = "Wymien zwierzê";
 			finalQuestions[2] = "Wymien kolor";
 			finalQuestions[3] = "Wymien sport";
-			finalQuestions[4] = "Wymien napój";
+			finalQuestions[4] = "Wymien napój";*/
 
-			
+
 		}
 
 	protected:
@@ -245,7 +245,7 @@ namespace Familiada {
 
 	private: System::Windows::Forms::Panel^ PanelOdpowiedzi;
 
-	Label^ SumaPunkty;
+		   Label^ SumaPunkty;
 
 	private:
 		int aktualnaSumaPunktow = 0; // Ta zmienna bêdzie pamiêtaæ wynik
@@ -254,7 +254,7 @@ namespace Familiada {
 
 
 
-		   //private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
+		//private: cli::array<System::Windows::Forms::TextBox^>^ odpHaslo;
 	private: System::Windows::Forms::Label^ WskaznikDruzyny;
 	private:
 		cli::array<System::Windows::Forms::Label^>^ bledyLewo;
@@ -271,12 +271,15 @@ namespace Familiada {
 
 	private: System::Windows::Forms::TextBox^ FinalAnswerTB;
 
-
-	private:
-		cli::array<String^>^ finalQuestions;
-
 	private:
 		int finalQuestionIndex = 0;
+	private: int aktualnyGraczFinalowy = 1;
+	private: cli::array<String^>^ odpGracz1;
+	private: cli::array<int>^ pktGracz1;
+	private: cli::array<String^>^ odpGracz2;
+	private: cli::array<int>^ pktGracz2;
+	private: String^ nazwaGracza1;
+	private: String^ nazwaGracza2;
 
 	private: System::Windows::Forms::TextBox^ OdpowiedzTB;
 
@@ -292,6 +295,12 @@ namespace Familiada {
 	private: Label^ NazwaDruzyny2LBL;
 
 	private: TGra* silnikGry;
+
+	private:
+		int czasPozostaly = 6;
+
+		bool czyMiedzyPytaniami = false;
+		int numerPytania = 1;
 
 
 
@@ -876,9 +885,6 @@ namespace Familiada {
 		DalejBtn->BackColor = System::Drawing::Color::Black;
 	}
 
-
-	private:
-		int czasPozostaly = 6;
 	private: System::Void DalejBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		// ==========================================
 	// 1. POBIERANIE NAZW DRU¯YN
@@ -893,10 +899,10 @@ namespace Familiada {
 
 		// Zabezpieczenie: jeœli gracz zostawi³ puste pole albo domyœlny napis, nadajemy nazwê awaryjn¹
 		if (nazwaLewa == "" || nazwaLewa == "LEWA") {
-			nazwaLewa = "Dru¿yna Lewa";
+			nazwaLewa = "Lewa";
 		}
 		if (nazwaPrawa == "" || nazwaPrawa == "PRAWA") {
-			nazwaPrawa = "Dru¿yna Prawa";
+			nazwaPrawa = "Prawa";
 		}
 
 		NazwaDruzyny1LBL->Text = gcnew System::String(nazwaLewa.c_str());
@@ -907,7 +913,6 @@ namespace Familiada {
 		silnikGry->getDruzynaLewa()->ResetujBledy();
 		silnikGry->getDruzynaPrawa()->ResetujBledy();
 
-		silnikGry->UstawLiczbeRund(Box->GetLength(0));
 		// ==========================================
 		// [NOWE] £ADOWANIE I LOSOWANIE PYTANIA Z BAZY JSON
 		// ==========================================
@@ -946,49 +951,51 @@ namespace Familiada {
 			}
 		}
 
-	//	// ==========================================
-	//// --- KOD TESTOWY (Do weryfikacji danych) ---
-	//// ==========================================
-	//	System::String^ raport = "=== RAPORT ZAPISANYCH DANYCH ===\n\n";
+		int faktycznaLiczbaGraczy = silnikGry->getDruzynaLewa()->getGracze().size();
+		silnikGry->UstawLiczbeRund(faktycznaLiczbaGraczy);
 
-	//	// --- SPRAWDZANIE LEWEJ DRU¯YNY ---
-	//	std::string nazwaL = silnikGry->getDruzynaLewa()->getNazwa();
-	//	std::vector<std::string> graczeL = silnikGry->getDruzynaLewa()->getGracze();
+		//	// ==========================================
+		//// --- KOD TESTOWY (Do weryfikacji danych) ---
+		//// ==========================================
+		//	System::String^ raport = "=== RAPORT ZAPISANYCH DANYCH ===\n\n";
 
-	//	raport += "DRU¯YNA: " + gcnew System::String(nazwaL.c_str()) + "\n";
-	//	raport += "Zapisano graczy: " + graczeL.size() + "\n";
-	//	for (size_t i = 0; i < graczeL.size(); i++) {
-	//		// Znak += dokleja kolejne linijki tekstu do naszego raportu
-	//		raport += " -> " + gcnew System::String(graczeL[i].c_str()) + "\n";
-	//	}
+		//	// --- SPRAWDZANIE LEWEJ DRU¯YNY ---
+		//	std::string nazwaL = silnikGry->getDruzynaLewa()->getNazwa();
+		//	std::vector<std::string> graczeL = silnikGry->getDruzynaLewa()->getGracze();
 
-	//	raport += "\n----------------------------------\n\n";
+		//	raport += "DRU¯YNA: " + gcnew System::String(nazwaL.c_str()) + "\n";
+		//	raport += "Zapisano graczy: " + graczeL.size() + "\n";
+		//	for (size_t i = 0; i < graczeL.size(); i++) {
+		//		// Znak += dokleja kolejne linijki tekstu do naszego raportu
+		//		raport += " -> " + gcnew System::String(graczeL[i].c_str()) + "\n";
+		//	}
 
-	//	// --- SPRAWDZANIE PRAWEJ DRU¯YNY ---
-	//	std::string nazwaP = silnikGry->getDruzynaPrawa()->getNazwa();
-	//	std::vector<std::string> graczeP = silnikGry->getDruzynaPrawa()->getGracze();
+		//	raport += "\n----------------------------------\n\n";
 
-	//	raport += "DRU¯YNA: " + gcnew System::String(nazwaP.c_str()) + "\n";
-	//	raport += "Zapisano graczy: " + graczeP.size() + "\n";
-	//	for (size_t i = 0; i < graczeP.size(); i++) {
-	//		raport += " -> " + gcnew System::String(graczeP[i].c_str()) + "\n";
-	//	}
+		//	// --- SPRAWDZANIE PRAWEJ DRU¯YNY ---
+		//	std::string nazwaP = silnikGry->getDruzynaPrawa()->getNazwa();
+		//	std::vector<std::string> graczeP = silnikGry->getDruzynaPrawa()->getGracze();
 
-	//	// Wyœwietlamy nasz gotowy raport!
-	//	MessageBox::Show(raport, "Sukces - Test weryfikacji");
+		//	raport += "DRU¯YNA: " + gcnew System::String(nazwaP.c_str()) + "\n";
+		//	raport += "Zapisano graczy: " + graczeP.size() + "\n";
+		//	for (size_t i = 0; i < graczeP.size(); i++) {
+		//		raport += " -> " + gcnew System::String(graczeP[i].c_str()) + "\n";
+		//	}
 
-		// ==========================================
-		// ==========================================
-		// 3. PRZEJŒCIE DO EKRANU GRY
-		// ==========================================
+		//	// Wyœwietlamy nasz gotowy raport!
+		//	MessageBox::Show(raport, "Sukces - Test weryfikacji");
 
-		//GrajBtn->Visible = false;
-		//FamLbl->Visible = false;
+			// ==========================================
+			// ==========================================
+			// 3. PRZEJŒCIE DO EKRANU GRY
+			// ==========================================
+
+			//GrajBtn->Visible = false;
+			//FamLbl->Visible = false;
+
+			//PanelGracze->Visible = true;
 
 		PokazEkran(PanelCzek);
-		//PanelGracze->Visible = true;
-
-		czasPozostaly = 6;
 
 		timer1->Start();
 		aktualnaSumaPunktow = 0;
@@ -997,16 +1004,35 @@ namespace Familiada {
 
 
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
-		czasPozostaly--;
+		czasPozostaly--; czyMiedzyPytaniami;
 
 
-		txtOdliczanie->Text = "ROZGRYWKA\r\n\r\nROZPOCZNIE SIE ZA\r\n\r\n " + czasPozostaly.ToString();
-
-		if (czasPozostaly <= 0)
+		if (czyMiedzyPytaniami)
 		{
-			timer1->Stop();
-			PokazEkran(PanelPytanie);
+			txtOdliczanie->Text = "RUNDA " +
+				numerPytania.ToString() + "\r\n\r\n" + "PRZYGOTUJCIE SIE\r\n\r\n" +
+				czasPozostaly.ToString();
+
+			if (czasPozostaly <= 0)
+			{
+				timer1->Stop();
+				PokazEkran(PanelPytanie);
+			}
 		}
+		else
+		{
+			txtOdliczanie->Text =
+				"ROZGRYWKA\r\n\r\nROZPOCZNIE SIE ZA\r\n\r\n" +
+				czasPozostaly.ToString();
+
+			if (czasPozostaly <= 0)
+			{
+				timer1->Stop();
+				PokazEkran(PanelPytanie);
+			}
+		}
+
+
 	}
 
 
@@ -1022,7 +1048,7 @@ namespace Familiada {
 	private: System::Void MainWin_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
 	{
 
-		if (e->KeyCode == Keys::F)
+		/*if (e->KeyCode == Keys::F)
 		{
 			finalQuestionIndex = 0;
 
@@ -1034,7 +1060,7 @@ namespace Familiada {
 
 			PokazEkran(PanelFinal);
 			return;
-		}
+		}*/
 		// B³êdy dzia³aj¹ zawsze
 		/*if (e->KeyCode == Keys::X)
 		{
@@ -1048,6 +1074,8 @@ namespace Familiada {
 
 		if (e->KeyCode == Keys::Q)
 		{
+			e->SuppressKeyPress = true;
+
 			if (silnikGry->WcisnijBuzzer(Druzyna::Lewa)) {
 				LewaDruzBuzzPB->Visible = false;
 				LewaDruzzBuzzONpb->Visible = true;
@@ -1061,6 +1089,8 @@ namespace Familiada {
 		}
 		else if (e->KeyCode == Keys::P)
 		{
+			e->SuppressKeyPress = true;
+
 			if (silnikGry->WcisnijBuzzer(Druzyna::Prawa)) {
 				PrawaDruzBuzzPB->Visible = false;
 				PrawaDruzzBuzzONpb->Visible = true;
@@ -1527,12 +1557,6 @@ namespace Familiada {
 		FinalAnswerTB->KeyDown +=
 			gcnew KeyEventHandler(this, &MainWin::FinalAnswerTB_KeyDown);
 
-		// Enter = nastêpne pytanie
-		FinalAnswerTB->KeyDown +=
-			gcnew KeyEventHandler(
-				this,
-				&MainWin::FinalAnswerTB_KeyDown);
-
 		// =========================
 		// DODANIE DO PANELU
 		// =========================
@@ -1544,28 +1568,133 @@ namespace Familiada {
 
 	private: System::Void PokazPytanieFinalowe()
 	{
-		FinalQuestionLbl->Text =
-			finalQuestions[finalQuestionIndex];
+		auto pytania = silnikGry->PobierzPytaniaFinalowe();
+		if (finalQuestionIndex < pytania.size()) {
+			System::String^ trescStr = gcnew System::String(pytania[finalQuestionIndex].getTresc().c_str());
+			FinalQuestionLbl->Text = trescStr;
+		}
 	}
+
+		   /*private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+		   {
+			   if (e->KeyCode == Keys::Enter)
+			   {
+				   finalQuestionIndex++;
+				   if (finalQuestionIndex >= 5)
+				   {
+					   MessageBox::Show("Koniec pytan");
+					   return;
+				   }
+
+				   PokazPytanieFinalowe();
+
+				   FinalAnswerTB->Text = "............";
+				   FinalAnswerTB->ReadOnly = true;
+
+				   e->SuppressKeyPress = true;
+			   }
+		   }*/
 
 	private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
+			// 1. Zapisujemy wpisan¹ odpowiedŸ i wyliczamy punkty
+			String^ wpisana = FinalAnswerTB->Text;
+			std::string wpisanaStd = msclr::interop::marshal_as<std::string>(wpisana);
+			int pkt = silnikGry->SprawdzOdpowiedzFinalowa(finalQuestionIndex, wpisanaStd);
+
+			// 2. Wrzucamy do odpowiedniego worka
+			if (aktualnyGraczFinalowy == 1) {
+				odpGracz1[finalQuestionIndex] = wpisana;
+				pktGracz1[finalQuestionIndex] = pkt;
+			}
+			else {
+				odpGracz2[finalQuestionIndex] = wpisana;
+				pktGracz2[finalQuestionIndex] = pkt;
+			}
+
+			// Przechodzimy do kolejnego pytania
 			finalQuestionIndex++;
+
+			// 3. Sprawdzamy czy to koniec tury gracza
 			if (finalQuestionIndex >= 5)
 			{
-				MessageBox::Show("Koniec pytan");
+				e->SuppressKeyPress = true; // Ucisza beep
+
+				if (aktualnyGraczFinalowy == 1) {
+					// Koniec Gracza 1 - okienko z podsumowaniem
+					PokazPodsumowanieGracza1();
+
+					// Setup dla Gracza 2
+					aktualnyGraczFinalowy = 2;
+					finalQuestionIndex = 0;
+					FinalPlayerLbl->Text = nazwaGracza2;
+					PokazPytanieFinalowe();
+
+					FinalAnswerTB->Text = "............";
+					FinalAnswerTB->ReadOnly = true;
+				}
+				else {
+					// Koniec Gracza 2 - okienko fina³owe ca³ej gry!
+					PokazPodsumowanieKoncowe();
+				}
 				return;
 			}
 
+			// Odœwie¿enie UI dla kolejnego pytania (jeœli index < 5)
 			PokazPytanieFinalowe();
-
 			FinalAnswerTB->Text = "............";
 			FinalAnswerTB->ReadOnly = true;
 
 			e->SuppressKeyPress = true;
 		}
+	}
+
+	private: System::Void PokazPodsumowanieGracza1() {
+		String^ podsum = "WYNIKI GRACZA: " + nazwaGracza1 + "\n\n";
+		int suma = 0;
+		auto pytania = silnikGry->PobierzPytaniaFinalowe();
+
+		for (int i = 0; i < 5; i++) {
+			String^ pytanie = gcnew String(pytania[i].getTresc().c_str());
+			podsum += (i + 1).ToString() + ". " + pytanie + "\n";
+			podsum += "   OdpowiedŸ: " + odpGracz1[i] + " (" + pktGracz1[i] + " pkt)\n\n";
+			suma += pktGracz1[i];
+		}
+
+		podsum += "ZDOBYTE PUNKTY: " + suma.ToString() + "\n\nTERAZ GRA: " + nazwaGracza2 + "!";
+		MessageBox::Show(podsum, "Podsumowanie tury");
+	}
+
+	private: System::Void PokazPodsumowanieKoncowe() {
+		String^ podsum = "WYNIKI FINA£U!\n\n";
+		int suma1 = 0, suma2 = 0;
+		auto pytania = silnikGry->PobierzPytaniaFinalowe();
+
+		for (int i = 0; i < 5; i++) {
+			String^ pytanie = gcnew String(pytania[i].getTresc().c_str());
+			podsum += (i + 1).ToString() + ". " + pytanie + "\n";
+			podsum += "   " + nazwaGracza1 + ": " + odpGracz1[i] + " (" + pktGracz1[i] + " pkt)\n";
+			podsum += "   " + nazwaGracza2 + ": " + odpGracz2[i] + " (" + pktGracz2[i] + " pkt)\n\n";
+			suma1 += pktGracz1[i];
+			suma2 += pktGracz2[i];
+		}
+
+		int sumaCalkowita = suma1 + suma2;
+		podsum += "=============================\n";
+		podsum += "Punkty - " + nazwaGracza1 + ": " + suma1.ToString() + "\n";
+		podsum += "Punkty - " + nazwaGracza2 + ": " + suma2.ToString() + "\n";
+		podsum += "£¥CZNIE W FINALE: " + sumaCalkowita.ToString() + " punktów!\n";
+
+		if (sumaCalkowita >= 200) {
+			podsum += "\nGRATULACJE! WYGRYWACIE G£ÓWN¥ NAGRODÊ!";
+		}
+		else {
+			podsum += "\nNiestety, zabrak³o punktów do g³ównej wygranej.";
+		}
+
+		MessageBox::Show(podsum, "KONIEC GRY");
 	}
 
 	private: System::Void FinalAnswerTB_Click(System::Object^ sender, System::EventArgs^ e)
@@ -1597,7 +1726,7 @@ namespace Familiada {
 
 		// Wyœwietlenie komunikatu (tu docelowo mo¿esz podpi¹æ przejœcie do kolejnego pytania)
 		MessageBox::Show("Punkty przyznane! Runda " + silnikGry->PobierzAktualnaRunde().ToString() + " zakonczona.");
-	
+
 		// Przechodzimy do kolejnej rundy w silniku
 		silnikGry->InkrementujRunde();
 
@@ -1605,10 +1734,28 @@ namespace Familiada {
 		if (silnikGry->CzyKoniecGry()) {
 			MessageBox::Show("Koniec rund zasadniczych! Przechodzimy do FINA£U.");
 
-			// Automatyczne przejœcie do fina³u
+			// --- PRZYGOTOWANIE FINA£U ---
+			silnikGry->LosujPytaniaFinalowe(); // Losujemy prawdziwe pytania z JSONa
+
+			// Pobieramy zwyciêzców i imiona pierwszych dwóch graczy
+			TDruzyna* zwyciezca = silnikGry->PobierzZwyciezce();
+			std::vector<std::string> graczeZwyciezcy = zwyciezca->getGracze();
+
+			// Jeœli dru¿yna ma wpisanych graczy, pobieramy dwóch pierwszych
+			nazwaGracza1 = graczeZwyciezcy.size() > 0 ? gcnew String(graczeZwyciezcy[0].c_str()) : "Gracz 1";
+			nazwaGracza2 = graczeZwyciezcy.size() > 1 ? gcnew String(graczeZwyciezcy[1].c_str()) : "Gracz 2";
+
+			aktualnyGraczFinalowy = 1;
 			finalQuestionIndex = 0;
+
+			// Resetujemy tablice na odpowiedzi
+			odpGracz1 = gcnew cli::array<String^>(5);
+			pktGracz1 = gcnew cli::array<int>(5);
+			odpGracz2 = gcnew cli::array<String^>(5);
+			pktGracz2 = gcnew cli::array<int>(5);
+
 			PokazPytanieFinalowe();
-			FinalPlayerLbl->Text = "GRACZ 1";
+			FinalPlayerLbl->Text = nazwaGracza1; // Wyœwietlamy imiê!
 			FinalTimerLbl->Text = "20";
 			FinalAnswerTB->Clear();
 			PokazEkran(PanelFinal);
@@ -1645,12 +1792,20 @@ namespace Familiada {
 		TrescPytaniaLBL2->Text = trescStr;
 
 		// 5. Powrót do ekranu odliczania (PanelCzek) przed wejœciem na buzzery
+
+
+		czyMiedzyPytaniami = true;
+		numerPytania++;
+
 		PokazEkran(PanelCzek);
+
 		czasPozostaly = 6;
+
 		timer1->Start();
+
 	}
 
-	
+
 
 	private: System::Void SprawdzOdpowiedz() {
 		std::string wpisana = msclr::interop::marshal_as<std::string>(OdpowiedzTB->Text);
@@ -1694,12 +1849,12 @@ namespace Familiada {
 			}
 		}
 	}
-	
+
 	private: System::Void OdpowiedzTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e) {
 		if (e->KeyCode == Keys::Enter) {
 			SprawdzOdpowiedz();
 			e->SuppressKeyPress = true; // Usuwa dŸwiêk "bip" przy enterze
 		}
 	}
-};
+	};
 };

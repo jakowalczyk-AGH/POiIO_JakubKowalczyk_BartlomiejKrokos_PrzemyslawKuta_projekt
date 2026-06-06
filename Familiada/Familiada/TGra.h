@@ -2,6 +2,7 @@
 #include "TBazaPytan.h"
 #include "TDruzyna.h"
 #include <string>
+#include <vector>
 
 enum class Druzyna
 {
@@ -28,6 +29,8 @@ private:
 
     bool czyNasluchiwacBuzzerow;
     bool buzzerZablokowany;
+
+    std::vector<TPytanie> pytaniaFinalowe;
 public:
     TGra();
     ~TGra(); // Pamiętaj o delete druzynaLewa/Prawa w .cpp!
@@ -64,5 +67,11 @@ public:
     bool CzyNasluchujemy() const;
     bool WcisnijBuzzer(Druzyna dr); // Zwraca true, jeśli wciśnięcie było ważne
     void OdblokujBuzzery();
+
+    TDruzyna* PobierzZwyciezce();
+    void LosujPytaniaFinalowe();
+    std::vector<TPytanie>& PobierzPytaniaFinalowe();
+    int SprawdzOdpowiedzFinalowa(int indeksPytania, std::string wpisana);
+
 };
 
