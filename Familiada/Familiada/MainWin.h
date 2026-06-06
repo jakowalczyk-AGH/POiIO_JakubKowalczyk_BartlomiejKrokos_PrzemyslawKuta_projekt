@@ -300,6 +300,7 @@ namespace Familiada {
 		int czasPozostaly = 6;
 
 		bool czyMiedzyPytaniami = false;
+		bool przedFinalem = false;
 		int numerPytania = 1;
 
 
@@ -1006,8 +1007,19 @@ namespace Familiada {
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 		czasPozostaly--; czyMiedzyPytaniami;
 
+		if (przedFinalem)
+		{
+			txtOdliczanie->Text =
+				"FINA£\r\n\r\nROZPOCZNIE SIE ZA\r\n\r\n" +
+				czasPozostaly.ToString();
 
-		if (czyMiedzyPytaniami)
+			if (czasPozostaly <= 0)
+			{
+				timer1->Stop();
+				PokazEkran(PanelFinal);
+			}
+		}
+		else if (czyMiedzyPytaniami)
 		{
 			txtOdliczanie->Text = "RUNDA " +
 				numerPytania.ToString() + "\r\n\r\n" + "PRZYGOTUJCIE SIE\r\n\r\n" +
@@ -1758,7 +1770,11 @@ namespace Familiada {
 			FinalPlayerLbl->Text = nazwaGracza1; // Wyœwietlamy imiê!
 			FinalTimerLbl->Text = "20";
 			FinalAnswerTB->Clear();
-			PokazEkran(PanelFinal);
+			przedFinalem = true;
+			czasPozostaly = 5;
+
+			PokazEkran(PanelCzek);
+			timer1->Start();
 		}
 		else {
 			// Jeœli to nie koniec, czyœcimy stó³ i gramy dalej

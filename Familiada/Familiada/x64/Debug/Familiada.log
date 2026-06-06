@@ -1,10 +1,6 @@
 ﻿  MainWin.cpp
-C:\Studia\6sem\POiIO\FAMILIADA\Familiada\Familiada\MainWin.h(951,29): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
+C:\Users\kubak\Desktop\git\Familiada\Familiada\MainWin.h(955,29): warning C4267: "inicjowanie": konwersja z "size_t" do "int", możliwa utrata danych
   (kompilowanie pliku źródłowego „MainWin.cpp”)
   
-  TBazaPytan.cpp
-  TGra.cpp
-C:\Studia\6sem\POiIO\FAMILIADA\Familiada\Familiada\TGra.cpp(7,15): warning C4244: "argument": konwersja z "time_t" do "unsigned int", możliwa utrata danych
-  Generowanie kodu...
   MainWin.obj : napotkano moduł MSIL; konsolidowanie przyrostowe jest wyłączone dla modułów MSIL; zostanie wykonana pełna konsolidacja
   Familiada.vcxproj -> C:\Users\kubak\Desktop\git\Familiada\x64\Debug\Familiada.exe
