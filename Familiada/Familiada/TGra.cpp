@@ -217,3 +217,33 @@ void TGra::InkrementujRunde() {
 bool TGra::CzyKoniecGry() const {
     return aktualnaRunda > liczbaRund;
 }
+
+// Ustala, która drużyna ma więcej punktów (ona zagra w finale)
+TDruzyna* TGra::PobierzZwyciezce() {
+    if (druzynaLewa->getPunkty() > druzynaPrawa->getPunkty()) {
+        return druzynaLewa;
+    }
+    return druzynaPrawa; // W razie remisu (lub wygranej prawej) dajemy prawą
+}
+
+// Losuje 5 pytań z JSONa specjalnie na finał
+void TGra::LosujPytaniaFinalowe() {
+    pytaniaFinalowe = baza.pobierzUnikalnePytania(5);
+}
+
+std::vector<TPytanie>& TGra::PobierzPytaniaFinalowe() {
+    return pytaniaFinalowe;
+}
+
+// Sprawdza odpowiedź finałową i zwraca punkty (0 jeśli pudło)
+int TGra::SprawdzOdpowiedzFinalowa(int indeksPytania, std::string wpisana) {
+    if (indeksPytania >= pytaniaFinalowe.size()) return 0;
+
+    auto& odpowiedzi = pytaniaFinalowe[indeksPytania].getOdpowiedziRef();
+    for (const auto& odp : odpowiedzi) {
+        if (odp.tekst == wpisana) {
+            return odp.punkty;
+        }
+    }
+    return 0; // Nie ma na tablicy = 0 punktów
+}
