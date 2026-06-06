@@ -229,6 +229,10 @@ namespace Familiada {
 	private: System::Windows::Forms::Panel^ PanelCzek;
 
 	private: System::Windows::Forms::Timer^ timer1;
+
+	private: System::Windows::Forms::Timer^ FinalTimer;
+
+
 	private: System::Windows::Forms::TextBox^ txtOdliczanie;
 	private: System::Windows::Forms::PictureBox^ PrawaDruzBuzzPB;
 
@@ -298,6 +302,7 @@ namespace Familiada {
 
 	private:
 		int czasPozostaly = 6;
+		int finalCzasPozostaly = 40;
 
 		bool czyMiedzyPytaniami = false;
 		bool przedFinalem = false;
@@ -360,6 +365,7 @@ namespace Familiada {
 			this->PanelCzek = (gcnew System::Windows::Forms::Panel());
 			this->txtOdliczanie = (gcnew System::Windows::Forms::TextBox());
 			this->timer1 = (gcnew System::Windows::Forms::Timer(this->components));
+			this->FinalTimer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->PanelOdpowiedzi = (gcnew System::Windows::Forms::Panel());
 			this->PanelFinal = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -662,6 +668,11 @@ namespace Familiada {
 			// 
 			this->timer1->Interval = 1000;
 			this->timer1->Tick += gcnew System::EventHandler(this, &MainWin::timer1_Tick);
+			// 
+			// FinalTimer
+			// 
+			this->FinalTimer->Interval = 1000;
+			this->FinalTimer->Tick += gcnew System::EventHandler(this, &MainWin::FinalTimer_Tick);
 			// 
 			// PanelOdpowiedzi
 			// 
@@ -1227,7 +1238,7 @@ namespace Familiada {
 		odpHaslo = gcnew cli::array<Label^>(5);
 		odpPunkty = gcnew cli::array<Label^>(5);
 
-		int startY = 150;
+		int startY = 200;
 		int odstep = 60;
 		for (int i = 0; i < 5; i++)
 		{
@@ -1288,7 +1299,7 @@ namespace Familiada {
 		OdpowiedzTB->Text = "Wpisz odpowiedz";
 		OdpowiedzTB->ForeColor = Color::Gray;
 		OdpowiedzTB->Size = Drawing::Size(350, 50);
-		OdpowiedzTB->Location = Point(300, 540);
+		OdpowiedzTB->Location = Point(300, 530);
 
 		OdpowiedzTB->BackColor = Color::Black;
 		OdpowiedzTB->ForeColor = Color::Yellow;
@@ -1312,7 +1323,7 @@ namespace Familiada {
 		SumaPunkty = gcnew Label();
 		SumaPunkty->Text = "....";
 		SumaPunkty->Size = Drawing::Size(80, 50);
-		SumaPunkty->Location = Point(680, 540);
+		SumaPunkty->Location = Point(680, 520);
 		SumaPunkty->BackColor = Color::Black;
 		SumaPunkty->ForeColor = Color::Yellow;
 		SumaPunkty->Font =
@@ -1581,10 +1592,19 @@ namespace Familiada {
 	private: System::Void PokazPytanieFinalowe()
 	{
 		auto pytania = silnikGry->PobierzPytaniaFinalowe();
-		if (finalQuestionIndex < pytania.size()) {
-			System::String^ trescStr = gcnew System::String(pytania[finalQuestionIndex].getTresc().c_str());
+
+		if (finalQuestionIndex < pytania.size())
+		{
+			System::String^ trescStr =
+				gcnew System::String(
+					pytania[finalQuestionIndex].getTresc().c_str());
+
 			FinalQuestionLbl->Text = trescStr;
 		}
+		//FinalTimerLbl->Text = "20";
+
+		FinalTimer->Stop();
+		FinalTimer->Start();
 	}
 
 	/*private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
@@ -1872,5 +1892,32 @@ namespace Familiada {
 			e->SuppressKeyPress = true; // Usuwa dŸwiêk "bip" przy enterze
 		}
 	}
+
+		   private: System::Void FinalTimer_Tick(
+			   System::Object^ sender,
+			   System::EventArgs^ e)
+		   {
+			   finalCzasPozostaly--;
+
+			   FinalTimerLbl->Text =
+				   finalCzasPozostaly.ToString();
+
+			   if (finalCzasPozostaly <= 0)
+			   {
+				   FinalTimer->Stop();
+
+				   FinalAnswerTB->ReadOnly = true;
+
+				   MessageBox::Show(
+					   "Koniec czasu!",
+					   "Fina³",
+					   MessageBoxButtons::OK,
+					   MessageBoxIcon::Information);
+
+				   FinalAnswerTB_KeyDown(
+					   nullptr,
+					   gcnew KeyEventArgs(Keys::Enter));
+			   }
+		   }
 	};
 };
