@@ -1304,8 +1304,8 @@
       { "tekst": "makijaz", "punkty": 35 },
       { "tekst": "cwiczenia", "punkty": 25 },
       { "tekst": "jedzenie", "punkty": 16 },
-      { "tekst": "praca", "punkty": 9 },
-      { "tekst": "alkohol", "punkty": 11 }
+      { "tekst": "praca", "punkty": 11 },
+      { "tekst": "alkohol", "punkty": 9 }
     ]
   },
   {
