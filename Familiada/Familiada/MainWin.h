@@ -1649,6 +1649,26 @@ namespace Familiada {
 			// Przechodzimy do kolejnego pytania
 			finalQuestionIndex++;
 
+			if (finalCzasPozostaly == 0) {
+				// Koniec Gracza 1 - okienko z podsumowaniem
+				PokazPodsumowanieGracza1();
+
+				// Setup dla Gracza 2
+				aktualnyGraczFinalowy = 2;
+				finalCzasPozostaly = 50;
+				finalQuestionIndex = 0;
+				FinalPlayerLbl->Text = nazwaGracza2;
+				PokazPytanieFinalowe();
+
+				FinalAnswerTB->Text = "............";
+				FinalAnswerTB->ReadOnly = true;
+			}
+			else {
+				// Koniec Gracza 2 - okienko fina³owe ca³ej gry!
+				PokazPodsumowanieKoncowe();
+			}
+			return;
+
 			// 3. Sprawdzamy czy to koniec tury gracza
 			if (finalQuestionIndex >= 5)
 			{
@@ -1903,8 +1923,11 @@ namespace Familiada {
 			   FinalTimerLbl->Text =
 				   finalCzasPozostaly.ToString();
 
+			   //if (finalCzasPozostaly == 0) aktualnyGraczFinalowy = 2;
+
 			   if (finalCzasPozostaly <= 0)
 			   {
+
 				   FinalTimer->Stop();
 
 				   FinalAnswerTB->ReadOnly = true;
