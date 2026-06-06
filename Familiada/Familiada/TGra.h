@@ -72,6 +72,5 @@ public:
     void LosujPytaniaFinalowe();
     std::vector<TPytanie>& PobierzPytaniaFinalowe();
     int SprawdzOdpowiedzFinalowa(int indeksPytania, std::string wpisana);
-
 };
 

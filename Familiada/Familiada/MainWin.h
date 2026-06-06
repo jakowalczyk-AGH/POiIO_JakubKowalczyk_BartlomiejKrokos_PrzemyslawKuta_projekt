@@ -273,13 +273,13 @@ namespace Familiada {
 
 	private:
 		int finalQuestionIndex = 0;
-	private: int aktualnyGraczFinalowy = 1;
-	private: cli::array<String^>^ odpGracz1;
-	private: cli::array<int>^ pktGracz1;
-	private: cli::array<String^>^ odpGracz2;
-	private: cli::array<int>^ pktGracz2;
-	private: String^ nazwaGracza1;
-	private: String^ nazwaGracza2;
+		private: int aktualnyGraczFinalowy = 1;
+		private: cli::array<String^>^ odpGracz1;
+		private: cli::array<int>^ pktGracz1;
+		private: cli::array<String^>^ odpGracz2;
+		private: cli::array<int>^ pktGracz2;
+		private: String^ nazwaGracza1;
+		private: String^ nazwaGracza2;
 
 	private: System::Windows::Forms::TextBox^ OdpowiedzTB;
 
@@ -954,10 +954,10 @@ namespace Familiada {
 		int faktycznaLiczbaGraczy = silnikGry->getDruzynaLewa()->getGracze().size();
 		silnikGry->UstawLiczbeRund(faktycznaLiczbaGraczy);
 
-		//	// ==========================================
-		//// --- KOD TESTOWY (Do weryfikacji danych) ---
-		//// ==========================================
-		//	System::String^ raport = "=== RAPORT ZAPISANYCH DANYCH ===\n\n";
+	//	// ==========================================
+	//// --- KOD TESTOWY (Do weryfikacji danych) ---
+	//// ==========================================
+	//	System::String^ raport = "=== RAPORT ZAPISANYCH DANYCH ===\n\n";
 
 		//	// --- SPRAWDZANIE LEWEJ DRU¯YNY ---
 		//	std::string nazwaL = silnikGry->getDruzynaLewa()->getNazwa();
@@ -1575,25 +1575,25 @@ namespace Familiada {
 		}
 	}
 
-		   /*private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
-		   {
-			   if (e->KeyCode == Keys::Enter)
-			   {
-				   finalQuestionIndex++;
-				   if (finalQuestionIndex >= 5)
-				   {
-					   MessageBox::Show("Koniec pytan");
-					   return;
-				   }
+	/*private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
+	{
+		if (e->KeyCode == Keys::Enter)
+		{
+			finalQuestionIndex++;
+			if (finalQuestionIndex >= 5)
+			{
+				MessageBox::Show("Koniec pytan");
+				return;
+			}
 
-				   PokazPytanieFinalowe();
+			PokazPytanieFinalowe();
 
-				   FinalAnswerTB->Text = "............";
-				   FinalAnswerTB->ReadOnly = true;
+			FinalAnswerTB->Text = "............";
+			FinalAnswerTB->ReadOnly = true;
 
-				   e->SuppressKeyPress = true;
-			   }
-		   }*/
+			e->SuppressKeyPress = true;
+		}
+	}*/
 
 	private: System::Void FinalAnswerTB_KeyDown(System::Object^ sender, System::Windows::Forms::KeyEventArgs^ e)
 	{
