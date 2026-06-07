@@ -1,0 +1,3 @@
+C:\Users\kubak\Desktop\git\Familiada\Familiada\x64\Release\Familiada.vcxproj.AssemblyReference.cache
+C:\Users\kubak\Desktop\git\Familiada\Familiada\x64\Release\Familiada.MainWin.resources
+C:\Users\kubak\Desktop\git\Familiada\Familiada\x64\Release\Familiada.vcxproj.GenerateResource.cache
