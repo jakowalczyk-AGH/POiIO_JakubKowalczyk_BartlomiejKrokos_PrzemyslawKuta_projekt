@@ -10,18 +10,30 @@ Gra "Familiada" to desktopowa aplikacja będąca wiernym odwzorowaniem popularne
 * **Mechanika teleturnieju:** Pełna obsługa 3 błędów (krzyżyków), mechanizmu przejmowania rundy przez drużynę przeciwną i sumowania punktów na środku tablicy.
 * **Rozbudowany Finał:** Unikalna runda finałowa dla dwóch najlepszych graczy zwycięskiej drużyny. Posiada wbudowany odliczający timer oraz weryfikację duplikatów – drugi gracz nie może powtórzyć odpowiedzi podanej przez pierwszego.
 
-## Wymagania i Uruchomienie
-Aby poprawnie skompilować i uruchomić projekt, upewnij się, że posiadasz środowisko obsługujące C++/CLI (np. Visual Studio z zainstalowanymi komponentami ".NET desktop development" oraz "C++/CLI support").
+## Uruchomienie
+Aby uruchomić grę "Familiada" należy włączyć plik  **`.exe`**  znajdujący się w folderze `Familiada/x64/Release`
 
-1. Sklonuj repozytorium na swój dysk.
-2. Otwórz plik rozwiązania (Solution - `.slnx`) w Visual Studio.
-3. **Ważne:** Upewnij się, że w folderze wyjściowym z wygenerowanym plikiem wykonywalnym (`.exe`) (zazwyczaj folder `Debug` lub `Release`) znajdują się niezbędne zasoby aplikacji:
-   * Plik z czcionką: `familiada.ttf`
-   * Plik z pytaniami: `familiada_pytania.json`
-   * Katalog `Assets/` zawierający grafiki buzzerów:
-     * `buzzer-dark-red.png` / `buzzer-light-red.png`
-     * `buzzer-dark-green.png` / `buzzer-light-green.png`
-4. Skompiluj projekt (Build) i uruchom grę.
+## Wymagania sprzętowe:
+
+#### **Minimum:**
+* **OS:** Dowolny
+* **Procesor:** Zalecany
+* **Pamięć:** 1 MB RAM
+* **Grafika:** To tylko jest tekst...
+* **Miejsce na dysku:** 5 MB miejsca na dysku 
+* **Karta dźwiękowa:** Dowolna
+* **Dodatkowe uwagi:** Pójdzie na ziemniaku.
+
+---
+
+#### **Zalecane:**
+* **OS:** Windows 90000000
+* **Procesor:** Bardzo szybki procesor obsługujący 9000 pytań na sekundę
+* **Pamięć:** 999 GB RAM
+* **Grafika:** Karta graficzna z obsługą 3D (dla efektów wizualnych)
+* **Miejsce na dysku:** 5 MB miejsca na dysku 
+* **Karta dźwiękowa:** Karta symulująca orkiestrę na żywo
+* **Dodatkowe uwagi:** Naprawdę nie jest wymagająca gra...
 
 ## Zasady Gry
 Rozgrywka dzieli się na rundy zasadnicze (ich liczba zależy od liczby członków drużyny) oraz finał.
