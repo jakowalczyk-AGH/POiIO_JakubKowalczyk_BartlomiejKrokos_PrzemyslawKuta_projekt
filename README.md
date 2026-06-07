@@ -1,4 +1,4 @@
-# Familiada - C++ Windows Forms Game
+# Familiada - gra rozrywkowa
 
 ## Opis Projektu
 Gra "Familiada" to desktopowa aplikacja będąca wiernym odwzorowaniem popularnego teleturnieju. Projekt został zrealizowany z wykorzystaniem paradygmatu programowania obiektowego w języku C++ (C++/CLI z użyciem biblioteki Windows Forms). Aplikacja kompleksowo zarządza logiką gry, punktacją, interfejsem graficznym oraz wczytywaniem bazy danych z zewnętrznych plików, co czyni ją świetnym przykładem strukturalnej architektury OOP.
