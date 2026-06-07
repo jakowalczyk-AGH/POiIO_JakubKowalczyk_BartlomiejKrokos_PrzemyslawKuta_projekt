@@ -449,6 +449,7 @@ private: System::Windows::Forms::Timer^ timer2;
 			// 
 			// DalejBtn
 			// 
+			this->DalejBtn->ForeColor = System::Drawing::Color::Yellow;
 			this->DalejBtn->BackColor = System::Drawing::Color::Black;
 			this->DalejBtn->Location = System::Drawing::Point(315, 461);
 			this->DalejBtn->Name = L"DalejBtn";
