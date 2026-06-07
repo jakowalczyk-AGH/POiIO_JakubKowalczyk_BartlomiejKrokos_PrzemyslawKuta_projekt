@@ -636,13 +636,31 @@ namespace Familiada {
 			// 
 			// TrescPytaniaLBL
 			// 
-			this->TrescPytaniaLBL->AutoSize = true;
-			TrescPytaniaLBL->Location = System::Drawing::Point((1440 - TrescPytaniaLBL->Width) / 2, 150);
-			this->TrescPytaniaLBL->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->TrescPytaniaLBL->AutoSize = false;
+			this->TrescPytaniaLBL->Location = System::Drawing::Point(125,60);
+			this->TrescPytaniaLBL->Size = System::Drawing::Size(1200, 800);
+			//this->TrescPytaniaLBL->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->TrescPytaniaLBL->Name = L"TrescPytaniaLBL";
 			this->TrescPytaniaLBL->TabIndex = 2;
-			this->TrescPytaniaLBL->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			TrescPytaniaLBL->Left = (this->ClientSize.Width - TrescPytaniaLBL->Width) / 2;
+			this->TrescPytaniaLBL->TextAlign = System::Drawing::ContentAlignment::TopCenter;
+			//this->TrescPytaniaLBL->Left = (this->ClientSize.Width - TrescPytaniaLBL->Width) / 2;
+			//this->TrescPytaniaLBL->AutoSize = false;
+
+			//this->TrescPytaniaLBL->Size = System::Drawing::Size(1200, 120);
+
+			//this->TrescPytaniaLBL->Location =	System::Drawing::Point(120, 150);
+
+			//this->TrescPytaniaLBL->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			//this->TrescPytaniaLBL->ForeColor = Color::Yellow;
+
+			//this->TrescPytaniaLBL->Size = Drawing::Size(400, 80);
+			//this->TrescPytaniaLBL->Location = Point(300, 20);
+
+			//this->TrescPytaniaLBL->BackColor = Color::Black;
+			//this->TrescPytaniaLBL->ForeColor = Color::Yellow;
+
+			//this->TrescPytaniaLBL->TextAlign =
+			//	System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// PanelCzek
 			// 
@@ -1483,8 +1501,16 @@ namespace Familiada {
 		}
 	}
 
+		   private: System::Void PanelFinal_VisibleChanged(System::Object^ sender, System::EventArgs^ e) {
+			   if (PanelFinal->Visible) {
+				   FinalAnswerTB->Select(); // Wybiera kontrolkê
+				   FinalAnswerTB->Focus();  // Wymusza fokus
+			   }
+		   }
 	private: System::Void InicjalizujPanelFinal()
 	{
+		PanelFinal->VisibleChanged += gcnew EventHandler(this, &MainWin::PanelFinal_VisibleChanged);
+
 		// U¿ywamy panelu stworzonego przez Designera
 		PanelFinal->BackColor = Color::Black;
 		PanelFinal->Visible = false;
@@ -1550,18 +1576,20 @@ namespace Familiada {
 		// =========================
 		FinalAnswerTB = gcnew TextBox();
 
+
 		FinalAnswerTB->Location = Point(180, 380);
 		FinalAnswerTB->Size = Drawing::Size(600, 60);
 
 		FinalAnswerTB->Text = "............";
 
 		FinalAnswerTB->Multiline = true;
-		FinalAnswerTB->ReadOnly = true;
+		FinalAnswerTB->ReadOnly = false;
 
 		FinalAnswerTB->BackColor = Color::Black;
 		FinalAnswerTB->ForeColor = Color::Yellow;
 		FinalAnswerTB->BorderStyle = BorderStyle::None;
 		FinalAnswerTB->TextAlign = HorizontalAlignment::Center;
+		FinalAnswerTB->TabIndex = 0;
 
 		if (pfc->Families->Length > 0)
 		{
@@ -1674,6 +1702,7 @@ namespace Familiada {
 	{
 		if (e->KeyCode == Keys::Enter)
 		{
+
 			String^ wpisana = FinalAnswerTB->Text;
 
 			// =========================================================
@@ -1744,8 +1773,10 @@ namespace Familiada {
 					// To wywo³anie od nowa wystartuje zatrzymany wy¿ej zegar
 					PokazPytanieFinalowe();
 
-					FinalAnswerTB->Text = "............";
-					FinalAnswerTB->ReadOnly = true;
+					FinalAnswerTB->Focus();
+
+					FinalAnswerTB->Text = "";
+					FinalAnswerTB->ReadOnly = false;
 				}
 				else {
 					// Po zatrzymaniu zegara pokazujemy ostateczne okno
@@ -1756,8 +1787,10 @@ namespace Familiada {
 
 			// 4. Jeœli gramy dalej, odœwie¿amy UI
 			PokazPytanieFinalowe();
-			FinalAnswerTB->Text = "............";
-			FinalAnswerTB->ReadOnly = true;
+			FinalAnswerTB->Text = "";
+			FinalAnswerTB->ReadOnly = false;
+
+			FinalAnswerTB->Focus();
 
 			e->SuppressKeyPress = true;
 		}
@@ -1868,7 +1901,7 @@ namespace Familiada {
 
 			PokazPytanieFinalowe();
 			FinalPlayerLbl->Text = nazwaGracza1; // Wyœwietlamy imiê!
-			FinalTimerLbl->Text = "20";
+			//FinalTimerLbl->Text = "20";
 			FinalAnswerTB->Clear();
 			przedFinalem = true;
 			czasPozostaly = 5;
