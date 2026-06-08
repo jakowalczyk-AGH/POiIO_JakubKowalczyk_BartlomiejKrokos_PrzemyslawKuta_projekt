@@ -5,6 +5,7 @@
 #include <msclr\marshal_cppstd.h>
 #include <vector>
 #include <string>
+#include "Dzwieki.h"
 
 namespace Familiada {
 
@@ -27,6 +28,39 @@ namespace Familiada {
 		{
 			InitializeComponent();
 			silnikGry = new TGra();
+			SoundManager::Play("dzwieki\\intro.wav");
+			Suchary = gcnew array<String^>
+			{
+				"Blondynka przyszla kupic paste do butow.\n Sprzedawca pyta: Do jakich?\n Blondynka odpowiada: Numer 39.",
+
+				"Chuck Norris ma takie wlosy na klacie, ze jego wlosy na klacie tez maja wlosy na klacie.",
+
+				"Facet trafia do szpitala poobijany.\n Lekarz pyta: Wypadek samochodowy?\n Tak. \nZa szybko pan jechal?\n Nie. Za wolno szedlem.",
+
+				"Facet chce rozwodu. Adwokat pyta dlaczego. Zona calymi wieczorami chodzi po knajpach. Pije? Nie. Za mna lazi.",
+
+				"Lesnik mowi do kolegi: Dzik zaatakowal twoja zone. Kolega odpowiada: Jak zaatakowal, to niech sie teraz broni.",
+
+				"Pacjent mowi: Mam problemy z pamiecia. Lekarz pyta jak sie objawiaja. Pacjent: Czesto zapominam, ze mam zone.",
+
+				"Jeden mowi: Moim hobby jest wedkarstwo. Drugi: A moim kinematografia. Moja zona czesto chodzi do kina.",
+
+				"Sierzant pyta: W jakiej temperaturze wrze woda? Szeregowy odpowiada: W 90 stopniach. Pomylilo mi sie z katem prostym.",
+
+				"Turysta wybiera kraj z globusa. Po chwili mowi: Zaden mi nie odpowiada. Moze ma pan inny globus?",
+
+				"Chlopiec mowi: Mamo, zrob mi sniadanie. Kobieta odpowiada: To jak mam do ciebie mowic? Po imieniu? Tadeusz?",
+
+				"Zona pyta: Co mi kupiles na gwiazdke? Maz: Widzisz ten sportowy samochod? W takim kolorze kupilem ci rajstopy.",
+
+				"Pacjentka wylicza choroby. Lekarz pyta: Czego pani nie ma? Odpowiada: Zebow, panie doktorze.",
+
+				"Prezes pyta stazyste: Czy jest cos, co robi pan szybko? Oczywiscie. Szybko sie mecze.",
+
+				"Policjant pyta bace o prawo jazdy. Baca odpowiada: Nie mam. A adres? Baca.com.pl.",
+
+				"Nastolatek dostal od dziadka pendrive. Podziekowal mowiac: Dziadku, dziekuje za pamiec."
+			};
 
 			pfc = gcnew PrivateFontCollection();
 
@@ -172,7 +206,21 @@ namespace Familiada {
 
 			InicjalizujPanelFinal();
 
+			SucharLBL = gcnew Label();
 
+			SucharLBL->Dock = DockStyle::Fill;
+
+			SucharLBL->BackColor = Color::Black;
+			SucharLBL->ForeColor = Color::Yellow;
+
+			SucharLBL->TextAlign = ContentAlignment::MiddleCenter;
+
+			SucharLBL->Visible = false;
+
+			SucharLBL->Font =
+				gcnew Drawing::Font(pfc->Families[0], 20);
+
+			PanelGracze->Controls->Add(SucharLBL);
 
 
 			/*finalQuestions = gcnew cli::array<String^>(5);
@@ -201,6 +249,7 @@ namespace Familiada {
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Button^ GrajBtn;
 	private: System::Windows::Forms::Label^ FamLbl;
+	private: System::Windows::Forms::Label^ SucharLBL;
 	private: System::Windows::Forms::Panel^ PanelStart;
 	private: System::Windows::Forms::Panel^ PanelGracze;
 	private: System::Windows::Forms::Panel^ PanelPrawaDruzyna;
@@ -309,8 +358,8 @@ namespace Familiada {
 private: System::Windows::Forms::Timer^ timer2;
 	   int numerPytania = 1;
 
-
-
+private:
+	array<String^>^ Suchary;
 
 
 
@@ -328,7 +377,17 @@ private: System::Windows::Forms::Timer^ timer2;
 		/// <summary>
 		/// Wymagana zmienna projektanta.
 		/// </summary>
+		void PokazSuchar()
+		{
+			int los = rand() % Suchary->Length;
 
+			SucharLBL->Text =
+				"\n\n" +
+				Suchary[los];
+
+			SucharLBL->BringToFront();
+			SucharLBL->Visible = true;
+		}
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -743,7 +802,7 @@ private: System::Windows::Forms::Timer^ timer2;
 	private: System::Void GrajBtn_Click(System::Object^ sender, System::EventArgs^ e) {
 		//GrajBtn->Visible = false;
 		//FamLbl->Visible = false;
-
+		
 		PokazEkran(PanelGracze);
 		//PanelGracze->Visible = true;
 	}
@@ -949,7 +1008,12 @@ private: System::Windows::Forms::Timer^ timer2;
 
 		int faktycznaLiczbaGraczy = silnikGry->getDruzynaLewa()->getGracze().size();
 		silnikGry->UstawLiczbeRund(faktycznaLiczbaGraczy);
+		PokazSuchar();
 
+		Application::DoEvents();
+		System::Threading::Thread::Sleep(3000);
+
+		SucharLBL->Visible = false;
 	//	// ==========================================
 	//// --- KOD TESTOWY (Do weryfikacji danych) ---
 	//// ==========================================
@@ -992,7 +1056,7 @@ private: System::Windows::Forms::Timer^ timer2;
 			//PanelGracze->Visible = true;
 
 		PokazEkran(PanelCzek);
-
+		SoundManager::Play("dzwieki\\przediporundzie.wav");
 		timer1->Start();
 		aktualnaSumaPunktow = 0;
 		this->SumaPunkty->Text = "....";
@@ -1689,6 +1753,7 @@ private: System::Windows::Forms::Timer^ timer2;
 
 				if (czyByla)
 				{
+					SoundManager::Play("dzwieki\\powtorzeniewfinale.wav");
 					// Wyœwietlamy ostrze¿enie, czyœcimy pole i przerywamy klawisz Enter
 					MessageBox::Show("BZZZZ! Ta odpowiedŸ ju¿ pad³a! Musisz wymyœliæ coœ innego.", "Powtórka", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 					FinalAnswerTB->Text = "";
@@ -1927,6 +1992,7 @@ private: System::Windows::Forms::Timer^ timer2;
 		int trafionyIndeks = silnikGry->SprawdzOdpowiedz(wpisana);
 
 		if (trafionyIndeks != -1) {
+			SoundManager::Play("dzwieki\\dobraodp.wav");
 			// --- TRAFIENIE ---
 			TPytanie& aktualne = silnikGry->getAktualnePytanie();
 			auto& odpowiedzi = aktualne.getOdpowiedzi();
@@ -1951,6 +2017,7 @@ private: System::Windows::Forms::Timer^ timer2;
 		}
 		else {
 			// --- PUD£O ---
+			SoundManager::Play("dzwieki\\blad.wav");
 			OdpowiedzTB->Text = "";
 
 			if (silnikGry->CzyRundaPrzejeta()) {
@@ -1985,7 +2052,7 @@ private: System::Windows::Forms::Timer^ timer2;
 
 			   if (finalCzasPozostaly <= 0)
 			   {
-
+				   SoundManager::Play("dzwieki\\koniecczasufinal.wav");
 				   FinalTimer->Stop();
 
 				   FinalAnswerTB->ReadOnly = true;

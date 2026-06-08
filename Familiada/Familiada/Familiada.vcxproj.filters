@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="dzwieki">
+      <UniqueIdentifier>{8bfbdc9e-8d49-4348-bcfe-29a0b8058313}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MainWin.cpp">
@@ -47,6 +50,9 @@
     <ClInclude Include="TDruzyna.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
+    <ClInclude Include="Dzwieki.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Font Include="..\..\Assets\familiada.ttf" />
@@ -69,5 +75,25 @@
     <Image Include="..\Assets\buzzer-light-red.png">
       <Filter>Pliki zasobów</Filter>
     </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <Media Include="dzwieki\blad.wav">
+      <Filter>dzwieki</Filter>
+    </Media>
+    <Media Include="dzwieki\dobraodp.wav">
+      <Filter>dzwieki</Filter>
+    </Media>
+    <Media Include="dzwieki\intro.wav">
+      <Filter>dzwieki</Filter>
+    </Media>
+    <Media Include="dzwieki\koniecczasufinal.wav">
+      <Filter>dzwieki</Filter>
+    </Media>
+    <Media Include="dzwieki\powtorzeniewfinale.wav">
+      <Filter>dzwieki</Filter>
+    </Media>
+    <Media Include="dzwieki\przediporundzie.wav">
+      <Filter>dzwieki</Filter>
+    </Media>
   </ItemGroup>
 </Project>
