@@ -2056,7 +2056,7 @@ private:
 				   FinalTimer->Stop();
 
 				   FinalAnswerTB->ReadOnly = true;
-
+				    
 				   MessageBox::Show(
 					   "Koniec czasu!",
 					   "Fina³",
