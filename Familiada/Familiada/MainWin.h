@@ -151,7 +151,7 @@ namespace Familiada {
 			TrescPytaniaLBL->ForeColor = Color::Yellow;
 
 			if (pfc->Families->Length > 0) {
-				txtOdliczanie->Font = gcnew System::Drawing::Font(pfc->Families[0], 48, FontStyle::Regular);
+				txtOdliczanie->Font = gcnew System::Drawing::Font(pfc->Families[0], 36, FontStyle::Regular);
 				TrescPytaniaLBL->Font = gcnew System::Drawing::Font(pfc->Families[0], 36, FontStyle::Regular);
 			}
 			// Œcie¿ka do katalogu z zasobami (plik czcionki i obrazki)
@@ -704,7 +704,7 @@ private:
 			// txtOdliczanie
 			// 
 			this->txtOdliczanie->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->txtOdliczanie->Location = System::Drawing::Point(100, 80);
+			this->txtOdliczanie->Location = System::Drawing::Point(100, 40);
 			this->txtOdliczanie->Name = L"txtOdliczanie";
 			this->txtOdliczanie->ReadOnly = true;
 			this->txtOdliczanie->Size = System::Drawing::Size(100, 13);
@@ -1066,10 +1066,13 @@ private:
 	private: System::Void timer1_Tick(System::Object^ sender, System::EventArgs^ e) {
 		czasPozostaly--; czyMiedzyPytaniami;
 
+		TDruzyna* zwyciezca2 = silnikGry->PobierzZwyciezce();
+		std::vector<std::string> graczeZwyciezcy = zwyciezca2->getGracze();
+
 		if (przedFinalem)
 		{
 			txtOdliczanie->Text =
-				"FINA£\r\n\r\nROZPOCZNIE SIE ZA\r\n\r\n" +
+				"DRUZYNA " + gcnew System::String(zwyciezca2->getNazwa().c_str()) + " PRZECHODZI DO FINALU\r\n\r\n" + "FINA£\r\n\r\nROZPOCZNIE SIE ZA\r\n\r\n" +
 				czasPozostaly.ToString();
 
 			if (czasPozostaly <= 0)
