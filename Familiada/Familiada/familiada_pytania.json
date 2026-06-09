@@ -771,13 +771,13 @@
   },
   {
     "id": 71,
-    "pytanie": "Wymien cos, co ludzie robia na treningu:",
+    "pytanie": "Wymien partie miesni trenowane na silowni:",
     "odpowiedzi": [
-      { "tekst": "bieganie", "punkty": 34 },
-      { "tekst": "sztuki walki", "punkty": 27 },
-      { "tekst": "przysiady", "punkty": 19 },
-      { "tekst": "podnoszenie ciezarow", "punkty": 9 },
-      { "tekst": "joga", "punkty": 7 }
+      { "tekst": "klatka piersiowa", "punkty": 34 },
+      { "tekst": "biceps", "punkty": 27 },
+      { "tekst": "triceps", "punkty": 19 },
+      { "tekst": "plecy", "punkty": 9 },
+      { "tekst": "barki", "punkty": 7 }
     ]
   },
   {
@@ -1361,6 +1361,17 @@
       { "tekst": "kocimietka", "punkty": 15 },
       { "tekst": "wloczka", "punkty": 11 },
       { "tekst": "pilka", "punkty": 9 }
+    ]
+  },
+  {
+    "id": 125,
+    "pytanie": "Wiecej niz jedno zwierze to...?",
+    "odpowiedzi": [
+      { "tekst": "owca", "punkty": 30 },
+      { "tekst": "lama", "punkty": 27 },
+      { "tekst": "stado", "punkty": 15 },
+      { "tekst": "grupa", "punkty": 11 },
+      { "tekst": "klucz", "punkty": 9 }
     ]
   }
 ]
