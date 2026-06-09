@@ -1076,7 +1076,7 @@ private: System::Windows::Forms::Timer^ timer2;
 		{
 			DodajBlad();
 			return;
-		}*/
+		}*/ 
 
 		// Dalej logika buzzerów
 		if (!silnikGry->CzyNasluchujemy()) return;
